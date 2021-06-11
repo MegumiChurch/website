@@ -1,5 +1,5 @@
 import { CSSProperties, ReactChild } from 'react'
-import MediaQuery, { useMediaQuery } from 'react-responsive'
+import MediaQuery from 'react-responsive'
 
 interface Props {
   children?: ReactChild | ReactChild[]
