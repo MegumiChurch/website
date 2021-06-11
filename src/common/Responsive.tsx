@@ -1,5 +1,5 @@
 import { CSSProperties, ReactChild } from 'react';
-import MediaQuery from 'react-responsive';
+import MediaQuery, { useMediaQuery } from 'react-responsive';
 
 interface Props {
   children?: ReactChild | ReactChild[];
@@ -7,9 +7,14 @@ interface Props {
   className?: string;
 }
 
+const maxMobileWidth = 767;
+
+export const desktopQuery = { query: `(min-width: ${maxMobileWidth + 1}px)` };
+export const mobileQuery = { query: `(max-width: ${maxMobileWidth}px)` };
+
 export function Desktop({ className, style, children }: Props) {
   return (
-    <MediaQuery query="(min-width: 768px)">
+    <MediaQuery query={`(min-width: ${maxMobileWidth + 1}px)`}>
       <div className={className} style={style}>
         {children}
       </div>
@@ -19,7 +24,7 @@ export function Desktop({ className, style, children }: Props) {
 
 export function Mobile({ className, style, children }: Props) {
   return (
-    <MediaQuery query="(max-width: 767px)">
+    <MediaQuery query={`(max-width: ${maxMobileWidth}px)`}>
       <div className={className} style={style}>
         {children}
       </div>
