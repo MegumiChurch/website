@@ -1,6 +1,6 @@
-import { Desktop, Mobile } from 'common/Responsive';
-import Navbar from 'components/Navbar';
-import styles from '~/src/styles/Home.module.scss';
+import { Desktop, Mobile } from 'common/Responsive'
+import Navbar from 'components/Navbar'
+import styles from '~/src/styles/Home.module.scss'
 
 export default function Home() {
   return (
@@ -9,5 +9,5 @@ export default function Home() {
       <Desktop>Desktop!</Desktop>
       <Mobile>Mobile!</Mobile>
     </div>
-  );
+  )
 }
