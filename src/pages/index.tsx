@@ -17,12 +17,7 @@ export default function Home() {
     return () => window.removeEventListener(`resize`, onResize)
   })
   return (
-    <div
-      className={styles.common}
-      style={{
-        width
-      }}
-    >
+    <div className={styles.common} style={{ width }}>
       <Navbar />
     </div>
   )
