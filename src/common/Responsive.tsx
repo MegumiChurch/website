@@ -7,7 +7,7 @@ interface Props {
   className?: string
 }
 
-const maxMobileWidth = 767
+export const maxMobileWidth = 767
 
 export const desktopQuery = { query: `(min-width: ${maxMobileWidth + 1}px)` }
 export const mobileQuery = { query: `(max-width: ${maxMobileWidth}px)` }

@@ -1,55 +1,71 @@
 @import url('https://fonts.googleapis.com/css2?family=Mate+SC&display=swap');
 
+:export {
+  mainWidth: 95vw
+}
+
 .main {
   margin-right: auto;
   margin-left: auto;
-  height: 10vh;
   background-color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-.logo {
-  height: 75%;
-  width: 130px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  * {
-    max-height: 80%;
+  overflow: hidden;
+  a {
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
   }
-  .caption {
-    width: 60%;
-    margin-left: 4%;
-    p {
-      margin-left: 2%;
-      font-family: 'Mate SC', serif;
-      &:first-of-type {
-        font-size: 120%;
-        font-weight: bold;
-      }
-      &:last-of-type {
-        text-transform: uppercase;
-        font-size: 60%;
-        letter-spacing: 4px;
+  .logo {
+    height: 75%;
+    width: 130px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    * {
+      max-height: 80%;
+    }
+    .caption {
+      width: 60%;
+      margin-left: 4%;
+      p {
+        margin-left: 2%;
+        font-family: 'Mate SC', serif;
+        &:first-of-type {
+          font-size: 120%;
+          font-weight: bold;
+        }
+        &:last-of-type {
+          text-transform: uppercase;
+          font-size: 60%;
+          letter-spacing: 4px;
+        }
       }
     }
+    img {
+      object-fit: contain;
+      min-width: 0;
+      height: 40px;
+    }
   }
-  img {
-    object-fit: contain;
-    min-width: 0;
-    height: 60%;
+  .shortcuts {
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-evenly;
   }
-}
+  .menuIcon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+  }
 
-.menuIcon {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  text-transform: uppercase;
-  font-weight: bold;
-  cursor: pointer;
 }
