@@ -10,10 +10,8 @@ import { useMediaQuery } from 'react-responsive'
 export default function Navbar({ id }: { id?: string }) {
   const [isMenuOpen, setMenuOpen] = useState(false)
   const [items, setItems] = useState([])
-  const [topbarHeight, setTopbarHeight] = useState(0)
   const padding = `${useMediaQuery(desktopQuery) ? 2 : 4}%`
   useEffect(() => {
-    setTopbarHeight(document.getElementById(`navbar`)!.clientHeight)
     client.getSingle(`contents`, {}).then(r => {
       setItems(
         r.data.contents.element.value.map(
