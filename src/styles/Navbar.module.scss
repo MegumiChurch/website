@@ -1,13 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Mate+SC&display=swap');
 
-:export {
-  mainWidth: 95vw
-}
-
 .main {
+  background-color: white;
+  position: sticky;
+  width: 93%;
   margin-right: auto;
   margin-left: auto;
-  background-color: white;
+  height: 10vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -67,5 +66,9 @@
     font-weight: bold;
     cursor: pointer;
   }
+
+}
+
+.menu {
 
 }
