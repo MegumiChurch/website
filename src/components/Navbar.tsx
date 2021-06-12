@@ -21,8 +21,8 @@ export default function Navbar() {
     })
   }, [])
   return (
-    <>
-      <div className={styles.main}>
+    <div className={styles.main}>
+      <div className={styles.navbar}>
         {/* ロゴ */}
         <div className={styles.logo}>
           <img src='logo.svg' alt='logo' />
@@ -57,6 +57,6 @@ export default function Navbar() {
           <Hamburger size={27} toggled={isMenuOpen} distance='sm' />
         </div>
       </div>
-    </>
+    </div>
   )
 }
