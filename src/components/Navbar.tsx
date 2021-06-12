@@ -57,21 +57,23 @@ export default function Navbar() {
           const [name, route] = item.split(`@`)
           return (
             <Desktop>
-              <a href={`/${route}`}>{name}</a>
+              <a className='underline' href={`/${route}`}>
+                {name}
+              </a>
             </Desktop>
           )
         })}
       </div>
 
       {/* メニューを開閉するボタン */}
-      <div className={styles.menuIcon}>
+      <div
+        className={styles.menuIcon}
+        onMouseDown={() => {
+          setMenuOpen(!isMenuOpen)
+        }}
+      >
         <p>Menu</p>
-        <Hamburger
-          size={27}
-          toggle={setMenuOpen}
-          toggled={isMenuOpen}
-          distance='sm'
-        />
+        <Hamburger size={27} toggled={isMenuOpen} distance='sm' />
       </div>
     </div>
   )

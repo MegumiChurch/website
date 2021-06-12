@@ -1,3 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Sawarabi+Gothic');
+
 * {
+  color: #000;
+  font-family: 'Sawarabi Gothic', serif;
   margin: 0;
+  text-decoration: none;
+  white-space: pre-wrap;
 }
+
+.underline{
+  position: relative;
+  &::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background-color: #000000;
+    transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  &:hover::before {
+    left: 0;
+    right: auto;
+    width: 100%;
+  }
+}
+
