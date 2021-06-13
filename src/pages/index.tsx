@@ -1,9 +1,8 @@
 import Navbar from 'components/Navbar'
 import { useEffect, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
-import Page, { use100vh } from 'react-div-100vh'
-import styles from '~/src/styles/Home.module.scss'
-import { desktopQuery } from '~/src/common/Responsive'
+import styles from 'styles/Home.module.scss'
+import { desktopQuery } from 'common/Responsive'
 
 export default function Home() {
   const [bodyWidth, setBodyWidth] = useState(`95vw`)
@@ -16,7 +15,7 @@ export default function Home() {
       setBodyWidth(
         window.innerWidth > scrWidth / 2 + scrWidth * 0.025 && isDesktop
           ? `${window.screen.width / 2}px`
-          : `95vw`
+          : `100vw`
       )
     }
     onResize()
@@ -24,8 +23,16 @@ export default function Home() {
     return () => window.removeEventListener(`resize`, onResize)
   })
   return (
-    <main className={styles.main} style={{ width: bodyWidth }}>
+    <main id='main' className={styles.main} style={{ width: bodyWidth }}>
       <Navbar id='navbar' />
+      <div
+        className={styles.body}
+        style={{
+          marginTop: `${topbarHeight}px`
+        }}
+      >
+        Hello
+      </div>
     </main>
   )
 }
