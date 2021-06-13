@@ -1,15 +1,38 @@
 interface Props {
   title: string
   contents: string[][]
+  isDesktop: boolean
+  isMenuOpen: boolean
 }
 
-export default function MenuElement({ title, contents }: Props) {
+export default function MenuElement({
+  title,
+  contents,
+  isDesktop,
+  isMenuOpen
+}: Props) {
   return (
-    <div>
+    <div
+      style={{
+        textTransform: `uppercase`,
+        flexGrow: 1,
+        display: `flex`,
+        flexDirection: `column`,
+        alignItems: `center`,
+        justifyContent: `center`,
+        ...(isDesktop
+          ? {
+              height: `100%`
+            }
+          : {})
+      }}
+    >
       <h1
         style={{
           fontSize: `110%`,
-          color: `white`
+          color: `${isDesktop ? `white` : isMenuOpen ? `white` : `#003366`}`,
+          transition: `0.2s`,
+          paddingBottom: isDesktop ? `5%` : `10%`
         }}
       >
         {title}
@@ -18,14 +41,17 @@ export default function MenuElement({ title, contents }: Props) {
         <>
           <div
             style={{
-              marginTop: `5%`
+              marginTop: isDesktop ? `auto` : `5%`
             }}
           >
             <a
               href={`/${content[1]}`}
               style={{
-                fontSize: `80%`,
-                color: `white`
+                fontSize: `90%`,
+                color: `${
+                  isDesktop ? `white` : isMenuOpen ? `white` : `#003366`
+                }`,
+                transition: `0.2s`
               }}
             >
               {content[0]}
