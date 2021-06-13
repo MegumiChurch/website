@@ -1,47 +1,42 @@
 import { useEffect, useState } from 'react'
 import styles from 'styles/Navbar.module.scss'
-import { Desktop, desktopQuery } from 'common/Responsive'
+import { Desktop, maxMobileWidth } from 'common/Responsive'
 import { Squeeze as Hamburger } from 'hamburger-react'
 import { client } from 'common/Prismic'
 import { RichText } from 'prismic-reactjs'
 import Page from 'react-div-100vh'
-import { useMediaQuery } from 'react-responsive'
-import { capitalizeFirstLetter } from '~/src/common/Util'
+import MenuElement from '~/src/components/MenuElement'
 
 export default function Navbar({ id }: { id?: string }) {
+  const [isDesktop, setIsDesktop] = useState(true)
   const [isMenuOpen, setMenuOpen] = useState(false)
   const [items, setItems] = useState([])
   const [topbarHeight, setTopbarHeight] = useState(0)
   const [windowHeight, setWindowHeight] = useState(0)
-  const [menuWidth, setMenuWidth] = useState(0)
   const [mainWidth, setMainWidth] = useState(0)
-  const [menuDirection, setMenuDirection] = useState<'right' | 'left'>(`left`)
-  const isDesktop = useMediaQuery(desktopQuery)
   const padding = `${isDesktop ? 2 : 4}%`
-  useEffect(() => {
+  function onResize() {
+    setIsDesktop(window.screen.width > maxMobileWidth)
     setTopbarHeight(document.getElementById(`navbar`)!.clientHeight)
     setWindowHeight(document.getElementById(`100vh`)!.clientHeight)
-    setMenuWidth(document.getElementById(`menusection`)!.clientWidth)
     setMainWidth(document.getElementById(`main`)!.clientWidth)
-    client.getSingle(`contents`, {}).then(r => {
+  }
+  useEffect(onResize)
+  useEffect(() => {
+    client.getSingle(`navbar`, {}).then((r: any) => {
       setItems(
-        r.data.contents.element.value.map(
+        r.data.navbar.element.value.map(
           (element: any) =>
-            `${RichText.asText(element.name.value)}@${RichText.asText(
-              element.route.value
-            )}`
+            `${RichText.asText(element.name.value)}@${RichText.asText([
+              element?.route?.value || ``
+            ])}`
         )
       )
     })
-    function onResize() {
-      setTopbarHeight(document.getElementById(`navbar`)!.clientHeight)
-      setWindowHeight(document.getElementById(`100vh`)!.clientHeight)
-      setMenuWidth(document.getElementById(`menusection`)!.clientWidth)
-      setMainWidth(document.getElementById(`main`)!.clientWidth)
-    }
-    onResize()
     window.addEventListener(`resize`, onResize)
-    return () => window.removeEventListener(`resize`, onResize)
+    return () => {
+      window.removeEventListener(`resize`, onResize)
+    }
   }, [])
   return (
     <Page
@@ -92,14 +87,7 @@ export default function Navbar({ id }: { id?: string }) {
           <div
             className={styles.menuIcon}
             onMouseDown={() => {
-              console.log(menuWidth)
               setMenuOpen(!isMenuOpen)
-              if (isMenuOpen) {
-                setMenuDirection(menuDirection === `right` ? `left` : `right`)
-                setTimeout(() => {
-                  setMenuDirection(`left`)
-                }, 500)
-              }
             }}
           >
             <p>Menu</p>
@@ -111,27 +99,54 @@ export default function Navbar({ id }: { id?: string }) {
         id='menusection'
         className={styles.menuSection}
         style={{
-          height: `${(1 - topbarHeight / windowHeight) * 100}%`
+          height: `${
+            isDesktop
+              ? (windowHeight - topbarHeight) / 4
+              : windowHeight - topbarHeight
+          }px`
         }}
       >
         <div
           className={styles.menu}
           style={{
-            width: `${isMenuOpen ? 100 : 0}%`,
-            ...Object.fromEntries([
-              [`margin${capitalizeFirstLetter(menuDirection)}`, `auto`]
-            ])
+            height: `${isDesktop ? (isMenuOpen ? 100 : 0) : 100}%`,
+            marginLeft: `${isDesktop ? 0 : isMenuOpen ? 0 : 100}%`
           }}
         >
-          <div
-            className={styles.top}
-            style={{
-              width: `${isDesktop ? 20 : 100}%`,
-              ...Object.fromEntries([
-                [`margin${capitalizeFirstLetter(menuDirection)}`, `auto`]
-              ])
-            }}
-          />
+          <div className={styles.content}>
+            <MenuElement
+              title='礼拝'
+              contents={[
+                [`オンライン`, `a`],
+                [`地図`, `a`],
+                [`a`, `a`]
+              ]}
+            />
+            <MenuElement
+              title='礼拝'
+              contents={[
+                [`オンライン`, `a`],
+                [`地図`, `a`],
+                [`a`, `a`]
+              ]}
+            />
+            <MenuElement
+              title='礼拝'
+              contents={[
+                [`オンライン`, `a`],
+                [`地図`, `a`],
+                [`a`, `a`]
+              ]}
+            />
+            <MenuElement
+              title='礼拝'
+              contents={[
+                [`オンライン`, `a`],
+                [`地図`, `a`],
+                [`a`, `a`]
+              ]}
+            />
+          </div>
         </div>
       </div>
     </Page>
