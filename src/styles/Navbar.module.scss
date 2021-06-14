@@ -73,13 +73,12 @@
     }
   }
   .menu {
-    transition: 0.3s;
+    transition: 5s;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-content: center;
-    background-color: white;
     .content {
       margin-top: -12%;
       margin-right: auto;

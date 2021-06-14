@@ -6,9 +6,8 @@ import { client } from 'common/Prismic'
 import { RichText } from 'prismic-reactjs'
 import Page from 'react-div-100vh'
 
-export default function Navbar() {
+export default function Navbar({ isMenuOpen, setMenuOpen }: any) {
   const [isDesktop, setIsDesktop] = useState(true)
-  const [isMenuOpen, setMenuOpen] = useState(false)
   const [items, setItems] = useState([])
   const [topbarHeight, setTopbarHeight] = useState(0)
   const [windowHeight, setWindowHeight] = useState(0)
@@ -104,11 +103,15 @@ export default function Navbar() {
         <div
           className={styles.menu}
           style={{
-            height: `100%`,
-            opacity: isMenuOpen ? 1 : 0
+            height: `100%`
           }}
         >
-          <div className={styles.content}>
+          <div
+            className={styles.content}
+            style={{
+              opacity: isMenuOpen ? 1 : 0
+            }}
+          >
             {/* TODO Support prismic */}
             <a>ホーム</a>
             <a>ようこそ</a>
