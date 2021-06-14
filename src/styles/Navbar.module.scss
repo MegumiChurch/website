@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Mate+SC&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@900&display=swap');
+
 
 .main {
   top: 0;
@@ -71,28 +73,25 @@
     }
   }
   .menu {
-    transition: 0.5s;
+    transition: 0.3s;
     overflow: hidden;
-    height: 100%;
-    background-color: #003366;
     display: flex;
-    align-content: center;
-    justify-content: center;
     flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    background-color: white;
     .content {
-      display: flex;
-      flex-wrap: nowrap;
+      margin-top: -12%;
       margin-right: auto;
       margin-left: auto;
-      div {
-        margin-right: auto;
-        margin-left: auto;
-        h1 {
-          text-align: center;
-        }
-        div {
-          text-align: center;
-        }
+      width: 100%;
+      a {
+        font-family: 'Noto Sans JP', sans-serif;
+        padding-top: 4%;
+        padding-bottom: 4%;
+        font-size: 180%;
+        display: block;
+        text-align: center;
       }
     }
   }

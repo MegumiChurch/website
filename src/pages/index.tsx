@@ -24,7 +24,7 @@ export default function Home() {
   })
   return (
     <main id='main' className={styles.main} style={{ width: bodyWidth }}>
-      <Navbar id='navbar' />
+      <Navbar />
       <div
         className={styles.body}
         style={{

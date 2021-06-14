@@ -5,13 +5,11 @@ import { Squeeze as Hamburger } from 'hamburger-react'
 import { client } from 'common/Prismic'
 import { RichText } from 'prismic-reactjs'
 import Page from 'react-div-100vh'
-import MenuElement from '~/src/components/MenuElement'
 
-export default function Navbar({ id }: { id?: string }) {
+export default function Navbar() {
   const [isDesktop, setIsDesktop] = useState(true)
   const [isMenuOpen, setMenuOpen] = useState(false)
   const [items, setItems] = useState([])
-  const [menuDisplay, setMenuDisplay] = useState(`none`)
   const [topbarHeight, setTopbarHeight] = useState(0)
   const [windowHeight, setWindowHeight] = useState(0)
   const [mainWidth, setMainWidth] = useState(0)
@@ -24,9 +22,6 @@ export default function Navbar({ id }: { id?: string }) {
   }
   useEffect(onResize)
   useEffect(() => {
-    setTimeout(() => {
-      setMenuDisplay(`flex`)
-    }, 200)
     client.getSingle(`navbar`, {}).then((r: any) => {
       setItems(
         r.data.navbar.element.value.map(
@@ -51,7 +46,7 @@ export default function Navbar({ id }: { id?: string }) {
       }}
     >
       <div
-        id={id}
+        id='navbar'
         className={styles.navbar}
         style={{
           width: isDesktop ? `100%` : `90%`
@@ -103,71 +98,23 @@ export default function Navbar({ id }: { id?: string }) {
         id='menusection'
         className={styles.menuSection}
         style={{
-          height: `${
-            isDesktop
-              ? (windowHeight - topbarHeight) / 4
-              : windowHeight - topbarHeight
-          }px`
+          height: `${windowHeight - topbarHeight}px`
         }}
       >
         <div
           className={styles.menu}
           style={{
-            height: `${isDesktop ? (isMenuOpen ? 100 : 0) : 100}%`,
-            marginLeft: `${isDesktop ? 0 : isMenuOpen ? 0 : 100}%`,
-            display: menuDisplay
+            height: `100%`,
+            opacity: isMenuOpen ? 1 : 0
           }}
         >
-          <div
-            className={styles.content}
-            style={{
-              width: `${isDesktop ? 100 : 70}%`,
-              alignItems: isDesktop ? `flex-start` : `flex-end`,
-              height: `${isDesktop ? 70 : 90}%`,
-              flexDirection: isDesktop ? `row` : `column`
-            }}
-          >
+          <div className={styles.content}>
             {/* TODO Support prismic */}
-            <MenuElement
-              isDesktop={isDesktop}
-              isMenuOpen={isMenuOpen}
-              title='礼拝'
-              contents={[
-                [`オンライン`, `a`],
-                [`地図`, `a`],
-                [`a`, `a`]
-              ]}
-            />
-            <MenuElement
-              isDesktop={isDesktop}
-              isMenuOpen={isMenuOpen}
-              title='礼拝'
-              contents={[
-                [`オンライン`, `a`],
-                [`地図`, `a`],
-                [`a`, `a`]
-              ]}
-            />
-            <MenuElement
-              isDesktop={isDesktop}
-              isMenuOpen={isMenuOpen}
-              title='礼拝'
-              contents={[
-                [`オンライン`, `a`],
-                [`地図`, `a`],
-                [`a`, `a`]
-              ]}
-            />
-            <MenuElement
-              isDesktop={isDesktop}
-              isMenuOpen={isMenuOpen}
-              title='礼拝'
-              contents={[
-                [`オンライン`, `a`],
-                [`地図`, `a`],
-                [`a`, `a`]
-              ]}
-            />
+            <a>ホーム</a>
+            <a>ようこそ</a>
+            <a>集会案内</a>
+            <a>礼拝メッセージ</a>
+            <a>アクセス</a>
           </div>
         </div>
       </div>
