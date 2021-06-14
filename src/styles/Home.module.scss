@@ -1,5 +1,6 @@
 @import 'Navbar.module';
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Train+One&display=swap');
 
 .main {
   margin-right: auto;
@@ -70,6 +71,12 @@
               content: ' ・・・';
             }
           }
+        }
+        .mainButton {
+          font-family: 'Train One', cursive;
+          color: white;
+          text-align: left;
+          margin-left: 5%;
         }
       }
       table {

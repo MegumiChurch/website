@@ -2,7 +2,7 @@ import Navbar from 'components/Navbar'
 import { useEffect, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
 import styles from 'styles/Home.module.scss'
-import { desktopQuery } from 'common/Responsive'
+import { maxMobileWidth } from 'common/Responsive'
 import Page from 'react-div-100vh'
 
 export default function Home() {
@@ -12,9 +12,11 @@ export default function Home() {
   const [windowsWidth, setWindowsWidth] = useState(0)
   const [mainHeight, setMainHeight] = useState(0)
   const [isMenuOpen, setMenuOpen] = useState(false)
-  const isDesktop = useMediaQuery(desktopQuery)
+  const [roundCorner, setRoundCorner] = useState(true)
+  const [isDesktop, setIsDesktop] = useState(false)
   function onResize() {
     const scrWidth = window.screen.width
+    setIsDesktop(window.screen.width > maxMobileWidth)
     setMainHeight(document.getElementById(`main`)!.clientHeight)
     setTopbarHeight(document.getElementById(`navbar`)!.clientHeight)
     setWindowsHeight(document.getElementById(`windows`)!.clientHeight)
@@ -43,7 +45,11 @@ export default function Home() {
         <div
           className={styles.windows}
           style={{
-            height: `${isDesktop ? 80 : 70}%`
+            height: `${
+              isDesktop
+                ? (mainHeight - topbarHeight) * 0.8
+                : (mainHeight - topbarHeight) * 0.7
+            }px`
           }}
         >
           <div
@@ -55,29 +61,57 @@ export default function Home() {
               // paddingTop: `${windowsHeight / (isDesktop ? 4 : 15)}px`
             }}
           >
-            {isDesktop && (
-              <div className={styles.top}>
-                <img src='corner.svg' alt='' />
-                <img src='corner.svg' alt='' />
-              </div>
-            )}
+            <div className={styles.top}>
+              <img
+                src='corner.svg'
+                alt=''
+                style={{
+                  display: isDesktop ? `block` : `none`
+                }}
+              />
+              <img
+                src='corner.svg'
+                alt=''
+                style={{
+                  display: isDesktop ? `block` : `none`
+                }}
+              />
+            </div>
             <div
               className={styles.text}
-              style={{
-                fontSize: isDesktop ? `500%` : `400%`
-              }}
+              style={{ fontSize: isDesktop ? `500%` : `400%` }}
             >
               <p>ニューヨークめぐみ教会</p>
               {`\n`}
               NY Megumi{`\n`}
               Church
             </div>
-            {isDesktop && (
-              <div className={styles.bottom}>
-                <img src='corner.svg' alt='' />
-                <img src='corner.svg' alt='' />
-              </div>
-            )}
+            <div
+              className={styles.mainButton}
+              style={{
+                fontSize: isDesktop ? `250%` : `200%`,
+                marginBottom: `${isDesktop ? 0 : 0}%`,
+                marginTop: isDesktop ? `initial` : `0%`
+              }}
+            >
+              Connect
+            </div>
+            <div className={styles.bottom}>
+              <img
+                src='corner.svg'
+                alt=''
+                style={{
+                  display: isDesktop ? `block` : `none`
+                }}
+              />
+              <img
+                src='corner.svg'
+                alt=''
+                style={{
+                  display: isDesktop ? `block` : `none`
+                }}
+              />
+            </div>
           </div>
           <table
             id='windows'
