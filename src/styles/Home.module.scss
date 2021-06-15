@@ -9,6 +9,7 @@
     .windows {
       width: 100%;
       .overlay {
+        margin-top: 0;
         position: absolute;
         z-index: 9;
         display: flex;
@@ -73,8 +74,12 @@
           }
         }
         .mainButton {
-          font-family: 'Train One', cursive;
-          color: white;
+          span {
+            span {
+              font-family: 'Train One', cursive;
+              color: #ea2c6d;
+            }
+          }
           text-align: left;
           margin-left: 5%;
         }
@@ -91,7 +96,7 @@
         tbody {
           tr {
             * {
-              backdrop-filter: grayscale(1) brightness(0.4);
+              backdrop-filter: grayscale(1) brightness(0.2);
             }
             td {
               border: solid darken(black, 80) 0.01vw;
@@ -125,6 +130,12 @@
           }
         }
       }
+    }
+    .second {
+      height: 10%;
+      width: 100%;
+      background-color: black;
+      color: white;
     }
   }
 }

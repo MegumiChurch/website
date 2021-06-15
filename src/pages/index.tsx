@@ -4,6 +4,7 @@ import { useMediaQuery } from 'react-responsive'
 import styles from 'styles/Home.module.scss'
 import { maxMobileWidth } from 'common/Responsive'
 import Page from 'react-div-100vh'
+import { split } from 'common/Util'
 
 export default function Home() {
   const [bodyWidth, setBodyWidth] = useState(`95vw`)
@@ -12,7 +13,6 @@ export default function Home() {
   const [windowsWidth, setWindowsWidth] = useState(0)
   const [mainHeight, setMainHeight] = useState(0)
   const [isMenuOpen, setMenuOpen] = useState(false)
-  const [roundCorner, setRoundCorner] = useState(true)
   const [isDesktop, setIsDesktop] = useState(false)
   function onResize() {
     const scrWidth = window.screen.width
@@ -45,11 +45,9 @@ export default function Home() {
         <div
           className={styles.windows}
           style={{
-            height: `${
-              isDesktop
-                ? (mainHeight - topbarHeight) * 0.8
-                : (mainHeight - topbarHeight) * 0.7
-            }px`
+            height: isDesktop
+              ? `${(mainHeight - topbarHeight) * 0.8}px`
+              : `100%`
           }}
         >
           <div
@@ -61,25 +59,21 @@ export default function Home() {
               // paddingTop: `${windowsHeight / (isDesktop ? 4 : 15)}px`
             }}
           >
-            <div className={styles.top}>
-              <img
-                src='corner.svg'
-                alt=''
-                style={{
-                  display: isDesktop ? `block` : `none`
-                }}
-              />
-              <img
-                src='corner.svg'
-                alt=''
-                style={{
-                  display: isDesktop ? `block` : `none`
-                }}
-              />
+            <div
+              className={`${styles.top} onlyDesktop`}
+              style={{
+                marginLeft: isDesktop ? 0 : `100vw`
+              }}
+            >
+              <img src='corner.svg' alt='' className='onlyDesktop' />
+              <img src='corner.svg' alt='' className='onlyDesktop' />
             </div>
             <div
               className={styles.text}
-              style={{ fontSize: isDesktop ? `500%` : `400%` }}
+              style={{
+                fontSize: isDesktop ? `500%` : `300%`,
+                marginTop: isDesktop ? `initial` : `-50%`
+              }}
             >
               <p>ニューヨークめぐみ教会</p>
               {`\n`}
@@ -89,28 +83,19 @@ export default function Home() {
             <div
               className={styles.mainButton}
               style={{
-                fontSize: isDesktop ? `250%` : `200%`,
-                marginBottom: `${isDesktop ? 0 : 0}%`,
-                marginTop: isDesktop ? `initial` : `0%`
+                marginTop: isDesktop ? `initial` : `-80%`
               }}
             >
-              Connect
+              <span style={{}}>
+                {split(`Connect →`.toUpperCase(), {
+                  fontSize: isDesktop ? `250%` : `210%`,
+                  backgroundPosition: `center`
+                })}
+              </span>
             </div>
-            <div className={styles.bottom}>
-              <img
-                src='corner.svg'
-                alt=''
-                style={{
-                  display: isDesktop ? `block` : `none`
-                }}
-              />
-              <img
-                src='corner.svg'
-                alt=''
-                style={{
-                  display: isDesktop ? `block` : `none`
-                }}
-              />
+            <div className={`${styles.bottom} onlyDesktop`}>
+              <img className='onlyDesktop' src='corner.svg' alt='' />
+              <img src='corner.svg' alt='' className='onlyDesktop' />
             </div>
           </div>
           <table
