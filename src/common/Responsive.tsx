@@ -1,5 +1,6 @@
 import { CSSProperties, ReactChild } from 'react'
 import MediaQuery from 'react-responsive'
+import styles from 'styles/Enum.module.scss'
 
 interface Props {
   children?: ReactChild | ReactChild[]
@@ -7,7 +8,7 @@ interface Props {
   className?: string
 }
 
-export const maxMobileWidth = 767
+export const maxMobileWidth = parseInt(styles.maxMobileWidth, 10)
 
 export const desktopQuery = { query: `(min-width: ${maxMobileWidth + 1}px)` }
 export const mobileQuery = { query: `(max-width: ${maxMobileWidth}px)` }
