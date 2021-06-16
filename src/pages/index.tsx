@@ -5,6 +5,7 @@ import styles from 'styles/Home.module.scss'
 import { maxMobileWidth } from 'common/Responsive'
 import Page from 'react-div-100vh'
 import { split } from 'common/Util'
+import Bookify from '~/src/components/Bookify'
 
 export default function Home() {
   const [bodyWidth, setBodyWidth] = useState(`95vw`)
@@ -39,17 +40,10 @@ export default function Home() {
         className={styles.body}
         style={{
           marginTop: `${topbarHeight}px`,
-          height: `${mainHeight - topbarHeight}px`
+          height: isDesktop ? `75%` : `${mainHeight - topbarHeight}px`
         }}
       >
-        <div
-          className={styles.windows}
-          style={{
-            height: isDesktop
-              ? `${(mainHeight - topbarHeight) * 0.8}px`
-              : `100%`
-          }}
-        >
+        <div className={styles.windows}>
           <div
             className={styles.overlay}
             style={{
@@ -86,7 +80,7 @@ export default function Home() {
                 marginTop: isDesktop ? `initial` : `-80%`
               }}
             >
-              <span style={{}}>
+              <span>
                 {split(`Connect →`.toUpperCase(), {
                   fontSize: isDesktop ? `250%` : `210%`,
                   backgroundPosition: `center`
@@ -106,23 +100,23 @@ export default function Home() {
           >
             <tbody>
               <tr>
-                <td className={styles.blueify} />
                 <td />
-                <td className={styles.redify} />
-              </tr>
-              <tr>
-                <td className={styles.blueify} />
                 <td />
                 <td />
               </tr>
               <tr>
                 <td />
                 <td />
-                <td className={styles.redify} />
+                <td />
               </tr>
               <tr>
                 <td />
-                <td className={styles.blueify} />
+                <td />
+                <td />
+              </tr>
+              <tr>
+                <td />
+                <td />
                 <td />
               </tr>
             </tbody>
