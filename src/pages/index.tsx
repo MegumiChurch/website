@@ -23,9 +23,7 @@ export default function Home() {
         <Navbar isMenuOpen={isMenuOpen} setMenuOpen={setMenuOpen} />
         <div
           className={styles.outerBody}
-          style={{
-            marginTop: `${getDimensionsById(`navbar`).height}px`
-          }}
+          style={{ marginTop: `${getDimensionsById(`navbar`).height}px` }}
         >
           <div className={styles.mainSpace}>
             <div className={styles.filter}>
@@ -36,7 +34,21 @@ export default function Home() {
             </div>
           </div>
           <div className={styles.contentSection}>
-            <div className={styles.left} />
+            <div className={`${styles.left} vertical-center`}>
+              <div className='vertical-center'>
+                <p>
+                  <span>毎週日曜日</span>
+                  <span>午前９時</span>
+                  <span>より、</span>
+                  <span>リッジウェイ</span>
+                  <span>教会地下</span>
+                  <span>グリーン・</span>
+                  <span>ルームにて</span>
+                </p>
+                <span>Zoomによるオンライン礼拝も行っています。</span>
+                <a>もっと詳しく</a>
+              </div>
+            </div>
             <div className={styles.right}>
               <div className={styles.first} />
               <div className={styles.second} />
