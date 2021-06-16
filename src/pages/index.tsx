@@ -1,13 +1,14 @@
 import Navbar from 'components/Navbar'
 import { useState } from 'react'
 import styles from 'styles/Home.module.scss'
-import { checkIsDesktop } from 'common/Responsive'
 import { getDimensionsById, useResizeEffect } from 'common/Util'
+import { useMediaQuery } from 'react-responsive'
+import { desktopQuery } from '~/src/common/Responsive'
 
 export default function Home() {
   const [bodyWidth, setBodyWidth] = useState(`95vw`)
   const [isMenuOpen, setMenuOpen] = useState(false)
-  const isDesktop = checkIsDesktop()
+  const isDesktop = useMediaQuery(desktopQuery)
   useResizeEffect(() => {
     const scrWidth = window.screen.width
     setBodyWidth(

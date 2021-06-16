@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Mate+SC&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@900&display=swap');
-
+@import 'Enum.module';
 
 .main {
   top: 0;
@@ -11,6 +11,10 @@
   .navbar {
     margin-right: auto;
     margin-left: auto;
+    width: 100%;
+    @media screen and (max-width: $maxMobileWidth * 1px) {
+      width: 90%;
+    }
     .inner {
       width: 95%;
       margin-right: auto;
@@ -19,6 +23,12 @@
       align-items: center;
       justify-content: space-between;
       overflow: hidden;
+      padding-top: 3%;
+      padding-bottom: 3%;
+      @media screen and (max-width: $maxMobileWidth * 1px) {
+        padding-top: 4%;
+        padding-bottom: 4%;
+      }
       .logo {
         width: 130px;
         display: flex;
@@ -73,6 +83,7 @@
     }
   }
   .menu {
+    height: 100%;
     transition: 5s;
     overflow: hidden;
     display: flex;

@@ -1,16 +1,14 @@
 import { useEffect, useState } from 'react'
 import styles from 'styles/Navbar.module.scss'
-import { checkIsDesktop, Desktop } from 'common/Responsive'
+import { Desktop } from 'common/Responsive'
 import { Squeeze as Hamburger } from 'hamburger-react'
 import { client } from 'common/Prismic'
 import { RichText } from 'prismic-reactjs'
 import Page from 'react-div-100vh'
-import { useMediaQuery } from 'react-responsive'
 import { getDimensionsById } from '~/src/common/Util'
 
 export default function Navbar({ isMenuOpen, setMenuOpen }: any) {
   const [items, setItems] = useState([])
-  const isDesktop = checkIsDesktop()
   useEffect(() => {
     client.getSingle(`navbar`, {}).then((r: any) => {
       setItems(
@@ -31,20 +29,8 @@ export default function Navbar({ isMenuOpen, setMenuOpen }: any) {
         width: getDimensionsById(`main`).width
       }}
     >
-      <div
-        id='navbar'
-        className={styles.navbar}
-        style={{
-          width: isDesktop ? `100%` : `90%`
-        }}
-      >
-        <div
-          className={styles.inner}
-          style={{
-            paddingTop: `${isDesktop ? 2 : 4}%`,
-            paddingBottom: `${isDesktop ? 2 : 4}%`
-          }}
-        >
+      <div id='navbar' className={styles.navbar}>
+        <div className={styles.inner}>
           {/* ロゴ */}
           <div className={styles.logo}>
             <img src='logo.svg' alt='logo' />
@@ -90,12 +76,7 @@ export default function Navbar({ isMenuOpen, setMenuOpen }: any) {
           }px`
         }}
       >
-        <div
-          className={styles.menu}
-          style={{
-            height: `100%`
-          }}
-        >
+        <div className={styles.menu}>
           <div
             className={styles.content}
             style={{
