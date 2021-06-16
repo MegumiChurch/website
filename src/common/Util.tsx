@@ -14,17 +14,25 @@ export function getElementByIdSafely(id: string) {
   }
 }
 
-export function getDimensionsById(id: string) {
+export function getDimensionsById(id: string | 'window') {
   const [res, setRes] = useState({
     height: 0,
     width: 0
   })
   const handleResize = () => {
-    const e = document.getElementById(id)
-    setRes({
-      height: e?.clientHeight || 0,
-      width: e?.clientWidth || 0
-    })
+    if (id === `window`) {
+      const { innerHeight, innerWidth } = window
+      setRes({
+        height: innerHeight,
+        width: innerWidth
+      })
+    } else {
+      const e = document.getElementById(id)
+      setRes({
+        height: e?.clientHeight || 0,
+        width: e?.clientWidth || 0
+      })
+    }
   }
   useEffect(() => {
     setTimeout(handleResize, 4)
@@ -36,9 +44,7 @@ export function getDimensionsById(id: string) {
 
 export function useResizeEffect(effect: () => void) {
   useEffect(() => {
+    effect()
     window.onload = window.onresize = effect
-    return () => {
-      window.onload = window.onresize = null
-    }
-  }, [])
+  })
 }

@@ -1,21 +1,13 @@
 import Navbar from 'components/Navbar'
-import { useEffect, useState } from 'react'
-import { useMediaQuery } from 'react-responsive'
+import { useState } from 'react'
 import styles from 'styles/Home.module.scss'
-import { desktopQuery, maxMobileWidth } from 'common/Responsive'
-import Page from 'react-div-100vh'
-import {
-  getDimensionsById,
-  getElementByIdSafely,
-  split,
-  useResizeEffect
-} from 'common/Util'
-import Bookify from '~/src/components/Bookify'
+import { checkIsDesktop } from 'common/Responsive'
+import { getDimensionsById, useResizeEffect } from 'common/Util'
 
 export default function Home() {
   const [bodyWidth, setBodyWidth] = useState(`95vw`)
   const [isMenuOpen, setMenuOpen] = useState(false)
-  const isDesktop = useMediaQuery(desktopQuery)
+  const isDesktop = checkIsDesktop()
   useResizeEffect(() => {
     const scrWidth = window.screen.width
     setBodyWidth(
@@ -25,16 +17,15 @@ export default function Home() {
     )
   })
   return (
-    <Page id='main' className={styles.main} style={{ width: bodyWidth }}>
+    <div id='main' className={styles.main} style={{ width: bodyWidth }}>
       <Navbar isMenuOpen={isMenuOpen} setMenuOpen={setMenuOpen} />
       <div
         id='outer'
         className={styles.outerBody}
         style={{
-          marginTop: `${getDimensionsById(`navbar`).height}px`,
-          height: `${getDimensionsById(`main`).height}px`
+          marginTop: `${getDimensionsById(`navbar`).height}px`
         }}
       />
-    </Page>
+    </div>
   )
 }

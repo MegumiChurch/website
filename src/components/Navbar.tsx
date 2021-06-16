@@ -1,25 +1,16 @@
 import { useEffect, useState } from 'react'
 import styles from 'styles/Navbar.module.scss'
-import { Desktop, maxMobileWidth } from 'common/Responsive'
+import { checkIsDesktop, Desktop } from 'common/Responsive'
 import { Squeeze as Hamburger } from 'hamburger-react'
 import { client } from 'common/Prismic'
 import { RichText } from 'prismic-reactjs'
 import Page from 'react-div-100vh'
+import { useMediaQuery } from 'react-responsive'
+import { getDimensionsById } from '~/src/common/Util'
 
 export default function Navbar({ isMenuOpen, setMenuOpen }: any) {
-  const [isDesktop, setIsDesktop] = useState(true)
   const [items, setItems] = useState([])
-  const [topbarHeight, setTopbarHeight] = useState(0)
-  const [windowHeight, setWindowHeight] = useState(0)
-  const [mainWidth, setMainWidth] = useState(0)
-  const padding = `${isDesktop ? 2 : 4}%`
-  function onResize() {
-    setIsDesktop(window.screen.width > maxMobileWidth)
-    setTopbarHeight(document.getElementById(`navbar`)!.clientHeight)
-    setWindowHeight(document.getElementById(`100vh`)!.clientHeight)
-    setMainWidth(document.getElementById(`main`)!.clientWidth)
-  }
-  useEffect(onResize)
+  const isDesktop = checkIsDesktop()
   useEffect(() => {
     client.getSingle(`navbar`, {}).then((r: any) => {
       setItems(
@@ -31,17 +22,13 @@ export default function Navbar({ isMenuOpen, setMenuOpen }: any) {
         )
       )
     })
-    window.addEventListener(`resize`, onResize)
-    return () => {
-      window.removeEventListener(`resize`, onResize)
-    }
   }, [])
   return (
     <Page
       id='100vh'
       className={styles.main}
       style={{
-        width: mainWidth
+        width: getDimensionsById(`main`).width
       }}
     >
       <div
@@ -54,8 +41,8 @@ export default function Navbar({ isMenuOpen, setMenuOpen }: any) {
         <div
           className={styles.inner}
           style={{
-            paddingTop: padding,
-            paddingBottom: padding
+            paddingTop: `${isDesktop ? 2 : 4}%`,
+            paddingBottom: `${isDesktop ? 2 : 4}%`
           }}
         >
           {/* ロゴ */}
@@ -97,7 +84,10 @@ export default function Navbar({ isMenuOpen, setMenuOpen }: any) {
         id='menusection'
         className={styles.menuSection}
         style={{
-          height: `${windowHeight - topbarHeight}px`
+          height: `${
+            getDimensionsById(`window`).height -
+            getDimensionsById(`navbar`).height
+          }px`
         }}
       >
         <div
