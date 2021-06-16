@@ -12,6 +12,7 @@
     margin-right: auto;
     margin-left: auto;
     width: 100%;
+    position: sticky;
     @media screen and (max-width: $maxMobileWidth * 1px) {
       width: 90%;
     }
@@ -82,26 +83,29 @@
       }
     }
   }
-  .menu {
-    height: 100%;
-    transition: 5s;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    .content {
-      margin-top: -12%;
-      margin-right: auto;
-      margin-left: auto;
-      width: 100%;
-      a {
-        font-family: 'Noto Sans JP', sans-serif;
-        padding-top: 4%;
-        padding-bottom: 4%;
-        font-size: 180%;
-        display: block;
-        text-align: center;
+  .menuSection {
+    background-color: blue;
+    .menu {
+      height: 100%;
+      transition: 5s;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      .content {
+        margin-top: -12%;
+        margin-right: auto;
+        margin-left: auto;
+        width: 100%;
+        a {
+          font-family: 'Noto Sans JP', sans-serif;
+          padding-top: 4%;
+          padding-bottom: 4%;
+          font-size: 180%;
+          display: block;
+          text-align: center;
+        }
       }
     }
   }

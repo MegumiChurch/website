@@ -8,7 +8,14 @@
   white-space: pre-wrap;
 }
 
-.onlyDesktop {
+.vertical-center {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+
+.desktop-only {
   @media screen and (max-width: 767px) {
     display: none;
   }
@@ -17,7 +24,7 @@
   }
 }
 
-.onlyMobile {
+.mobile-only {
   @media screen and (max-width: 767px) {
     display: inherit;
   }
