@@ -45,7 +45,7 @@ export default function Navbar({ isMenuOpen, setMenuOpen }: any) {
             {items.slice(0, 4).map((item: string) => {
               const [name, route] = item.split(`@`)
               return (
-                <Desktop>
+                <Desktop key={name}>
                   <a className='underline' href={`/${route}`}>
                     {name}
                   </a>
