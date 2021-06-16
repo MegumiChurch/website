@@ -4,7 +4,6 @@ import styles from 'styles/Home.module.scss'
 import { getDimensionsById, useResizeEffect } from 'common/Util'
 import { useMediaQuery } from 'react-responsive'
 import { desktopQuery } from '~/src/common/Responsive'
-import Space from '~/src/components/Space'
 
 export default function Home() {
   const [bodyWidth, setBodyWidth] = useState(`95vw`)
@@ -19,27 +18,29 @@ export default function Home() {
     )
   })
   return (
-    <div id='main' className={styles.main} style={{ width: bodyWidth }}>
-      <Navbar isMenuOpen={isMenuOpen} setMenuOpen={setMenuOpen} />
-      <div
-        className={styles.outerBody}
-        style={{
-          marginTop: `${getDimensionsById(`navbar`).height}px`
-        }}
-      >
-        <div className={styles.mainSpace}>
-          <div className={styles.filter}>
-            <div className={styles.text}>
-              <p className={styles.subtitle}>NY めぐみ教会</p>
-              <p className={styles.title}>Megumi Church</p>
+    <div id='main' className={styles.main}>
+      <div style={{ width: bodyWidth }}>
+        <Navbar isMenuOpen={isMenuOpen} setMenuOpen={setMenuOpen} />
+        <div
+          className={styles.outerBody}
+          style={{
+            marginTop: `${getDimensionsById(`navbar`).height}px`
+          }}
+        >
+          <div className={styles.mainSpace}>
+            <div className={styles.filter}>
+              <div className={styles.text}>
+                <p className={styles.subtitle}>NY めぐみ教会</p>
+                <p className={styles.title}>Megumi Church</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div className={styles.contentSection}>
-          <div className={styles.left} />
-          <div className={styles.right}>
-            <div className={styles.first} />
-            <div className={styles.second} />
+          <div className={styles.contentSection}>
+            <div className={styles.left} />
+            <div className={styles.right}>
+              <div className={styles.first} />
+              <div className={styles.second} />
+            </div>
           </div>
         </div>
       </div>

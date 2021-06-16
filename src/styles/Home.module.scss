@@ -3,75 +3,81 @@
 @import url('https://fonts.googleapis.com/css2?family=Train+One&display=swap');
 
 .main {
-  overflow-x: hidden;
   margin-right: auto;
   margin-left: auto;
-  height: 500vh;
-  .outerBody {
-    width: 90%;
-    height: 100%;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  div {
     margin-right: auto;
     margin-left: auto;
-    div {
-      border-radius: 18px;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-    .mainSpace {
-      height: 50vh;
-      background-image: url("../../public/windows.jpg");
-      .filter {
-        height: 100%;
-        width: 100%;
-        backdrop-filter: grayscale(1) brightness(0.2);
-        .text {
-          padding-left: 5%;
-          padding-top: 30vh;
-          position: relative;
-          border-radius: 0;
-          .subtitle {
-            font-size: 1.3vh;
-            letter-spacing: 0.5vw;
-            color: silver;
-            &:after {
-              content: ' ・・・';
+    .outerBody {
+      width: 90%;
+      height: 100%;
+      margin-right: auto;
+      margin-left: auto;
+      div {
+        border-radius: 18px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .mainSpace {
+        height: 50vh;
+        background-image: url("../../public/windows.jpg");
+        .filter {
+          height: 100%;
+          width: 100%;
+          backdrop-filter: grayscale(1) brightness(0.2);
+          .text {
+            padding-left: 5%;
+            padding-top: 30vh;
+            position: relative;
+            border-radius: 0;
+            .subtitle {
+              font-size: 1.3vh;
+              letter-spacing: 0.5vw;
+              color: silver;
+              &:after {
+                content: ' ・・・';
+              }
+            }
+            .title {
+              font-family: 'Roboto', sans-serif;
+              color: #c3c3c3;
+              font-size: 9vh;
             }
           }
-          .title {
-            font-family: 'Roboto', sans-serif;
-            color: #c3c3c3;
-            font-size: 9vh;
-          }
         }
       }
-    }
-    .contentSection {
-      display: flex;
-      flex-direction: row;
-      align-content: center;
-      justify-content: space-between;
-      padding-top: 5vh;
-      div {
-        width: 47.5%;
-        height: 60vh;
-      }
-      .left {
-        background-color: darken(blue, 100);
-      }
-      .right {
+      .contentSection {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        align-content: center;
         justify-content: space-between;
+        padding-top: 5vh;
         div {
-          width: 100%;
-          height: 47.5%;
+          width: 47.5%;
+          height: 60vh;
         }
-        .first {
-          background-color: blue;
+        .left {
+          background-color: darken(blue, 100);
         }
-        .second {
-          background-color: blueviolet;
+        .right {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          div {
+            width: 100%;
+            height: 47.5%;
+          }
+          .first {
+            background-color: blue;
+          }
+          .second {
+            background-color: blueviolet;
+          }
         }
       }
     }
