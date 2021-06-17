@@ -37,7 +37,7 @@ export default function Home() {
             </div>
           </div>
           <div className={styles.contentSection}>
-            <div className={`${styles.left}`}>
+            <div className={styles.left}>
               <MainSpace />
             </div>
             <div className={styles.right}>
@@ -65,7 +65,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <Footer style={{ width: bodyWidth }} />
+      <Footer />
     </div>
   )
 }
