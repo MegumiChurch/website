@@ -1,13 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Mate+SC&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@900&display=swap');
+@font-face {font-family: "SF Pro JP"; src: url("//db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.eot"); src: url("//db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.woff") format("woff"), url("//db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.svg#SFProJPDisplay-Regular") format("svg"); }
 @import 'Enum.module';
 
 .main {
   top: 0;
   position: fixed;
   left: 50%;
-  transform: translateX(-50%);z-index: -999;
+  transform: translateX(-50%);
+  z-index: 9;
   .navbar {
     margin-right: auto;
     margin-left: auto;
@@ -15,6 +17,7 @@
     position: fixed;
     @media screen and (max-width: $maxMobileWidth * 1px) {
       width: 90%;
+      margin-left: 5vw;
     }
     .inner {
       width: 95%;
@@ -92,24 +95,24 @@
     .menu {
       height: 100%;
       transition: 5s;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-content: center;
       .content {
-        margin-top: -12%;
         margin-right: auto;
         margin-left: auto;
         width: 100%;
-        z-index: -9;
-        a {
-          font-family: 'Noto Sans JP', sans-serif;
-          padding-top: 4%;
-          padding-bottom: 4%;
-          font-size: 180%;
-          display: block;
-          text-align: center;
+        transition: 0.25s;
+        background-color: #ffffff;
+        .inner {
+          display: flex;
+          flex-direction: column;
+          align-content: center;
+          justify-content: space-evenly;
+          a {
+            display: inline-block;
+            font-family: "SF Pro JP", serif;
+            font-size: 180%;
+            text-align: center;
+            color: #1D1D1F;
+          }
         }
       }
     }

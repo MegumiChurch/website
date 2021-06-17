@@ -1,6 +1,8 @@
 @import 'Navbar.module';
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&display=swap');
 @font-face {font-family: "SF Pro JP"; src: url("//db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.eot"); src: url("//db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.woff") format("woff"), url("//db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.svg#SFProJPDisplay-Regular") format("svg"); }
+@import url('//db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SFProJPDisplay-Regular');
+@font-face {font-family: "SF Pro"; src: url("//db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.eot"); src: url("//db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.woff") format("woff"), url("//db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.svg#SFProJPDisplay-Regular") format("svg")};
 @import 'Enum.module';
 
 .main {
@@ -34,7 +36,6 @@
           .text {
             padding-left: 5%;
             padding-top: 30vh;
-            position: relative;
             border-radius: 0;
             .subtitle {
               font-size: 1.3vh;
@@ -66,7 +67,7 @@
         padding-top: 5vh;
         height: 60vh;
         @media screen and (max-width: $maxMobileWidth * 1px) {
-          height: 112vh;
+          height: 140vh;
         }
         .left {
           width: 50%;
@@ -90,23 +91,32 @@
               margin-left: -22.5vw;
             }
             div {
-              @media screen and (max-width: $maxMobileWidth * 1px) {
-                margin-left: 7.5vw;
-              }
               width: 85%;
               height: 20vh;
+              @media screen and (max-width: $maxMobileWidth * 1px) {
+                margin-left: 7.5vw;
+                height: 30vh;
+              }
               p {
                 text-align: center;
+                @media screen and (max-width: $maxMobileWidth * 1px) {
+                  text-align: left;
+                  font-size: 2vh;
+                }
               }
             }
             h2 {
-              font-family: "SF Pro JP", serif;
-              font-size: 4vh;
-              font-weight: 900;
               text-align: center;
               @media screen and (max-width: $maxMobileWidth * 1px) {
-                font-size: 3vh;
-                margin-top: -2.5vh;
+                text-align: left;
+              }
+              span {
+                font-family: "SF Pro JP", serif;
+                font-size: 4vh;
+                font-weight: 900;
+                @media screen and (max-width: $maxMobileWidth * 1px) {
+                  margin-top: 3vh;
+                }
               }
             }
             h3 {
@@ -121,6 +131,11 @@
           }
           .second {
             background-color: #a349e3;
+            @media screen and (min-width: $maxMobileWidth + 1px) {
+              div > div {
+                margin-top: 2vh;
+              }
+            }
           }
           .iconSection {
             display: flex;
@@ -129,6 +144,11 @@
             flex-direction: row;
             justify-content: space-between;
             margin-top: 3vh;
+            @media screen and (max-width: $maxMobileWidth * 1px) {
+              margin-right: auto;
+              margin-left: auto;
+              margin-top: 6vh;
+            }
             * {
               width: 9vh;
               height: 9vh;

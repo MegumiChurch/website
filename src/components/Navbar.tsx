@@ -5,7 +5,7 @@ import { Squeeze as Hamburger } from 'hamburger-react'
 import { client } from 'common/Prismic'
 import { RichText } from 'prismic-reactjs'
 import Page from 'react-div-100vh'
-import { getDimensionsById } from '~/src/common/Util'
+import { getDimensionsById } from 'common/Util'
 
 export default function Navbar({ isMenuOpen, setMenuOpen }: any) {
   const [items, setItems] = useState([])
@@ -46,9 +46,7 @@ export default function Navbar({ isMenuOpen, setMenuOpen }: any) {
               const [name, route] = item.split(`@`)
               return (
                 <Desktop key={name}>
-                  <a className='underline' href={`/${route}`}>
-                    {name}
-                  </a>
+                  <a href={`/${route}`}>{name}</a>
                 </Desktop>
               )
             })}
@@ -71,32 +69,48 @@ export default function Navbar({ isMenuOpen, setMenuOpen }: any) {
           </div>
         </div>
       </div>
-      {/* <div */}
-      {/*  id='menusection' */}
-      {/*  className={styles.menuSection} */}
-      {/*  style={{ */}
-      {/*    height: `${ */}
-      {/*      getDimensionsById(`window`).height -*/}
-      {/*      getDimensionsById(`navbar`).height */}
-      {/*    }px` */}
-      {/*  }} */}
-      {/* > */}
-      {/*  <div className={styles.menu}> */}
-      {/*    <div */}
-      {/*      className={styles.content} */}
-      {/*      style={{ */}
-      {/*        opacity: isMenuOpen ? 1 : 0 */}
-      {/*      }} */}
-      {/*    > */}
-      {/*      /!* TODO Support prismic *!/ */}
-      {/*      <a>ホーム</a> */}
-      {/*      <a>ようこそ</a> */}
-      {/*      <a>集会案内</a> */}
-      {/*      <a>礼拝メッセージ</a> */}
-      {/*      <a>アクセス</a> */}
-      {/*    </div> */}
-      {/*  </div> */}
-      {/* </div> */}
+      <div
+        id='menusection'
+        className={styles.menuSection}
+        style={{
+          height: `${
+            getDimensionsById(`window`).height -
+            getDimensionsById(`navbar`).height
+          }px`
+        }}
+      >
+        <div className={styles.menu}>
+          <div
+            className={styles.content}
+            style={{
+              marginTop: `${getDimensionsById(`navbar`).height}px`,
+              height: `${
+                getDimensionsById(`window`).height -
+                getDimensionsById(`navbar`).height
+              }px`,
+              opacity: isMenuOpen ? 1 : 0,
+              zIndex: isMenuOpen ? 99 : -99
+            }}
+          >
+            <div
+              className={styles.inner}
+              style={{
+                height: `${
+                  getDimensionsById(`window`).height -
+                  2 * getDimensionsById(`navbar`).height
+                }px`
+              }}
+            >
+              {/* TODO Support prismic */}
+              <a>ホーム</a>
+              <a>ようこそ</a>
+              <a>集会案内</a>
+              <a>礼拝メッセージ</a>
+              <a>アクセス</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </Page>
   )
 }

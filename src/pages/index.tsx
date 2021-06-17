@@ -3,10 +3,10 @@ import { useState } from 'react'
 import styles from 'styles/Home.module.scss'
 import { getDimensionsById, useResizeEffect } from 'common/Util'
 import { useMediaQuery } from 'react-responsive'
-import { desktopQuery } from '~/src/common/Responsive'
-import MainSpace from '~/src/components/MainSpace'
-import Icon from '~/src/components/Icon'
-import Footer from '~/src/components/Footer'
+import { desktopQuery } from 'common/Responsive'
+import MainSpace from 'components/MainSpace'
+import Icon from 'components/Icon'
+import Footer from 'components/Footer'
 
 export default function Home() {
   const [bodyWidth, setBodyWidth] = useState(`95vw`)
@@ -43,8 +43,11 @@ export default function Home() {
             <div className={styles.right}>
               <div className={`${styles.first} vertical-center`}>
                 <div>
-                  <h2>アクセス</h2>
-                  <p>礼拝のZoomリンク・教会の場所はこちらから</p>
+                  <h2>
+                    <span>礼拝に</span>
+                    <span>参加</span>
+                  </h2>
+                  <p>それぞれGoogleMap、Zoomアプリを開きます。</p>
                   <div className={styles.iconSection}>
                     <Icon src='google-map.webp' />
                     <Icon src='zoom.webp' />
@@ -53,8 +56,14 @@ export default function Home() {
               </div>
               <div className={`${styles.second} vertical-center`}>
                 <div>
-                  <h2>アクセス</h2>
-                  <p>礼拝のZoomリンク・教会の場所はこちらから</p>
+                  <h2>
+                    <span>メーリング</span>
+                    <span>リストに</span>
+                    <span>登録</span>
+                  </h2>
+                  <p>
+                    Gmail・Lineで教会の最新情報・イベント情報を取得できます。
+                  </p>
                   <div className={styles.iconSection}>
                     <Icon src='gmail.webp' />
                     <Icon src='line.webp' />
