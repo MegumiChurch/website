@@ -1,5 +1,6 @@
 @import 'Navbar.module';
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&display=swap');
+@font-face {font-family: "SF Pro JP"; src: url("//db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.eot"); src: url("//db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.woff") format("woff"), url("//db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.svg#SFProJPDisplay-Regular") format("svg"); }
 
 .main {
   margin-right: auto;
@@ -62,6 +63,7 @@
           width: 50%;
           margin-right: 2.5%;
           background-color: #1D1D1F;
+
         }
         .right {
           width: 50%;
@@ -74,6 +76,31 @@
           }
           .first {
             background-color: #0071E3;
+            div {
+              width: 85%;
+              height: 20vh;
+              h2 {
+                font-family: "SF Pro JP", serif;
+                font-size: 4vh;
+                font-weight: 900;
+                text-align: center;
+              }
+              p {
+                text-align: center;
+              }
+            }
+            .iconSection {
+              display: flex;
+              width: 28vh;
+              align-content: center;
+              flex-direction: row;
+              justify-content: space-between;
+              margin-top: 3vh;
+              * {
+                width: 10vh;
+                height: 10vh;
+              }
+            }
           }
           .second {
             background-color: blueviolet;

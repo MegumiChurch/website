@@ -5,6 +5,7 @@ import { getDimensionsById, useResizeEffect } from 'common/Util'
 import { useMediaQuery } from 'react-responsive'
 import { desktopQuery } from '~/src/common/Responsive'
 import MainSpace from '~/src/components/MainSpace'
+import Icon from '~/src/components/Icon'
 
 export default function Home() {
   const [bodyWidth, setBodyWidth] = useState(`95vw`)
@@ -39,7 +40,16 @@ export default function Home() {
               <MainSpace />
             </div>
             <div className={styles.right}>
-              <div className={styles.first} />
+              <div className={`${styles.first} vertical-center`}>
+                <div>
+                  <h2>アクセス</h2>
+                  <p>礼拝のZoomリンク・教会の場所はこちらから</p>
+                  <div className={styles.iconSection}>
+                    <Icon src='zoom.webp' />
+                    <Icon src='google-map.webp' />
+                  </div>
+                </div>
+              </div>
               <div className={styles.second} />
             </div>
           </div>
