@@ -6,6 +6,7 @@ import { useMediaQuery } from 'react-responsive'
 import { desktopQuery } from '~/src/common/Responsive'
 import MainSpace from '~/src/components/MainSpace'
 import Icon from '~/src/components/Icon'
+import Footer from '~/src/components/Footer'
 
 export default function Home() {
   const [bodyWidth, setBodyWidth] = useState(`95vw`)
@@ -45,16 +46,26 @@ export default function Home() {
                   <h2>アクセス</h2>
                   <p>礼拝のZoomリンク・教会の場所はこちらから</p>
                   <div className={styles.iconSection}>
-                    <Icon src='zoom.webp' />
                     <Icon src='google-map.webp' />
+                    <Icon src='zoom.webp' />
                   </div>
                 </div>
               </div>
-              <div className={styles.second} />
+              <div className={`${styles.second} vertical-center`}>
+                <div>
+                  <h2>アクセス</h2>
+                  <p>礼拝のZoomリンク・教会の場所はこちらから</p>
+                  <div className={styles.iconSection}>
+                    <Icon src='gmail.webp' />
+                    <Icon src='line.webp' />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+      <Footer style={{ width: bodyWidth }} />
     </div>
   )
 }
