@@ -26,7 +26,7 @@ export default function Navbar({ isMenuOpen, setMenuOpen }: any) {
       id='100vh'
       className={styles.main}
       style={{
-        width: getDimensionsById(`main`).width
+        width: getDimensionsById(`body`).width
       }}
     >
       <div id='navbar' className={styles.navbar}>
@@ -62,36 +62,41 @@ export default function Navbar({ isMenuOpen, setMenuOpen }: any) {
             }}
           >
             <p>Menu</p>
-            <Hamburger size={27} toggled={isMenuOpen} distance='sm' />
+            <Hamburger
+              size={27}
+              toggled={isMenuOpen}
+              distance='sm'
+              color='#1D1D1F'
+            />
           </div>
         </div>
       </div>
-      <div
-        id='menusection'
-        className={styles.menuSection}
-        style={{
-          height: `${
-            getDimensionsById(`window`).height -
-            getDimensionsById(`navbar`).height
-          }px`
-        }}
-      >
-        <div className={styles.menu}>
-          <div
-            className={styles.content}
-            style={{
-              opacity: isMenuOpen ? 1 : 0
-            }}
-          >
-            {/* TODO Support prismic */}
-            <a>ホーム</a>
-            <a>ようこそ</a>
-            <a>集会案内</a>
-            <a>礼拝メッセージ</a>
-            <a>アクセス</a>
-          </div>
-        </div>
-      </div>
+      {/* <div */}
+      {/*  id='menusection' */}
+      {/*  className={styles.menuSection} */}
+      {/*  style={{ */}
+      {/*    height: `${ */}
+      {/*      getDimensionsById(`window`).height -*/}
+      {/*      getDimensionsById(`navbar`).height */}
+      {/*    }px` */}
+      {/*  }} */}
+      {/* > */}
+      {/*  <div className={styles.menu}> */}
+      {/*    <div */}
+      {/*      className={styles.content} */}
+      {/*      style={{ */}
+      {/*        opacity: isMenuOpen ? 1 : 0 */}
+      {/*      }} */}
+      {/*    > */}
+      {/*      /!* TODO Support prismic *!/ */}
+      {/*      <a>ホーム</a> */}
+      {/*      <a>ようこそ</a> */}
+      {/*      <a>集会案内</a> */}
+      {/*      <a>礼拝メッセージ</a> */}
+      {/*      <a>アクセス</a> */}
+      {/*    </div> */}
+      {/*  </div> */}
+      {/* </div> */}
     </Page>
   )
 }
