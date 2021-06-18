@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react'
 import styles from 'styles/Navbar.module.scss'
-import { Desktop } from 'common/Responsive'
+import { Desktop, desktopQuery } from 'common/Responsive'
 import { Squeeze as Hamburger } from 'hamburger-react'
 import { client } from 'common/Prismic'
 import { RichText } from 'prismic-reactjs'
 import Page from 'react-div-100vh'
 import { getDimensionsById } from 'common/Util'
+import { useMediaQuery } from 'react-responsive'
 
 export default function Navbar({ isMenuOpen, setMenuOpen }: any) {
   const [items, setItems] = useState([])
+  const isDesktop = useMediaQuery(desktopQuery)
   useEffect(() => {
     client.getSingle(`navbar`, {}).then((r: any) => {
       setItems(
@@ -101,12 +103,10 @@ export default function Navbar({ isMenuOpen, setMenuOpen }: any) {
                 }px`
               }}
             >
-              {/* TODO Support prismic */}
-              <a>ホーム</a>
-              <a>ようこそ</a>
-              <a>集会案内</a>
-              <a>礼拝メッセージ</a>
-              <a>アクセス</a>
+              {items.slice(isDesktop ? 4 : 0).map((item: string) => {
+                const [name, route] = item.split(`@`)
+                return <a href={`/${route}`}>{name}</a>
+              })}
             </div>
           </div>
         </div>

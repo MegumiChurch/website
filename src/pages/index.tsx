@@ -1,5 +1,5 @@
 import Navbar from 'components/Navbar'
-import { useState } from 'react'
+import { createRef, useEffect, useState } from 'react'
 import styles from 'styles/Home.module.scss'
 import { getDimensionsById, useResizeEffect } from 'common/Util'
 import { useMediaQuery } from 'react-responsive'
@@ -21,7 +21,13 @@ export default function Home() {
     )
   })
   return (
-    <div id='main' className={styles.main}>
+    <div
+      id='main'
+      className={styles.main}
+      onScroll={() => {
+        setMenuOpen(false)
+      }}
+    >
       <div id='body' style={{ width: bodyWidth }}>
         <Navbar isMenuOpen={isMenuOpen} setMenuOpen={setMenuOpen} />
         <div
