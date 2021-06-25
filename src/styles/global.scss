@@ -1,46 +1,39 @@
-@import url('https://fonts.googleapis.com/css?family=Sawarabi+Gothic');
+@import 'Util.module';
+@import url('//db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SFProJPDisplay-Regular');
+@font-face {font-family: "SF Pro JP";
+  src: url("../../public/fonts/sfpro/SF Pro JP Regular.eot");
+  src: url("../../public/fonts/sfpro/SF Pro JP Regular.eot?#iefix") format("embedded-opentype"),
+  url("../../public/fonts/sfpro/SF Pro JP Regular.woff2") format("woff2"),
+  url("../../public/fonts/sfpro/SF Pro JP Regular.woff") format("woff"),
+  url("../../public/fonts/sfpro/SF Pro JP Regular.ttf") format("truetype"),
+  url("../../public/fonts/sfpro/SF Pro JP Regular.svg#SF Pro JP Regular") format("svg");
+}
 
 * {
-  color: #000;
-  font-family: 'Sawarabi Gothic', serif;
   margin: 0;
+  z-index: -99999;
   text-decoration: none;
   white-space: pre-wrap;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  font-family: "SF Pro JP", serif;
+  pointer-events: none;
 }
 
-.onlyDesktop {
-  @media screen and (max-width: 767px) {
-    display: none;
-  }
-  @media screen and (min-width: 768px) {
-    display: inherit;
-  }
+.verticalCenterChild {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
 }
 
-.onlyMobile {
-  @media screen and (max-width: 767px) {
-    display: inherit;
-  }
-  @media screen and (min-width: 768px) {
-    display: none;
-  }
+.center {
+  margin-right: auto;
+  margin-left: auto;
 }
 
-.underline {
-  position: relative;
-  &::before{
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 0;
-    height: 0.01vw;
-    background-color: #000000;
-    transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-  }
-  &:hover::before {
-    left: 0;
-    right: auto;
-    width: 100%;
-  }
+.clickAble {
+  pointer-events: auto;
+  cursor: pointer;
 }

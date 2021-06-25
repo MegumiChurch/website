@@ -1,0 +1,76 @@
+@import 'Home.module';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&display=swap');
+
+.root {
+  .main {
+    margin-top: $spaceBetween + $topBarHeight;
+    width: 50%;
+    @include mobile {
+      width: 95%;
+    }
+    .header {
+      position: relative;
+      width: 100%;
+      background-color: #3499ff;
+      border-radius: 18px;
+      background-size: cover;
+      height: 45vh;
+      @include mobile {
+        height: 28vh;
+        width: 90%;
+        margin-right: auto;
+        margin-left: auto;
+      }
+    }
+    .text {
+      margin-top: $spaceBetween;
+      @include mobile {
+        width: 80%;
+        margin-right: auto;
+        margin-left: auto;
+      }
+      .title {
+        font-family: 'Noto Sans JP', sans-serif;
+        position: relative;
+        text-align: center;
+        font-size: 3.5vh;
+      }
+      .info {
+        margin-top: $spaceBetween;
+        span {
+          display: block;
+        }
+        .author {
+          font-size: 1.3em;
+          @include mobile {
+            font-size: 1em;
+          }
+        }
+        .date {
+          font-size: 0.9em;
+          @include mobile {
+            font-size: 0.6em;
+          }
+        }
+      }
+      .body {
+        margin-top: $spaceBetween;
+        line-height: 2em;
+        color: #242424;
+        font-size: 2vh;
+        img {
+          position: relative;
+          box-shadow: 3px 4px 59px -9px #737373;
+          border-radius: 18px;
+          margin-top: 3%;
+          margin-bottom: 3%;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        @include mobile {
+          font-size: 2.1vh;
+        }
+      }
+    }
+  }
+}
