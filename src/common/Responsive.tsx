@@ -1,6 +1,6 @@
 import { CSSProperties, ReactChild } from 'react'
 import MediaQuery from 'react-responsive'
-import styles from 'styles/Enum.module.scss'
+import styles from '~/src/styles/Util.module.scss'
 
 interface Props {
   children?: ReactChild | ReactChild[]

@@ -1,109 +1,185 @@
-@import 'Navbar.module';
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800;900&display=swap');
-@font-face {font-family: "SF Pro JP"; src: url("//db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.eot"); src: url("//db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.woff") format("woff"), url("//db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.svg#SFProJPDisplay-Regular") format("svg"); }
+@import 'Util.module';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@500;700&display=swap');
 
-.main {
-  margin-right: auto;
-  margin-left: auto;
-  width: 100vw;
-  height: 100vh;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  div {
-    margin-right: auto;
-    margin-left: auto;
-    .outerBody {
-      width: 90%;
-      height: 100%;
+$topBarHeight: 50px;
+$spaceBetween: $topBarHeight * 0.5;
+
+.root {
+  main {
+    max-width: 1024px;
+    width: 100%;
+    position: relative;
+    margin-top: $spaceBetween + $topBarHeight;
+    * {
       margin-right: auto;
       margin-left: auto;
-      div {
-        border-radius: 18px;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
+      width: 90%;
+    }
+    div {
+      border-radius: 18px;
+    }
+    .windowTop {
+      position: relative;
+      background-color: #3499ff;
+      height: 50vh;
+      background-image: url("../../public/windows.jpg");
+      background-size: cover;
+      @include mobile {
+        width: 100vw;
+        margin-top: $spaceBetween * -1;
+        border-radius: 0;
       }
-      .mainSpace {
-        height: 50vh;
-        background-image: url("../../public/windows.jpg");
-        .filter {
-          height: 100%;
+      .filter {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: grayscale(1) brightness(7%);
+        @include mobile {
+          border-radius: 0;
+        }
+        .text {
+          position: relative;
           width: 100%;
-          backdrop-filter: grayscale(1) brightness(0.2);
-          .text {
-            padding-left: 5%;
-            padding-top: 30vh;
-            position: relative;
-            border-radius: 0;
-            .subtitle {
-              font-size: 1.3vh;
-              letter-spacing: 0.5vw;
-              color: silver;
-              &:after {
-                content: ' ・・・';
-              }
-            }
-            .title {
-              font-family: 'Roboto', sans-serif;
-              font-weight: 900;
-              color: #c3c3c3;
-              font-size: 9vh;
-            }
-          }
-        }
-      }
-      .contentSection {
-        display: flex;
-        flex-direction: row;
-        align-content: center;
-        justify-content: space-between;
-        padding-top: 5vh;
-        height: 60vh;
-        .left {
-          width: 50%;
-          margin-right: 2.5%;
-          background-color: #1D1D1F;
-
-        }
-        .right {
-          width: 50%;
+          height: 100%;
           display: flex;
           flex-direction: column;
+          align-content: center;
+          justify-content: center;
+          text-align: center;
+          p {
+            color: silver;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 900;
+            &:first-of-type {
+              font-size: 12px;
+              text-indent: 8px;
+              letter-spacing: 8px;
+              @include mobile {
+                font-size: 15px;
+                text-indent: 8px;
+                letter-spacing: 8px;
+              }
+            }
+            &:nth-of-type(2) {
+              text-transform: uppercase;
+              font-size: 15px;
+              text-indent: 5px;
+              letter-spacing: 5px;
+              font-family: 'Noto Sans SC', sans-serif;
+              @include mobile {
+                font-size: 10px;
+                text-indent: 5px;
+                letter-spacing: 5px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .body {
+      margin-top: $spaceBetween;
+      position: relative;
+      height: 50vh;
+      @include desktop {
+        display: flex;
+      }
+      @include mobile {
+        width: 100%;
+      }
+      * {
+        position: relative;
+        height: 100%;
+      }
+      .first {
+        div {
+          width: 100%;
+          @include desktop {
+            width: 97.5%;
+            margin-right: 2.5%;
+          }
+          height: 100%;
+          background-color: #222222;
+          div {
+            width: 80%;
+            height: auto;
+            margin-right: auto;
+            margin-left: auto;
+            color: whitesmoke;
+            * {
+              width: auto;
+              height: auto;
+            }
+            h2 {
+              font-size: 3.4vh;
+              @include mobile {
+                font-size: 4vh;
+              }
+              span {
+                margin-top: -1vh;
+                letter-spacing: normal;
+                display: inline-block;
+              }
+              .eng {
+                font-family: 'Roboto', sans-serif;
+              }
+            }
+            .dock {
+              margin-top: 5%;
+              text-align: center;
+              display: flex;
+              width: 70%;
+              flex-direction: row;
+              align-content: center;
+              justify-content: space-between;
+              box-shadow: inset 2px 2px 5px 0 rgba(0, 0, 0, 0.2),
+              inset -2px -2px 5px 0 rgba(74, 74, 74, 0.5);
+              height: 50%;
+              @include mobile {
+                height: 40%;
+              }
+              img {
+                top: 50%;
+                transform: translateY(-50%);
+                border-radius: 10px;
+                height: 7vh;
+              }
+            }
+          }
+        }
+      }
+      .second {
+        @include mobile {
+          margin-top: $spaceBetween;
+        }
+        div {
+          width: 100%;
+          @include desktop {
+            width: 97.5%;
+            margin-left: 2.5%;
+          }
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          align-content: center;
           justify-content: space-between;
           div {
-            width: 100%;
+            position: relative;
             height: 47.5%;
-          }
-          .first {
-            background-color: #0071E3;
-            div {
-              width: 85%;
-              height: 20vh;
-              h2 {
-                font-family: "SF Pro JP", serif;
-                font-size: 4vh;
-                font-weight: 900;
-                text-align: center;
-              }
-              p {
-                text-align: center;
-              }
+            width: 100%;
+            @include desktop {
+              margin-left: -0.25%;
             }
-            .iconSection {
-              display: flex;
-              width: 28vh;
-              align-content: center;
-              flex-direction: row;
-              justify-content: space-between;
-              margin-top: 3vh;
-              * {
-                width: 10vh;
-                height: 10vh;
-              }
+            &:nth-of-type(1) {
+              background-color: deepskyblue;
             }
-          }
-          .second {
-            background-color: blueviolet;
+            &:nth-of-type(2) {
+              @include mobile {
+                top: 2.5%;
+              }
+              background-color: blueviolet;
+              align-self: end;
+            }
           }
         }
       }
