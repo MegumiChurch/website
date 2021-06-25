@@ -1,86 +1,72 @@
-import Navbar from 'components/Navbar'
-import { createRef, useEffect, useState } from 'react'
 import styles from 'styles/Home.module.scss'
-import { getDimensionsById, useResizeEffect } from 'common/Util'
-import { useMediaQuery } from 'react-responsive'
-import { desktopQuery } from 'common/Responsive'
-import MainSpace from 'components/MainSpace'
-import Icon from 'components/Icon'
+import Navbar from 'components/Navbar'
 import Footer from 'components/Footer'
+import { useState } from 'react'
 
 export default function Home() {
-  const [bodyWidth, setBodyWidth] = useState(`95vw`)
-  const [isMenuOpen, setMenuOpen] = useState(false)
-  const isDesktop = useMediaQuery(desktopQuery)
-  useResizeEffect(() => {
-    const scrWidth = window.screen.width
-    setBodyWidth(
-      window.innerWidth > scrWidth / 2 + scrWidth * 0.025 && isDesktop
-        ? `${window.screen.width / 2}px`
-        : `100vw`
-    )
-  })
   return (
-    <div
-      id='main'
-      className={styles.main}
-      onScroll={() => {
-        setMenuOpen(false)
-      }}
-    >
-      <div id='body' style={{ width: bodyWidth }}>
-        <Navbar isMenuOpen={isMenuOpen} setMenuOpen={setMenuOpen} />
-        <div
-          className={styles.outerBody}
-          style={{ marginTop: `${getDimensionsById(`navbar`).height}px` }}
-        >
-          <div className={styles.mainSpace}>
-            <div className={styles.filter}>
-              <div className={styles.text}>
-                <p className={styles.subtitle}>NY めぐみ教会</p>
-                <p className={styles.title}>Megumi Church</p>
-              </div>
-            </div>
-          </div>
-          <div className={styles.contentSection}>
-            <div className={styles.left}>
-              <MainSpace />
-            </div>
-            <div className={styles.right}>
-              <div className={`${styles.first} vertical-center`}>
-                <div>
-                  <h2>
-                    <span>礼拝に</span>
-                    <span>参加</span>
-                  </h2>
-                  <p>それぞれGoogleMap、Zoomアプリを開きます。</p>
-                  <div className={styles.iconSection}>
-                    <Icon src='google-map.webp' />
-                    <Icon src='zoom.webp' />
-                  </div>
-                </div>
-              </div>
-              <div className={`${styles.second} vertical-center`}>
-                <div>
-                  <h2>
-                    <span>メーリング</span>
-                    <span>リストに</span>
-                    <span>登録</span>
-                  </h2>
-                  <p>
-                    Gmail・Lineで教会の最新情報・イベント情報を取得できます。
-                  </p>
-                  <div className={styles.iconSection}>
-                    <Icon src='gmail.webp' />
-                    <Icon src='line.webp' />
-                  </div>
-                </div>
-              </div>
+    <div className={styles.root}>
+      <Navbar />
+      <main className='center'>
+        <div className={styles.windowTop}>
+          <div className={styles.filter}>
+            <div className={styles.text}>
+              <p>NY めぐみ教会</p>
+              <p>Megumi Church</p>
             </div>
           </div>
         </div>
-      </div>
-      <Footer />
+        <div className={styles.body}>
+          <div className={styles.first}>
+            <div className='verticalCenterChild'>
+              <div>
+                <h2>
+                  <span>毎週</span>
+                  <span>日曜日</span>
+                  <span>午前</span>
+                  <span>九時</span>
+                  <span>より、</span>
+                  <span>リッジウェイ</span>
+                  <span>教会</span>
+                  <span>地下</span>
+                  <span>グリーン</span>
+                  <span>・</span>
+                  <span>ルーム</span>
+                  <span>にて。</span>
+                  <span className={styles.eng}>Zoom</span>
+                  <span>で</span>
+                  <span>参加も</span>
+                  <span>できます。</span>
+                </h2>
+                <div className={`${styles.dock}`}>
+                  <img
+                    className='clickAble'
+                    src='googleMap.webp'
+                    alt=''
+                    onMouseDown={() => {
+                      window.location.href = `https://goo.gl/maps/dAQFo16Biq41pc2S9`
+                    }}
+                  />
+                  <img
+                    className='clickAble'
+                    src='zoom.webp'
+                    alt=''
+                    onMouseDown={() => {
+                      window.location.href = `https://us02web.zoom.us/j/4256468662`
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className={styles.second}>
+            <div>
+              <div />
+              <div />
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
   )
 }

@@ -1,13 +1,8 @@
 import styles from 'styles/Footer.module.scss'
-import { CSSProperties } from 'react'
 
-interface Props {
-  style?: CSSProperties
-}
-
-export default function Footer({ style }: Props) {
+export default function Footer() {
   return (
-    <footer className={styles.main} style={style}>
+    <footer className={`${styles.main}`}>
       <p>・・・</p>
       <p>
         Developed By <a>Shun Ueda</a>. Powered by <a>Vercel</a>.
