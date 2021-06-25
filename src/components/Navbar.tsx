@@ -3,7 +3,9 @@ import { useEffect, useState } from 'react'
 import { Squeeze as Hamburger } from 'hamburger-react'
 import { RichText } from 'prismic-reactjs'
 import styles from 'styles/Navbar.module.scss'
+import { useMediaQuery } from 'react-responsive'
 import { client } from '~/src/common/Prismic'
+import { desktopQuery } from '~/src/common/Responsive'
 
 interface Link {
   name: string
@@ -13,6 +15,7 @@ interface Link {
 export default function Navbar() {
   const [items, setItems] = useState<Link[]>([])
   const [isMenuOpen, setMenuOpen] = useState(false)
+  const isDesktop = useMediaQuery(desktopQuery)
   useEffect(() => {
     client.getSingle(`navbar`, {}).then((r: any) => {
       setItems(
@@ -66,7 +69,7 @@ export default function Navbar() {
         }}
       >
         <div className='center'>
-          {items.slice(5).map(({ name, route }) => (
+          {items.slice(0, isDesktop ? 0 : 5).map(({ name, route }) => (
             <a className='clickAble' key={name} href={`/article/${route}`}>
               {name}
             </a>
