@@ -1,6 +1,14 @@
 @import 'Util.module';
 @import url('//db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SFProJPDisplay-Regular');
-@font-face {font-family: "SF Pro JP"; src: url("//db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.eot"); src: url("//db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.woff") format("woff"), url("//db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.svg#SFProJPDisplay-Regular") format("svg"); }
+@font-face {font-family: "SF Pro JP";
+  src: url("../../public/fonts/sfpro/SF Pro JP Regular.eot");
+  src: url("../../public/fonts/sfpro/SF Pro JP Regular.eot?#iefix") format("embedded-opentype"),
+  url("../../public/fonts/sfpro/SF Pro JP Regular.woff2") format("woff2"),
+  url("../../public/fonts/sfpro/SF Pro JP Regular.woff") format("woff"),
+  url("../../public/fonts/sfpro/SF Pro JP Regular.ttf") format("truetype"),
+  url("../../public/fonts/sfpro/SF Pro JP Regular.svg#SF Pro JP Regular") format("svg");
+}
+
 * {
   margin: 0;
   z-index: -99999;
