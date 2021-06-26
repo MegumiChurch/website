@@ -11,33 +11,40 @@ $spaceBetween: $topBarHeight * 0.5;
     width: 100%;
     position: relative;
     margin-top: $spaceBetween + $topBarHeight;
+
     * {
       margin-right: auto;
       margin-left: auto;
       width: 90%;
     }
+
     div {
       border-radius: 18px;
     }
+
     .windowTop {
       position: relative;
       background-color: #3499ff;
       height: 50vh;
       background-image: url("../../public/windows.jpg");
       background-size: cover;
+
       @include mobile {
         width: 100vw;
         margin-top: $spaceBetween * -1;
         border-radius: 0;
       }
+
       .filter {
         position: relative;
         width: 100%;
         height: 100%;
         backdrop-filter: grayscale(1) brightness(7%);
+
         @include mobile {
           border-radius: 0;
         }
+
         .text {
           position: relative;
           width: 100%;
@@ -47,26 +54,31 @@ $spaceBetween: $topBarHeight * 0.5;
           align-content: center;
           justify-content: center;
           text-align: center;
+
           p {
             color: silver;
             font-family: 'Roboto', sans-serif;
             font-weight: 900;
+
             &:first-of-type {
               font-size: 12px;
               text-indent: 8px;
               letter-spacing: 8px;
+
               @include mobile {
                 font-size: 15px;
                 text-indent: 8px;
                 letter-spacing: 8px;
               }
             }
+
             &:nth-of-type(2) {
               text-transform: uppercase;
               font-size: 15px;
               text-indent: 5px;
               letter-spacing: 5px;
               font-family: 'Noto Sans SC', sans-serif;
+
               @include mobile {
                 font-size: 10px;
                 text-indent: 5px;
@@ -77,53 +89,67 @@ $spaceBetween: $topBarHeight * 0.5;
         }
       }
     }
+
     .body {
       margin-top: $spaceBetween;
       position: relative;
       height: 50vh;
+
       @include desktop {
         display: flex;
       }
+
       @include mobile {
         width: 100%;
       }
+
       * {
         position: relative;
         height: 100%;
       }
+
       .first {
         div {
           width: 100%;
+
           @include desktop {
             width: 97.5%;
             margin-right: 2.5%;
           }
+
           height: 100%;
-          background-color: #222222;
+          background-color: #222;
+
           div {
             width: 80%;
             height: auto;
             margin-right: auto;
             margin-left: auto;
             color: whitesmoke;
+
             * {
               width: auto;
               height: auto;
             }
+
             h2 {
               font-size: 3.4vh;
+
               @include mobile {
                 font-size: 4vh;
               }
+
               span {
                 margin-top: -1vh;
                 letter-spacing: normal;
                 display: inline-block;
               }
+
               .eng {
                 font-family: 'Roboto', sans-serif;
               }
             }
+
             .dock {
               margin-top: 5%;
               text-align: center;
@@ -132,12 +158,15 @@ $spaceBetween: $topBarHeight * 0.5;
               flex-direction: row;
               align-content: center;
               justify-content: space-between;
-              box-shadow: inset 2px 2px 5px 0 rgba(0, 0, 0, 0.2),
-              inset -2px -2px 5px 0 rgba(74, 74, 74, 0.5);
+              box-shadow:
+                inset 2px 2px 5px 0 rgba(0, 0, 0, 0.2),
+                inset -2px -2px 5px 0 rgba(74, 74, 74, 0.5);
               height: 50%;
+
               @include mobile {
                 height: 40%;
               }
+
               img {
                 top: 50%;
                 transform: translateY(-50%);
@@ -148,35 +177,44 @@ $spaceBetween: $topBarHeight * 0.5;
           }
         }
       }
+
       .second {
         @include mobile {
           margin-top: $spaceBetween;
         }
+
         div {
           width: 100%;
+
           @include desktop {
             width: 97.5%;
             margin-left: 2.5%;
           }
+
           height: 100%;
           display: flex;
           flex-direction: column;
           align-content: center;
           justify-content: space-between;
+
           div {
             position: relative;
             height: 47.5%;
             width: 100%;
+
             @include desktop {
               margin-left: -0.25%;
             }
+
             &:nth-of-type(1) {
               background-color: deepskyblue;
             }
+
             &:nth-of-type(2) {
               @include mobile {
                 top: 2.5%;
               }
+
               background-color: blueviolet;
               align-self: end;
             }

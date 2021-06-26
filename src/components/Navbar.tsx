@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react'
 
-import { Squeeze as Hamburger } from 'hamburger-react'
 import { RichText } from 'prismic-reactjs'
 import styles from 'styles/Navbar.module.scss'
 import { useMediaQuery } from 'react-responsive'
-import { client } from '~/src/common/Prismic'
-import { desktopQuery } from '~/src/common/Responsive'
+import { client } from 'common/Prismic'
+import { desktopQuery } from 'common/Responsive'
 
 interface Link {
   name: string
@@ -65,7 +64,7 @@ export default function Navbar() {
       <div
         className={styles.menu}
         style={{
-          opacity: isMenuOpen ? 1 : 0
+          opacity: ismenuopen ? 1 : 0
         }}
       >
         <div className='center'>

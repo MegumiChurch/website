@@ -4,9 +4,8 @@ import { useEffect, useState } from 'react'
 import Prismic from '@prismicio/client'
 import styles from 'styles/[id].module.scss'
 import { useRouter } from 'next/router'
-import Footer from '~/src/components/Footer'
-import Navbar from '~/src/components/Navbar'
-import { client } from '~/src/common/Prismic'
+import Navbar from 'components/Navbar'
+import { client } from 'common/Prismic'
 
 interface Document {
   header: string

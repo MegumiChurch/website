@@ -1,5 +1,5 @@
 import { AppProps } from 'next/app'
-import '~/src/styles/global.scss'
+import 'styles/global.scss'
 import { useEffect, useState } from 'react'
 
 export default function MyApp({ Component, pageProps }: AppProps) {

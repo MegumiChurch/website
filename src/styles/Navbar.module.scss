@@ -4,32 +4,38 @@
 
 .root {
   z-index: 9;
+
   * {
     z-index: 99;
   }
+
   position: fixed;
   width: 100%;
   text-align: center;
-  background-color: transparentize(#2F2F2D, 0.02);
+  background-color: transparentize(#2f2f2d, 0.02);
   height: $topBarHeight;
   top: 0;
+
   section {
     max-width: 1024px;
     height: 100%;
     width: 100%;
     display: flex;
+
     * {
       display: flex;
       flex-direction: column;
       align-content: center;
       justify-content: center;
     }
+
     .logoSection {
       position: relative;
       height: 100%;
       display: flex;
       flex-direction: row;
       width: 150px;
+
       .logo {
         position: relative;
         width: 25px;
@@ -37,6 +43,7 @@
         transform: translateY(-50%);
         background-image: url("../../public/logo.svg");
       }
+
       span {
         color: whitesmoke;
         font-family: 'Benne', serif;
@@ -47,6 +54,7 @@
         letter-spacing: 0.1vw;
       }
     }
+
     nav {
       display: flex;
       justify-content: space-evenly;
@@ -54,25 +62,30 @@
       flex-direction: row;
       height: 100%;
       width: 75%;
+
       @include mobile {
         display: none;
       }
+
       a {
         color: whitesmoke;
         font-size: 1.3vh;
       }
     }
+
     .menuIcon {
       width: 10%;
       position: relative;
       margin-left: auto;
       font-weight: 900;
+
       p {
         transition: 0.2s;
         color: whitesmoke;
         font-size: 0.5em;
         transform: scaleX(2.5) rotate(180deg);
       }
+
       @include mobile {
         margin-right: 40px;
       }
@@ -83,22 +96,26 @@
 .menu {
   margin-top: $spaceBetween;
   z-index: 9;
+
   * {
     z-index: 99;
   }
+
   transition: 0.2s;
   position: fixed;
   left: 75.5%;
   text-align: center;
   height: 50vh;
   border-radius: 18px;
-  background-color: transparentize(#2F2F2D, 0.02);
+  background-color: transparentize(#2f2f2d, 0.02);
   top: $topBarHeight;
   width: 20vw;
+
   @include mobile {
     width: 40%;
     transform: translateX(-50%);
   }
+
   div {
     top: 50%;
     transform: translateY(-50%);
@@ -109,6 +126,7 @@
     flex-direction: column;
     align-content: center;
     justify-content: space-between;
+
     a {
       color: white;
       display: block;

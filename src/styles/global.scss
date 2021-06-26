@@ -1,11 +1,14 @@
 @import 'Util.module';
-@font-face {font-family: "SF Pro JP Regular";
+
+@font-face {
+  font-family: "SF Pro JP Regular";
   src: url("../../public/fonts/sfpro/SF Pro JP Regular.eot");
-  src: url("../../public/fonts/sfpro/SF Pro JP Regular.eot?#iefix") format("embedded-opentype"),
-  url("../../public/fonts/sfpro/SF Pro JP Regular.woff2") format("woff2"),
-  url("../../public/fonts/sfpro/SF Pro JP Regular.woff") format("woff"),
-  url("../../public/fonts/sfpro/SF Pro JP Regular.ttf") format("truetype"),
-  url("../../public/fonts/sfpro/SF Pro JP Regular.svg#SF Pro JP Regular") format("svg");
+  src:
+    url("../../public/fonts/sfpro/SF Pro JP Regular.eot?#iefix") format("embedded-opentype"),
+    url("../../public/fonts/sfpro/SF Pro JP Regular.woff2") format("woff2"),
+    url("../../public/fonts/sfpro/SF Pro JP Regular.woff") format("woff"),
+    url("../../public/fonts/sfpro/SF Pro JP Regular.ttf") format("truetype"),
+    url("../../public/fonts/sfpro/SF Pro JP Regular.svg#SF Pro JP Regular") format("svg");
 }
 
 * {

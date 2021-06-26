@@ -10,8 +10,8 @@
     "build": "next build",
     "start": "next start",
     "type-check": "tsc",
-    "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
-    "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
+    "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" & stylelint src/**/*.scss",
+    "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write & replace '~/src/' '' src -r",
     "postinstall": "husky install",
     "commit": "cz"
   },
@@ -55,9 +55,14 @@
     "eslint-plugin-prettier": "3.4.0",
     "eslint-plugin-react": "7.24.0",
     "eslint-plugin-react-hooks": "4.2.0",
+    "eslint-plugin-unused-imports": "1.1.1",
     "husky": "6.0.0",
     "lint-staged": "11.0.0",
     "prettier": "2.3.0",
+    "replace": "1.2.1",
+    "stylelint": "13.13.1",
+    "stylelint-config-standard": "22.0.0",
+    "stylelint-scss": "3.19.0",
     "typescript": "4.3.2"
   },
   "config": {

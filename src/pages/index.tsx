@@ -1,7 +1,5 @@
 import styles from 'styles/Home.module.scss'
 import Navbar from 'components/Navbar'
-import Footer from 'components/Footer'
-import { useState } from 'react'
 
 export default function Home() {
   return (
