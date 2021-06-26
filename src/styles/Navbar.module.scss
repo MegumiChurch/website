@@ -81,12 +81,12 @@
 }
 
 .menu {
+  margin-top: $spaceBetween;
   z-index: 9;
   * {
     z-index: 99;
   }
   transition: 0.2s;
-  margin-top: 1%;
   position: fixed;
   left: 75.5%;
   text-align: center;
@@ -94,7 +94,7 @@
   border-radius: 18px;
   background-color: transparentize(#2F2F2D, 0.02);
   top: $topBarHeight;
-  width: 10%;
+  width: 20vw;
   @include mobile {
     width: 40%;
     transform: translateX(-50%);

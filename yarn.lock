@@ -324,6 +324,11 @@
   dependencies:
     cross-fetch "^3.0.6"
 
+"@types/css-font-loading-module@0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@types/css-font-loading-module/-/css-font-loading-module-0.0.5.tgz#17c37be8df0c414608015026f2a241c482d45b49"
+  integrity sha512-yMt5ISeRT8nJkuR4Nayp63LOa0qFlJTkbizIED4e9VRIfzKigQ1Q0v/nKkKo/Agq1znTW/bfF/5RcoAPtv3MGg==
+
 "@types/json-schema@^7.0.6", "@types/json-schema@^7.0.7":
   version "7.0.7"
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.7.tgz#98a993516c859eb0d5c4c8f098317a9ea68db9ad"

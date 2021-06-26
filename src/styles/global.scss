@@ -1,6 +1,5 @@
 @import 'Util.module';
-@import url('//db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SFProJPDisplay-Regular');
-@font-face {font-family: "SF Pro JP";
+@font-face {font-family: "SF Pro JP Regular";
   src: url("../../public/fonts/sfpro/SF Pro JP Regular.eot");
   src: url("../../public/fonts/sfpro/SF Pro JP Regular.eot?#iefix") format("embedded-opentype"),
   url("../../public/fonts/sfpro/SF Pro JP Regular.woff2") format("woff2"),
@@ -17,7 +16,7 @@
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  font-family: "SF Pro JP", serif;
+  font-family: "SF Pro JP Regular", serif;
   pointer-events: none;
 }
 
