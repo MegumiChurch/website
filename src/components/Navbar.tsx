@@ -13,7 +13,7 @@ interface Link {
 
 export default function Navbar() {
   const [items, setItems] = useState<Link[]>([])
-  const [isMenuOpen, setMenuOpen] = useState(false)
+  const [isOpen, setOpen] = useState(false)
   const isDesktop = useMediaQuery(desktopQuery)
   useEffect(() => {
     client.getSingle(`navbar`, {}).then((r: any) => {
@@ -48,12 +48,12 @@ export default function Navbar() {
           <div
             className={`${styles.menuIcon} clickAble`}
             onMouseDown={() => {
-              setMenuOpen(!isMenuOpen)
+              setOpen(!isOpen)
             }}
           >
             <p
               style={{
-                transform: `scaleX(2.5) rotate(${isMenuOpen ? 0 : 180}deg)`
+                transform: `scaleX(2.5) rotate(${isOpen ? 0 : 180}deg)`
               }}
             >
               ∨
@@ -64,7 +64,7 @@ export default function Navbar() {
       <div
         className={styles.menu}
         style={{
-          opacity: ismenuopen ? 1 : 0
+          opacity: isopen ? 1 : 0
         }}
       >
         <div className='center'>
