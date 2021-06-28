@@ -64,7 +64,7 @@ export default function Navbar() {
       <div
         className={styles.menu}
         style={{
-          opacity: isopen ? 1 : 0
+          opacity: `${isOpen ? 1 : 0}`
         }}
       >
         <div className='center'>
