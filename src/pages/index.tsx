@@ -1,7 +1,5 @@
 import styles from 'styles/Home.module.scss'
 import Navbar from 'components/Navbar'
-import Footer from 'components/Footer'
-import { getDimensionsById } from 'common/Util'
 
 export default function Home() {
   return (
