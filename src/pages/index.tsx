@@ -1,5 +1,7 @@
 import styles from 'styles/Home.module.scss'
 import Navbar from 'components/Navbar'
+import Footer from 'components/Footer'
+import { getDimensionsById } from 'common/Util'
 
 export default function Home() {
   return (
@@ -15,7 +17,7 @@ export default function Home() {
           </div>
         </div>
         <div className={styles.body}>
-          <div className={styles.first}>
+          <div className={styles.first} id='first'>
             <div className='verticalCenterChild'>
               <div>
                 <h2>
@@ -57,7 +59,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className={styles.second}>
+          <div className={styles.second} id='second'>
             <div>
               <div />
               <div />

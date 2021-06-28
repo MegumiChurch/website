@@ -136,7 +136,7 @@ $spaceBetween: $topBarHeight * 0.5;
               font-size: 3.4vh;
 
               @include mobile {
-                font-size: 4vh;
+                font-size: 3.4vh;
               }
 
               span {
@@ -154,16 +154,14 @@ $spaceBetween: $topBarHeight * 0.5;
               margin-top: 5%;
               text-align: center;
               display: flex;
-              width: 70%;
+              width: 85%;
               flex-direction: row;
               align-content: center;
               justify-content: space-between;
-              box-shadow:
-                inset 2px 2px 5px 0 rgba(0, 0, 0, 0.2),
-                inset -2px -2px 5px 0 rgba(74, 74, 74, 0.5);
               height: 50%;
 
               @include mobile {
+                margin-top: 8%;
                 height: 40%;
               }
 
@@ -181,6 +179,7 @@ $spaceBetween: $topBarHeight * 0.5;
       .second {
         @include mobile {
           margin-top: $spaceBetween;
+          padding-bottom: $spaceBetween;
         }
 
         div {
@@ -220,6 +219,12 @@ $spaceBetween: $topBarHeight * 0.5;
             }
           }
         }
+      }
+
+      .footer {
+        background-color: #3499ff;
+        height: 10vh;
+        width: 100vw;
       }
     }
   }
