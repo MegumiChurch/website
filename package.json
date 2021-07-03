@@ -10,15 +10,20 @@
     "build": "next build",
     "start": "next start",
     "type-check": "tsc",
-    "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" & stylelint src/**/*.scss",
-    "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write & replace '~/src/' '' src -r",
+    "precommit": "'yarn lint --fix && yarn format'",
+    "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
+    "stylelint": "stylelint src/**/*.scss",
+    "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
+    "fixImport": "replace '~/src/' '' src -r",
     "postinstall": "husky install",
     "commit": "cz"
   },
   "lint-staged": {
     "./src/**/*.{ts,js,jsx,tsx}": [
+      "yarn stylelint --fix",
       "yarn lint --fix",
-      "yarn format"
+      "yarn format",
+      "yarn fixImport"
     ]
   },
   "dependencies": {

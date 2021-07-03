@@ -73,14 +73,19 @@
         font-size: 2vh;
 
         img {
-          width: 50%;
           position: relative;
-          box-shadow: 3px 4px 40px -9px #737373;
           border-radius: 18px;
           margin-top: 3%;
           margin-bottom: 3%;
           left: 50%;
           transform: translateX(-50%);
+          height: 33vh;
+          width: 30vw;
+
+          @include mobile {
+            height: 23vh;
+            width: 70vw;
+          }
         }
 
         @include mobile {
