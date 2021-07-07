@@ -7,6 +7,7 @@
   width: 100%;
   z-index: 99;
   display: flex;
+
   .logoSection {
     height: $headerHeight;
     width: $headerHeight;
@@ -22,11 +23,13 @@
       //background-image: url("../../public/favicon.svg");
     }
   }
+
   .menuIcon {
     background-color: #363636;
     margin-left: auto;
     width: auto;
   }
+
   * {
     pointer-events: auto;
     cursor: pointer;
@@ -41,6 +44,7 @@
   height: 100vh;
   background-color: transparentize(white, 0.05);
   z-index: 99;
+
   @include desktop {
     width: 100%;
   }
@@ -54,6 +58,7 @@
   height: 100vh;
   display: block;
   text-align: right;
+
   a {
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 700;
@@ -68,8 +73,9 @@
     padding: 0.2em;
     background-color: #363636;
     border-radius: 0.1em;
+
     &:first-of-type {
-      background-color: #65A1DE;
+      background-color: #65a1de;
     }
   }
 }

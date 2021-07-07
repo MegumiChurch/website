@@ -6,7 +6,7 @@ import { dquery } from 'common/Responsive'
 
 export default function Header() {
   const [isOpen, setOpen] = useState(false)
-  const isDesktop = useMediaQuery(dquery)
+  const desktop = useMediaQuery(dquery)
   return (
     <>
       <header className={styles.header}>
@@ -21,14 +21,14 @@ export default function Header() {
         className={styles.filter}
         style={{
           marginLeft: `${isOpen ? 0 : 100}%`,
-          transition: isdesktop ? `0.5s` : `0.5s ${isOpen ? `` : `0.08s`}`
+          transition: desktop ? `0.5s` : `0.5s ${isOpen ? `` : `0.08s`}`
         }}
       />
       <div
         className={styles.menu}
         style={{
           marginLeft: `${isOpen ? 0 : 100}%`,
-          transition: isdesktop ? `0.5s` : `0.5s ${isOpen ? `0.08s` : ``}`
+          transition: desktop ? `0.5s` : `0.5s ${isOpen ? `0.08s` : ``}`
         }}
       >
         <a href='/'>ホーム{`\n`}</a>
