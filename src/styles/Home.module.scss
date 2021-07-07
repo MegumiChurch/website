@@ -1,231 +1,115 @@
 @import 'Util.module';
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@500;700&display=swap');
-
-$topBarHeight: 50px;
-$spaceBetween: $topBarHeight * 0.5;
+@import "Enum";
 
 .root {
-  main {
-    max-width: 1024px;
-    width: 100%;
-    position: relative;
-    margin-top: $spaceBetween + $topBarHeight;
-
-    * {
-      margin-right: auto;
-      margin-left: auto;
-      width: 90%;
+  position: relative;
+  padding-top: $headerHeight * 1.5;
+  .title {
+    margin-right: auto;
+    margin-left: auto;
+    width: 50em;
+    height: 30em;
+    text-align: left;
+    display: flex;
+    @include mobile {
+      width: 20em;
+      height: 13em;
     }
-
-    div {
-      border-radius: 18px;
-    }
-
-    .windowTop {
-      position: relative;
-      background-color: #3499ff;
-      height: 50vh;
-      background-image: url("../../public/windows.jpg");
-      background-size: cover;
-
+    .textSection {
+      z-index: 1;
+      position: absolute;
+      height: 3em;
+      margin-top: 22em;
+      margin-left: 2em;
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      justify-content: space-between;
       @include mobile {
-        width: 100vw;
-        margin-top: $spaceBetween * -1;
-        border-radius: 0;
+        margin-left: 1em;
+        margin-top: 8em;
       }
-
-      .filter {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        backdrop-filter: grayscale(1) brightness(7%);
-
-        @include mobile {
-          border-radius: 0;
+      div {
+        span {
+          padding: 0.2rem;
         }
-
-        .text {
-          position: relative;
-          width: 100%;
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          align-content: center;
-          justify-content: center;
-          text-align: center;
-
-          p {
-            color: silver;
-            font-family: 'Roboto', sans-serif;
+        &:nth-of-type(1) {
+          span {
+            color: white;
+            font-size: 0.7em;
+            font-family: "SF Pro Display Ultralight", serif;
+            background-color: #000000;
+            @include mobile {
+              font-size: 0.5em;
+            }
+          }
+        }
+        &:nth-of-type(2) {
+          margin-top: 0.7em;
+          display: block;
+          span {
+            font-family: 'Noto Sans JP', sans-serif;
             font-weight: 900;
-
-            &:first-of-type {
-              font-size: 12px;
-              text-indent: 8px;
-              letter-spacing: 8px;
-
-              @include mobile {
-                font-size: 15px;
-                text-indent: 8px;
-                letter-spacing: 8px;
-              }
-            }
-
-            &:nth-of-type(2) {
-              text-transform: uppercase;
-              font-size: 15px;
-              text-indent: 5px;
-              letter-spacing: 5px;
-              font-family: 'Noto Sans SC', sans-serif;
-
-              @include mobile {
-                font-size: 10px;
-                text-indent: 5px;
-                letter-spacing: 5px;
-              }
+            width: auto;
+            font-size: 1.4em;
+            background-color: #ffffff;
+            @include mobile {
+              font-size: 1em;
             }
           }
         }
       }
     }
-
-    .body {
-      margin-top: $spaceBetween;
-      position: relative;
-      height: 50vh;
-
-      @include desktop {
-        display: flex;
-      }
-
-      @include mobile {
-        width: 100%;
-      }
-
+    .filter {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      backdrop-filter: grayscale(1);
       * {
-        position: relative;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.25em;
+      }
+      .decoration {
+        text-align: right;
+        margin-left: auto;
+        width: 70%;
         height: 100%;
-      }
-
-      .first {
-        div {
-          width: 100%;
-
-          @include desktop {
-            width: 97.5%;
-            margin-right: 2.5%;
-          }
-
-          height: 100%;
-          background-color: #222;
-
-          div {
-            width: 80%;
-            height: auto;
-            margin-right: auto;
-            margin-left: auto;
-            color: whitesmoke;
-
-            * {
-              width: auto;
-              height: auto;
-            }
-
-            h2 {
-              font-size: 3.4vh;
-
-              @include mobile {
-                font-size: 3.4vh;
-              }
-
-              span {
-                margin-top: -1vh;
-                letter-spacing: normal;
-                display: inline-block;
-              }
-
-              .eng {
-                font-family: 'Roboto', sans-serif;
-              }
-            }
-
-            .dock {
-              margin-top: 5%;
-              text-align: center;
-              display: flex;
-              width: 85%;
-              flex-direction: row;
-              align-content: center;
-              justify-content: space-between;
-              height: 50%;
-
-              @include mobile {
-                margin-top: 8%;
-                height: 40%;
-              }
-
-              img {
-                top: 50%;
-                transform: translateY(-50%);
-                border-radius: 10px;
-                height: 7vh;
-              }
-            }
-          }
-        }
-      }
-
-      .second {
+        clip-path: polygon(73% 0, 100% 0, 100% 37%, 0% 100%);
+        background-color: #1f1f1f;
         @include mobile {
-          margin-top: $spaceBetween;
-          padding-bottom: $spaceBetween;
+          width: 50%;
+          clip-path: polygon(62% 0, 100% 0, 100% 36%, 0% 100%);
         }
-
-        div {
-          width: 100%;
-
-          @include desktop {
-            width: 97.5%;
-            margin-left: 2.5%;
-          }
-
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          align-content: center;
-          justify-content: space-between;
-
-          div {
-            position: relative;
-            height: 47.5%;
-            width: 100%;
-
-            @include desktop {
-              margin-left: -0.25%;
-            }
-
-            &:nth-of-type(1) {
-              background-color: deepskyblue;
-            }
-
-            &:nth-of-type(2) {
-              @include mobile {
-                top: 2.5%;
-              }
-
-              background-color: blueviolet;
-              align-self: end;
-            }
+        * {
+          width: 80%;
+        }
+        h1 {
+          color: #363636;
+          font-size: 3em;
+          @include mobile {
+            font-size: 1.2em;
           }
         }
-      }
-
-      .footer {
-        background-color: #3499ff;
-        height: 10vh;
-        width: 100vw;
+        h2 {
+          color: #ffffff;
+          font-size: 1em;
+          padding-bottom: 1em;
+          @include mobile {
+            font-size: 1em;
+          }
+        }
       }
     }
   }
+}
+
+.space1 {
+  //background-image: url("../../public/meet.jpg");
+  //height: 31em;
+  //filter: grayscale(1);
+  //@include mobile {
+  //  height: 13em;
+  //}
 }
