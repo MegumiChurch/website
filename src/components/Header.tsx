@@ -1,12 +1,31 @@
 import styles from 'styles/Header.module.scss'
 import { Cross as Hamburger } from 'hamburger-react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
 import { dquery } from 'common/Responsive'
+import { asText, getArticleByType } from 'common/Prismic'
 
 export default function Header() {
   const [isOpen, setOpen] = useState(false)
   const desktop = useMediaQuery(dquery)
+  const [contents, setContents] = useState([])
+  useEffect(() => {
+    const temp: any = []
+    getArticleByType(`article`).then(({ results }) => {
+      results.forEach(result => {
+        temp.push({
+          title: asText(result.data.article.title.value),
+          id: result.id
+        })
+      })
+      setContents(
+        temp.filter(
+          (it: { title: string }) =>
+            ![`利用規約`, `プライバシーポリシー`].includes(it.title)
+        )
+      )
+    })
+  }, [])
   return (
     <>
       <header className={styles.header}>
@@ -32,9 +51,12 @@ export default function Header() {
         }}
       >
         <a href='/'>ホーム{`\n`}</a>
-        <a href=''>沿革{`\n`}</a>
-        <a href=''>牧師紹介{`\n`}</a>
-        <a href=''>こんにちは、世界！</a>
+        {contents.map(({ title, id }) => (
+          <a href={`/article/${id}`}>
+            {title}
+            {`\n`}
+          </a>
+        ))}
       </div>
     </>
   )

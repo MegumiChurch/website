@@ -28,10 +28,10 @@ export default function Footer() {
               <ul>
                 <li>免責</li>
                 <li>
-                  <a href=''>プライバシーポリシー</a>
+                  <a href='/article/YOXClRMAACIAnGrd'>プライバシーポリシー</a>
                 </li>
                 <li>
-                  <a href=''>利用規約</a>
+                  <a href='/article/YOXDUBMAACMAnG4y'>利用規約</a>
                 </li>
               </ul>
             </div>
@@ -43,9 +43,13 @@ export default function Footer() {
             Copyright © {new Date().getFullYear()} Shun Ueda. All rights
             reserved.
           </p>
-          <a className='monly'>プライバシーポリシー</a>
+          <a className='monly' href='/article/YOXClRMAACIAnGrd'>
+            プライバシーポリシー
+          </a>
           <span className='monly'>|</span>
-          <a className='monly'>利用規約</a>
+          <a className='monly' href='/article/YOXDUBMAACMAnG4y'>
+            利用規約
+          </a>
         </div>
       </section>
     </footer>

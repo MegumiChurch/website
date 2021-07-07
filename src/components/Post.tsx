@@ -10,7 +10,7 @@ export default function Post({ title, date, route }: Props) {
   return (
     <section className={styles.root}>
       <h6>{date}</h6>
-      <a>
+      <a href={route}>
         {title}
         {`  >`}
       </a>

@@ -1,5 +1,5 @@
 import styles from 'styles/Home.module.scss'
-import React, { useEffect, useState } from 'react'
+import React, { ReactChild, useEffect, useState } from 'react'
 import Footer from 'components/Footer'
 import Header from 'components/Header'
 import Card from 'components/Card'
@@ -11,23 +11,63 @@ export default function Home() {
     header: `https://images.prismic.io/jgc-website/2ef94315-f2e4-40a7-b167-d32f68d1de2d_meet.jpg?auto=compress,format`,
     title: `NEW YORK GRACE CHURCH`,
     subtitle: `ニューヨークめぐみ教会`,
-    first_section_body: `毎週日曜日午前９時より、リッジウェイ教会地下グリーン・ルームにて。コロナ禍にありますが、三密を避け、注意して行っています。Zoomを通してもご参加頂けます。`
+    first_section_body: `毎週日曜日午前９時より、リッジウェイ教会地下グリーン・ルームにて。コロナ禍にありますが、三密を避け、注意して行っています。Zoomを通してもご参加頂けます。`,
+    zoom_link: ``,
+    google_map_link: ``
   })
+  const [news, setNews] = useState<
+    {
+      title: string
+      last_publication_date: string
+      id: string
+    }[]
+  >([])
   useEffect(() => {
     getArticleByType(`home`)
       .then(res => {
-        const { header, title, subtitle, first_section_body } =
-          res.results[0].data.home
+        const {
+          header,
+          title,
+          subtitle,
+          first_section_body,
+          zoom_link,
+          google_map_link
+        } = res.results[0].data.home
         setArticle({
           header: header.value.main.url,
           title: asText(title.value),
           subtitle: asText(subtitle.value),
-          first_section_body: asText(first_section_body.value)
+          first_section_body: asText(first_section_body.value),
+          zoom_link: zoom_link.value.url,
+          google_map_link: google_map_link.value.url
         })
       })
       .catch(() => {
         window.location.href = `/404`
       })
+    getArticleByType(`news`).then(({ results }) => {
+      const temp: any[] = []
+      const now = Date.now()
+      results.forEach(article => {
+        const { display_until_date, title } = article.data.news
+        if (new Date(display_until_date.value.split(`-`)).getTime() > now) {
+          temp.push({
+            title: asText(title.value),
+            last_publication_date: (article.last_publication_date ?? ``)
+              .substring(0, 10)
+              .replaceAll(`-`, `/`),
+            id: article.id
+          })
+        }
+      })
+      temp.sort((a, b) =>
+        new Date(a.last_publication_date.split(`/`)).getTime() <
+        new Date(b.last_publication_date.split(`/`)).getTime()
+          ? 1
+          : -1
+      )
+      setNews(temp)
+    })
   }, [])
   return (
     <>
@@ -63,22 +103,20 @@ export default function Home() {
           >
             {article.first_section_body}
             <br />
-            <a>Zoomで参加</a>
+            <a href={article.zoom_link}>Zoomで参加</a>
             <span>|</span>
-            <a>GoogleMapで表示</a>
+            <a href={article.google_map_link}>GoogleMapで表示</a>
           </Card>
           <Card titles={[`Our latest`, `News`]}>
-            <Post title='最初のニュース' date='2021/07/06' route='google.com' />
-            <Post
-              title='サマースクール、開校します'
-              date='2021/07/06'
-              route='google.com'
-            />
-            <Post
-              title='信徒会、やります'
-              date='2021/07/06'
-              route='google.com'
-            />
+            {
+              (news || []).map(it => (
+                <Post
+                  title={it.title}
+                  date={it.last_publication_date}
+                  route={`/article/${it.id}`}
+                />
+              )) as unknown as ReactChild
+            }
             <a>過去のニュース {` >`}</a>
           </Card>
           <Card titles={[`Get updates`, `Subscribe`]}>
@@ -86,7 +124,7 @@ export default function Home() {
             <br />
             <a href=''>登録</a>
             <span>|</span>
-            <a>プライバシーポリシー</a>
+            <a href='/article/YOXClRMAACIAnGrd'>プライバシーポリシー</a>
           </Card>
         </article>
       </main>
