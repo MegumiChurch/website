@@ -1,97 +1,73 @@
-@import 'Home.module';
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&display=swap');
+@import "Enum";
+@import "Util.module";
+
+.headerSection {
+  padding-top: $headerHeight;
+  height: 20em;
+  width: 40em;
+
+  @include mobile {
+    width: 100%;
+    height: 12em;
+  }
+
+  div {
+    height: 100%;
+    width: 100%;
+  }
+}
 
 .root {
-  .main {
-    margin-top: $spaceBetween + $topBarHeight;
-    width: 50%;
+  width: 40em;
 
-    @include mobile {
-      width: 95%;
+  @include mobile {
+    width: 90%;
+  }
+
+  * {
+    margin-top: 3rem;
+  }
+
+  .title {
+    //padding-bottom: 2em;
+    width: 100%;
+
+    h1 {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 700;
+      font-size: 1.8em;
+
+      @include mobile {
+        font-size: 1.6em;
+      }
+    }
+  }
+
+  .info {
+    color: #363636;
+    font-size: 0.8em;
+    letter-spacing: 0.1em;
+  }
+
+  .body {
+    * {
+      margin-top: 1.5rem;
     }
 
-    .header {
-      position: relative;
+    p {
+      color: #363636;
+      font-family: 'Sawarabi Gothic', sans-serif;
+      font-size: 1.1em;
+      line-height: 2em;
+
+      @include mobile {
+        font-size: 0.9em;
+      }
+    }
+
+    img {
+      object-fit: cover;
       width: 100%;
-      background-color: #3499ff;
-      border-radius: 18px;
-      background-size: cover;
-      height: 45vh;
-
-      @include mobile {
-        height: 28vh;
-        width: 90%;
-        margin-right: auto;
-        margin-left: auto;
-      }
-    }
-
-    .text {
-      margin-top: $spaceBetween;
-
-      @include mobile {
-        width: 80%;
-        margin-right: auto;
-        margin-left: auto;
-      }
-
-      .title {
-        font-family: 'Noto Sans JP', sans-serif;
-        position: relative;
-        text-align: center;
-        font-size: 3.5vh;
-      }
-
-      .info {
-        margin-top: $spaceBetween;
-
-        span {
-          display: block;
-        }
-
-        .author {
-          font-size: 1.3em;
-
-          @include mobile {
-            font-size: 1em;
-          }
-        }
-
-        .date {
-          font-size: 0.9em;
-
-          @include mobile {
-            font-size: 0.6em;
-          }
-        }
-      }
-
-      .body {
-        margin-top: $spaceBetween;
-        line-height: 2em;
-        color: #242424;
-        font-size: 2vh;
-
-        img {
-          position: relative;
-          border-radius: 18px;
-          margin-top: 3%;
-          margin-bottom: 3%;
-          left: 50%;
-          transform: translateX(-50%);
-          height: 33vh;
-          width: 30vw;
-
-          @include mobile {
-            height: 23vh;
-            width: 70vw;
-          }
-        }
-
-        @include mobile {
-          font-size: 2.1vh;
-        }
-      }
     }
   }
 }

@@ -1,34 +1,39 @@
+@import 'fonts';
 @import 'Util.module';
 
-@font-face {
-  font-family: "SF Pro JP Regular";
-  src: url("../../public/fonts/sfpro/SF Pro JP Regular.eot");
-  src:
-    url("../../public/fonts/sfpro/SF Pro JP Regular.eot?#iefix") format("embedded-opentype"),
-    url("../../public/fonts/sfpro/SF Pro JP Regular.woff2") format("woff2"),
-    url("../../public/fonts/sfpro/SF Pro JP Regular.woff") format("woff"),
-    url("../../public/fonts/sfpro/SF Pro JP Regular.ttf") format("truetype"),
-    url("../../public/fonts/sfpro/SF Pro JP Regular.svg#SF Pro JP Regular") format("svg");
+ul {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+a {
+  pointer-events: auto;
+  cursor: pointer;
+  color: #65a1de;
 }
 
 * {
-  clear: both;
   margin: 0;
-  z-index: -99999;
   text-decoration: none;
   white-space: pre-wrap;
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  font-family: "SF Pro JP Regular", serif;
+  font-family: "SF Pro JP Regular", "SF Pro Display Medium", serif;
   pointer-events: none;
+  font-weight: normal;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.verticalCenterChild {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  justify-content: center;
+.monly {
+  @include desktop {
+    display: none;
+  }
+}
+
+.donly {
+  @include mobile {
+    display: none;
+  }
 }
 
 .center {
@@ -36,7 +41,14 @@
   margin-left: auto;
 }
 
-.clickAble {
+.vcenter_child {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+
+.clickable {
   pointer-events: auto;
   cursor: pointer;
 }
