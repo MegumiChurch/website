@@ -72,9 +72,11 @@
     padding: 0.2em;
     background-color: #363636;
     border-radius: 0.1em;
+
     @include desktop {
       margin-right: 5em;
     }
+
     &:first-of-type {
       background-color: #65a1de;
     }
