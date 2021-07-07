@@ -52,9 +52,6 @@
   .body {
     * {
       margin-top: 1.5rem;
-    }
-
-    p {
       color: #363636;
       font-family: 'Sawarabi Gothic', sans-serif;
       font-size: 1.1em;
@@ -68,6 +65,9 @@
     img {
       object-fit: cover;
       width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-size: unset;
     }
   }
 }

@@ -10,9 +10,8 @@ interface Document {
   ready: boolean
   header: string
   title: string
-  author: string
   body: RichTextBlock[]
-  lastUpdate: string
+  last_publication_date: string
 }
 
 export default function id() {
@@ -22,14 +21,18 @@ export default function id() {
     if (!isReady) return
     getArticleById(query.id!)
       .then(res => {
-        const { header, title, author, body } = res.results[0].data.article
+        const props = res.results[0].data.article ? `article` : `news`
+        const { header, title, body } = res.results[0].data[props]
         setArticle({
           ready: true,
-          header: header.value.main.url,
+          header:
+            header?.value?.main?.url ||
+            `https://images.prismic.io/jgc-website/c78347c6-0240-4f73-b01c-179b45438a2a_placeholder.png?auto=compress,format`,
           title: RichText.asText(title.value),
-          author: RichText.asText(author.value),
           body: body.value,
-          lastUpdate: res.results[0].last_publication_date ?? ``
+          last_publication_date: (res.results[0].last_publication_date ?? ``)
+            .substring(0, 10)
+            .replaceAll(`-`, `/`)
         })
       })
       .catch(() => {
@@ -51,7 +54,7 @@ export default function id() {
           <h1>{article.title}</h1>
         </div>
         <div className={styles.info}>
-          最終更新：{article.lastUpdate.substring(0, 10).replaceAll(`-`, `/`)}
+          最終更新：{article.last_publication_date}
         </div>
         <div className={styles.body}>
           <RichText render={article.body} />

@@ -4,7 +4,7 @@
   height: 17em;
 
   @include mobile {
-    height: 7em;
+    height: 6em;
   }
 
   color: #727274;
@@ -25,7 +25,7 @@
 
     @include mobile {
       width: 20em;
-      height: 6em;
+      height: 5em;
     }
 
     .list {

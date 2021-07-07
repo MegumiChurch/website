@@ -40,10 +40,9 @@
 .filter {
   position: fixed;
   width: 100%;
-  margin-top: $headerHeight;
   height: 100vh;
   background-color: transparentize(white, 0.05);
-  z-index: 99;
+  z-index: 9;
 
   @include desktop {
     width: 100%;
@@ -73,7 +72,9 @@
     padding: 0.2em;
     background-color: #363636;
     border-radius: 0.1em;
-
+    @include desktop {
+      margin-right: 5em;
+    }
     &:first-of-type {
       background-color: #65a1de;
     }
