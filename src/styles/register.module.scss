@@ -25,7 +25,7 @@
 
 .warning {
   text-align: center;
-  color: #FA243C
+  color: #fa243c;
 }
 
 .form {
@@ -36,10 +36,12 @@
   flex-direction: column;
   align-content: center;
   justify-content: space-between;
+
   * {
     pointer-events: auto;
     cursor: pointer;
   }
+
   div {
     display: block;
     margin-right: auto;
@@ -52,11 +54,12 @@
   width: 100%;
   height: 2.5em;
   text-align: center;
+
   button {
     display: inline;
     height: 100%;
     width: 4.3em;
-    background-color: #0071E3;
+    background-color: #0071e3;
     border: transparent solid 1px;
     border-radius: 2em;
     color: white;
@@ -70,5 +73,4 @@
   width: 100%;
   text-align: center;
   padding-bottom: 1em;
-
 }

@@ -13,7 +13,7 @@ export default function Register() {
   const [spinning, setSpinning] = useState(false)
   return (
     <Layout>
-      <h1 className={styles.title}>メールマガジンに登録</h1>
+      <h1 className={styles.title}>メールマガジンに登録【試験運用】</h1>
       <p className={styles.p}>
         ニュースレターで最新情報をお届けします。メールアドレスは、ニュースレター以外の目的では使用しません。
       </p>
