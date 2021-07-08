@@ -72,7 +72,7 @@ export default function Home() {
     <>
       <Layout>
         <div
-          className={styles.title}
+          className={`${styles.title} center`}
           style={{
             backgroundImage: `url("${article.header}")`
           }}
