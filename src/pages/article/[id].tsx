@@ -3,8 +3,7 @@ import { useEffect, useState } from 'react'
 import styles from 'styles/[id].module.scss'
 import { useRouter } from 'next/router'
 import { getArticleById } from 'common/Prismic'
-import Header from 'components/Header'
-import Footer from 'components/Footer'
+import Layout from 'components/Layout'
 
 interface Document {
   ready: boolean
@@ -40,8 +39,7 @@ export default function id() {
       })
   }, [isReady])
   return article?.ready ? (
-    <>
-      <Header />
+    <Layout>
       <div className={`${styles.headerSection} center`}>
         <div
           style={{
@@ -60,8 +58,7 @@ export default function id() {
           <RichText render={article.body} />
         </div>
       </main>
-      <Footer />
-    </>
+    </Layout>
   ) : (
     <></>
   )

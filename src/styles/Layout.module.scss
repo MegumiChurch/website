@@ -1,0 +1,10 @@
+@import "Util.module";
+@import "Enum";
+
+.root {
+  padding-top: $headerHeight * 1.5;
+  width: 50em;
+  @include mobile {
+    width: 20em;
+  }
+}

@@ -1,35 +1,12 @@
 @import "Util.module";
 
 .root {
-  margin-right: auto;
-  margin-left: auto;
-  width: 50em;
-
-  @include mobile {
-    width: 22em;
-  }
-
   .card {
     padding-top: 1.5em;
     padding-bottom: 1.5em;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-
-    @include desktop {
-      width: 100%;
-    }
-
+    width: 100%;
     @include mobile {
-      width: 85%;
-      margin-right: auto;
-      margin-left: auto;
-    }
-
-    .space {
-      height: auto;
+      width: 90%;
     }
 
     .text {

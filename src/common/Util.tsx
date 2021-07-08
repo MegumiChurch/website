@@ -1,50 +1,22 @@
-import { CSSProperties, useState, useEffect } from 'react'
+import { ReactChild } from 'react'
+import Mikan from 'mikanjs'
 
-export const capitalizeFirstLetter = (s: string) =>
-  s[0].toUpperCase() + s.substring(1)
-
-export const split = (s: string, style?: CSSProperties) =>
-  s.split(``).map(s => <span style={style}>{s}</span>)
-
-export function getElementByIdSafely(id: string) {
-  try {
-    return document.getElementById(id)
-  } catch (e: any) {
-    return undefined
-  }
+export function split(s: string) {
+  return join(
+    Mikan.split(s).map(it => (
+      <span
+        style={{
+          display: `inline-block`,
+          paddingLeft: 0,
+          paddingRight: 0
+        }}
+      >
+        {it}
+      </span>
+    ))
+  )
 }
 
-export function getDimensionsById(id: string | 'window') {
-  const [res, setRes] = useState({
-    height: 0,
-    width: 0
-  })
-  const handleResize = () => {
-    if (id === `window`) {
-      const { innerHeight, innerWidth } = window
-      setRes({
-        height: innerHeight,
-        width: innerWidth
-      })
-    } else {
-      const e = document.getElementById(id)
-      setRes({
-        height: e?.clientHeight || 0,
-        width: e?.clientWidth || 0
-      })
-    }
-  }
-  useEffect(() => {
-    setTimeout(handleResize, 4)
-    window.addEventListener(`resize`, handleResize)
-    return () => window.removeEventListener(`resize`, handleResize)
-  }, [])
-  return res
-}
-
-export function useResizeEffect(effect: () => void) {
-  useEffect(() => {
-    effect()
-    window.onload = window.onresize = effect
-  })
+export function join(e: JSX.Element[]) {
+  return e as unknown as ReactChild
 }

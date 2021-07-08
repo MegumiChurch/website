@@ -1,119 +1,53 @@
 @import 'Util.module';
 @import "Enum";
 
-.root {
-  position: relative;
-  padding-top: $headerHeight * 1.5;
+.title {
+  width: 50em;
+  height: 30em;
 
-  .title {
-    margin-right: auto;
-    margin-left: auto;
-    width: 50em;
-    height: 30em;
-    text-align: left;
-    display: flex;
+  @include mobile {
+    width: 20em;
+    height: 13em;
+  }
+
+  .textSection {
+    z-index: 1;
+    position: absolute;
+    height: 3em;
+    margin-top: 22em;
+    margin-left: 2em;
 
     @include mobile {
-      width: 20em;
-      height: 13em;
+      margin-left: 1em;
+      margin-top: 8em;
     }
 
-    .textSection {
-      z-index: 1;
-      position: absolute;
-      height: 3em;
-      margin-top: 22em;
-      margin-left: 2em;
-      display: flex;
-      flex-direction: column;
-      align-content: center;
-      justify-content: space-between;
-
-      @include mobile {
-        margin-left: 1em;
-        margin-top: 8em;
+    div {
+      span {
+        padding: 0.2rem;
       }
 
-      div {
+      &:nth-of-type(1) {
         span {
-          padding: 0.2rem;
-        }
-
-        &:nth-of-type(1) {
-          span {
-            color: white;
-            font-size: 0.7em;
-            font-family: "SF Pro Display Ultralight", serif;
-            background-color: #000;
-
-            @include mobile {
-              font-size: 0.5em;
-            }
-          }
-        }
-
-        &:nth-of-type(2) {
-          margin-top: 0.7em;
-          display: block;
-
-          span {
-            font-family: 'Noto Sans JP', sans-serif;
-            font-weight: 900;
-            width: auto;
-            font-size: 1.4em;
-            background-color: #fff;
-
-            @include mobile {
-              font-size: 1em;
-            }
-          }
-        }
-      }
-    }
-
-    .filter {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      backdrop-filter: grayscale(1);
-
-      * {
-        font-family: 'Roboto', sans-serif;
-        font-weight: 900;
-        text-transform: uppercase;
-        letter-spacing: 0.25em;
-      }
-
-      .decoration {
-        text-align: right;
-        margin-left: auto;
-        width: 70%;
-        height: 100%;
-        clip-path: polygon(73% 0, 100% 0, 100% 37%, 0% 100%);
-        background-color: #1f1f1f;
-
-        @include mobile {
-          width: 50%;
-          clip-path: polygon(62% 0, 100% 0, 100% 36%, 0% 100%);
-        }
-
-        * {
-          width: 80%;
-        }
-
-        h1 {
-          color: #363636;
-          font-size: 3em;
+          color: white;
+          font-size: 0.7em;
+          font-family: "SF Pro Display Ultralight", serif;
+          background-color: #000;
 
           @include mobile {
-            font-size: 1.2em;
+            font-size: 0.5em;
           }
         }
+      }
 
-        h2 {
-          color: #fff;
-          font-size: 1em;
-          padding-bottom: 1em;
+      &:nth-of-type(2) {
+        margin-top: 0.7em;
+
+        span {
+          font-family: 'Noto Sans JP', sans-serif;
+          font-weight: 900;
+          font-size: 1.4em;
+          background-color: #fff;
 
           @include mobile {
             font-size: 1em;
@@ -122,13 +56,41 @@
       }
     }
   }
-}
 
-.space1 {
-  //background-image: url("../../public/meet.jpg");
-  //height: 31em;
-  //filter: grayscale(1);
-  //@include mobile {
-  //  height: 13em;
-  //}
+  .filter {
+    width: 100%;
+    height: 100%;
+    backdrop-filter: grayscale(1);
+
+    * {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+    }
+
+    .decoration {
+      text-align: right;
+      margin-left: auto;
+      width: 70%;
+      height: 100%;
+      clip-path: polygon(73% 0, 100% 0, 100% 37%, 0% 100%);
+      background-color: #1f1f1f;
+
+      @include mobile {
+        width: 50%;
+        clip-path: polygon(62% 0, 100% 0, 100% 36%, 0% 100%);
+      }
+
+      h1 {
+        width: 80%;
+        color: #363636;
+        font-size: 3em;
+
+        @include mobile {
+          font-size: 1.2em;
+        }
+      }
+    }
+  }
 }

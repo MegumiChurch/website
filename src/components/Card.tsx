@@ -1,23 +1,15 @@
-import { CSSProperties, ReactChild, ReactElement } from 'react'
+import { ReactChild } from 'react'
 import styles from 'styles/Card.module.scss'
 
 interface Props {
   children: ReactChild | ReactChild[]
   titles: string[]
-  space?: {
-    style?: CSSProperties
-    content: ReactElement | ReactElement[]
-  }
-  reverse?: boolean
 }
 
-export default function Card({ children, titles, space }: Props) {
+export default function Card({ children, titles }: Props) {
   return (
     <div className={styles.root}>
-      <div className={styles.card}>
-        <div className={styles.space} style={space?.style || {}}>
-          {space?.content}
-        </div>
+      <div className={`${styles.card} center`}>
         <div className={styles.text}>
           <>
             <div>

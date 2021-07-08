@@ -1,10 +1,9 @@
 import styles from 'styles/Home.module.scss'
 import React, { ReactChild, useEffect, useState } from 'react'
-import Footer from 'components/Footer'
-import Header from 'components/Header'
 import Card from 'components/Card'
 import Post from 'components/Post'
 import { asText, getArticleByType } from 'common/Prismic'
+import Layout from 'components/Layout'
 
 export default function Home() {
   const [article, setArticle] = useState({
@@ -71,8 +70,7 @@ export default function Home() {
   }, [])
   return (
     <>
-      <Header />
-      <main className={`${styles.root} center`}>
+      <Layout>
         <div
           className={styles.title}
           style={{
@@ -95,12 +93,7 @@ export default function Home() {
           </div>
         </div>
         <article>
-          <Card
-            titles={[`Join us at`, `Church & Zoom`]}
-            space={{
-              content: <div className={styles.space1} />
-            }}
-          >
+          <Card titles={[`Join us at`, `Church & Zoom`]}>
             {article.first_section_body}
             <br />
             <a href={article.zoom_link}>Zoomで参加</a>
@@ -122,13 +115,12 @@ export default function Home() {
           <Card titles={[`Get updates`, `Subscribe`]}>
             ニュースレターで最新情報をお届けします。メールアドレスは、ニュースレター以外の目的では使用しません。
             <br />
-            <a href=''>登録</a>
+            <a href='/register'>登録</a>
             <span>|</span>
             <a href='/article/YOXClRMAACIAnGrd'>プライバシーポリシー</a>
           </Card>
         </article>
-      </main>
-      <Footer />
+      </Layout>
     </>
   )
 }
