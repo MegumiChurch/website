@@ -1,9 +1,9 @@
 import { RichText, RichTextBlock } from 'prismic-reactjs'
 import { useEffect, useState } from 'react'
-import styles from 'styles/[id].module.scss'
 import { useRouter } from 'next/router'
 import { getArticleById } from 'common/Prismic'
 import Layout from 'components/Layout'
+import Article from 'components/ArticleBase'
 
 interface Document {
   ready: boolean
@@ -40,24 +40,13 @@ export default function id() {
   }, [isReady])
   return article?.ready ? (
     <Layout>
-      <div className={`${styles.headerSection} center`}>
-        <div
-          style={{
-            backgroundImage: `url(${article.header})`
-          }}
-        />
-      </div>
-      <main className={`${styles.root} center`}>
-        <div className={`${styles.title} center`}>
-          <h1>{article.title}</h1>
-        </div>
-        <div className={styles.info}>
-          最終更新：{article.last_publication_date}
-        </div>
-        <div className={styles.body}>
-          <RichText render={article.body} />
-        </div>
-      </main>
+      <Article
+        title={article.title}
+        last_publication_date={article.last_publication_date}
+        headerImageUrl={article.header}
+      >
+        <RichText render={article.body} />
+      </Article>
     </Layout>
   ) : (
     <></>

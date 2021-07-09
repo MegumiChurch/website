@@ -1,8 +1,7 @@
-import { ReactChild } from 'react'
 import styles from 'styles/Card.module.scss'
 
 interface Props {
-  children: ReactChild | ReactChild[]
+  children: JSX.Element | JSX.Element[]
   titles: string[]
 }
 

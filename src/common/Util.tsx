@@ -20,3 +20,7 @@ export function split(s: string) {
 export function join(e: JSX.Element[]) {
   return e as unknown as ReactChild
 }
+
+export function formatDate(date: Date) {
+  return `${date?.getMonth() + 1}/${date?.getDate()}/${date?.getFullYear()}`
+}
