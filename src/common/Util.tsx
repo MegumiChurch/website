@@ -21,6 +21,8 @@ export function join(e: JSX.Element[]) {
   return e as unknown as ReactChild
 }
 
-export function formatDate(date: Date) {
-  return `${date?.getMonth() + 1}/${date?.getDate()}/${date?.getFullYear()}`
+export function formatDate(date: Date | string) {
+  return typeof date === `string`
+    ? date.substring(0, 10).replaceAll(`-`, `/`)
+    : `${date?.getMonth() + 1}/${date?.getDate()}/${date?.getFullYear()}`
 }

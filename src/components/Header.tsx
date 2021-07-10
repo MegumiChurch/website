@@ -3,7 +3,7 @@ import { Cross as Hamburger } from 'hamburger-react'
 import { useEffect, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
 import { dquery } from 'common/Responsive'
-import { asText, getArticleByType } from 'common/Prismic'
+import { asText, getContentByType } from 'common/Prismic'
 
 export default function Header() {
   const [isOpen, setOpen] = useState(false)
@@ -11,7 +11,7 @@ export default function Header() {
   const [contents, setContents] = useState([])
   useEffect(() => {
     const temp: any = []
-    getArticleByType(`article`).then(({ results }) => {
+    getContentByType(`article`).then(({ results }) => {
       results.forEach(result => {
         temp.push({
           title: asText(result.data.article.title.value),
@@ -52,7 +52,7 @@ export default function Header() {
       >
         <a href='/'>ホーム{`\n`}</a>
         {contents.map(({ title, id }) => (
-          <a href={`/article/${id}`} key={id}>
+          <a href={`/cms/${id}`} key={id}>
             {title}
             {`\n`}
           </a>
