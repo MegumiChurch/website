@@ -11,8 +11,7 @@
     "start": "next start",
     "type-check": "tsc",
     "precommit": "'yarn lint --fix && yarn format'",
-    "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
-    "stylelint": "stylelint src/**/*.scss",
+    "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" && stylelint src/**/*.scss",
     "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
     "fixImport": "replace '~/src/' '' src -r",
     "postinstall": "husky install",
@@ -20,7 +19,6 @@
   },
   "lint-staged": {
     "./src/**/*.{ts,js,jsx,tsx}": [
-      "yarn stylelint --fix",
       "yarn lint --fix",
       "yarn format",
       "yarn fixImport"
