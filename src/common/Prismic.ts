@@ -1,6 +1,5 @@
 import Prismic from '@prismicio/client'
 import { RichText } from 'prismic-reactjs'
-import { News } from 'common/types'
 
 export const client = Prismic.client(`https://jgc-website.prismic.io/api`)
 
@@ -22,7 +21,7 @@ export function asText(text: any) {
 
 export async function getNews() {
   const { results } = await getContentByType(`news`)
-  const temp: News[] = []
+  const temp: any[] = []
   results.forEach(article => {
     const { display_until_date, title } = article.data.news
     temp.push({

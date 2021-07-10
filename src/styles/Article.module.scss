@@ -43,21 +43,21 @@
   }
 
   .pubDate {
+    margin-top: 1.5rem;
     color: #363636;
-    font-size: 0.8em;
     letter-spacing: 0.1em;
   }
 
   .body {
     * {
       margin-top: 1.5rem;
-      color: #363636;
+      color: #383838;
       //font-family: 'Sawarabi Gothic', sans-serif;
       font-size: 1.1em;
       line-height: 2em;
 
       @include mobile {
-        font-size: 0.9em;
+        font-size: 1em;
       }
     }
 
