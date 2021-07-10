@@ -52,7 +52,7 @@ export default function Header() {
       >
         <a href='/'>ホーム{`\n`}</a>
         {contents.map(({ title, id }) => (
-          <a href={`/article/${id}`}>
+          <a href={`/article/${id}`} key={id}>
             {title}
             {`\n`}
           </a>
