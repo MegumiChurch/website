@@ -2,7 +2,7 @@ import styles from 'styles/Home.module.scss'
 import React, { useEffect, useState } from 'react'
 import Card from 'components/Card'
 import Post from 'components/Post'
-import { asText, getArticleByType, getNews } from 'common/Prismic'
+import { asText, getContentByType, getNews } from 'common/Prismic'
 import Layout from 'components/Layout'
 import { News } from 'common/types'
 import { formatDate } from 'common/Util'
@@ -18,7 +18,7 @@ export default function Home() {
   })
   const [news, setNews] = useState<News[]>([])
   useEffect(() => {
-    getArticleByType(`home`)
+    getContentByType(`home`)
       .then(res => {
         const {
           header,

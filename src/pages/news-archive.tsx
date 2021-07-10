@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react'
 import Layout from 'components/Layout'
 import styles from 'styles/NewsArchive.module.scss'
-import Article from 'components/ArticleBase'
-import { getNews } from 'common/Prismic'
-import { News } from 'common/types'
 import { formatDate } from 'common/Util'
+import { getNews } from 'common/Prismic'
+import Article from 'components/Article'
 
 export default function NewsArchive() {
   const [news, setNews] = useState<News[]>([])

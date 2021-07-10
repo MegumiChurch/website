@@ -4,11 +4,13 @@ import { News } from 'common/types'
 
 export const client = Prismic.client(`https://jgc-website.prismic.io/api`)
 
-export function getArticleById(id: string | string[]) {
-  return client.query(Prismic.Predicates.at(`document.id`, id), { lang: `*` })
+export async function getContentById(id: string) {
+  return (
+    await client.query(Prismic.Predicates.at(`document.id`, id), { lang: `*` })
+  ).results[0]
 }
 
-export function getArticleByType(type: string) {
+export function getContentByType(type: string) {
   return client.query(Prismic.Predicates.at(`document.type`, type), {
     lang: `*`
   })
@@ -19,7 +21,7 @@ export function asText(text: any) {
 }
 
 export async function getNews() {
-  const { results } = await getArticleByType(`news`)
+  const { results } = await getContentByType(`news`)
   const temp: News[] = []
   results.forEach(article => {
     const { display_until_date, title } = article.data.news

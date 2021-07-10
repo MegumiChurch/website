@@ -4,7 +4,6 @@
 .headerSection {
   padding-top: $headerHeight;
   height: 20em;
-  width: 40em;
 
   @include mobile {
     width: 100%;
@@ -18,7 +17,7 @@
 }
 
 .root {
-  width: 40em;
+  width: 100%;
 
   @include mobile {
     width: 90%;
@@ -53,7 +52,7 @@
     * {
       margin-top: 1.5rem;
       color: #363636;
-      font-family: 'Sawarabi Gothic', sans-serif;
+      //font-family: 'Sawarabi Gothic', sans-serif;
       font-size: 1.1em;
       line-height: 2em;
 
