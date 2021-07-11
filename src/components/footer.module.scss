@@ -27,7 +27,23 @@
 
 .copywrite {
   border-top: 1px solid;
-  font-size: 0.7em;
-  padding: 1em;
-  text-align: center;
+  @include desktop {
+    font-size: 0.7em;
+    padding: 1em;
+    text-align: center;
+  }
+  @include mobile {
+    font-size: 0.6em;
+    line-height: 2.5em;
+    padding: 1.5em;
+  }
+}
+
+.legal {
+  @include mobile-only;
+  text-align: left;
+
+  span {
+    padding: 0 1em;
+  }
 }

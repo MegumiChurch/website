@@ -10,7 +10,9 @@ export default function Layout({ children }: Props) {
   return (
     <div className={styles.root}>
       {children}
-      <Footer />
+      <div className={styles.footer}>
+        <Footer />
+      </div>
     </div>
   );
 }

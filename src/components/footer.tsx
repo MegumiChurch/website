@@ -3,7 +3,7 @@ import styles from './footer.module.scss';
 export default function Footer() {
   return (
     <>
-      <div className={styles.footer}>
+      <footer className={styles.footer}>
         <div className={styles.inner}>
           <ul>
             <li>ニューヨークめぐみ教会</li>
@@ -22,8 +22,13 @@ export default function Footer() {
         </div>
         <div className={styles.copywrite}>
           {`Copyright ©${new Date().getFullYear()} Shun Ueda. All rights reserved.`}
+          <div className={styles.legal}>
+            <a>プライバシーポリシー</a>
+            <span>|</span>
+            <a>利用規約</a>
+          </div>
         </div>
-      </div>
+      </footer>
     </>
   );
 }
