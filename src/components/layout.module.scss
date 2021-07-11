@@ -3,7 +3,7 @@
 .root {
   @include center;
   margin-top: 3em;
-  width: 45em;
+  width: 50em;
   @include mobile {
     min-width: 15em;
     width: 90%;
@@ -11,5 +11,5 @@
 }
 
 .footer {
-  margin-top: 3em;
+  padding-top: 3em;
 }
