@@ -6,22 +6,24 @@
   flex-direction: column;
   justify-content: space-between;
   color: #727274;
-  div {
-    border-top: 1px solid;
-  }
   .inner {
-    background-color: cadetblue;
-    height: 12em;
-    @include mobile {
-      display: none;
+    @include desktopOnly;
+    border-top: 1px solid;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1.25em 0;
+    ul > li {
+      font-size: 0.8em;
+      line-height: 2.3em;
+      &:first-of-type {
+        color: #313131;
+      }
     }
   }
   .copywrite {
-    @include vcenter_child;
-    height: 3em;
+    border-top: 1px solid;
     text-align: center;
-    p {
-      font-size: 0.7em;
-    }
+    font-size: 0.7em;
+    padding: 1em;
   }
 }

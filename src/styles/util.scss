@@ -12,6 +12,18 @@ $maxMobileWidth: 767;
   }
 }
 
+@mixin mobileOnly {
+  @include desktop {
+    display: none;
+  }
+}
+
+@mixin desktopOnly {
+  @include mobile {
+    display: none;
+  }
+}
+
 @mixin center {
   margin-right: auto;
   margin-left: auto;
@@ -22,4 +34,10 @@ $maxMobileWidth: 767;
   flex-direction: column;
   align-content: center;
   justify-content: center;
+}
+
+@mixin vcenter {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }

@@ -502,6 +502,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-responsive@npm:^8.0.3":
+  version: 8.0.3
+  resolution: "@types/react-responsive@npm:8.0.3"
+  dependencies:
+    "@types/react": "*"
+  checksum: f6f73213ac0ce32288e239249a7adcfec0187d5cbb49870282d352d008ea1c47a23f10b86b08d8e42c23e9e5ef8badb5e3778b6223b59530969c7d3b2a3c23f8
+  languageName: node
+  linkType: hard
+
 "@types/react@npm:*":
   version: 17.0.14
   resolution: "@types/react@npm:17.0.14"
@@ -1753,6 +1762,13 @@ __metadata:
     randombytes: ^2.0.0
     randomfill: ^1.0.3
   checksum: 8b558367b3759652b7c8dfd8fa0dc55a69362ae3efe039ac44d4b010bc63143708f4748ef8efc079945bf61dbc53c829cda968cd2abc1f34fcf43f669a414f73
+  languageName: node
+  linkType: hard
+
+"css-mediaquery@npm:^0.1.2":
+  version: 0.1.2
+  resolution: "css-mediaquery@npm:0.1.2"
+  checksum: 571ab2efdba0dead1315eb82b1e53917b4aeb45f07cc2ff97bfe3c6443cd036843d944044661561b5585d1f64ecbcad112052b40846ae4d85ef7d5e978e996e4
   languageName: node
   linkType: hard
 
@@ -3184,6 +3200,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"hyphenate-style-name@npm:^1.0.0":
+  version: 1.0.4
+  resolution: "hyphenate-style-name@npm:1.0.4"
+  checksum: 4cfeb47e98eab9c25e6dece20da772cc914a9f8e5ee794cf8db105b0649dd64a61d8ee8ff32acf23ae0ac181db8fcbe4a6abb2f7de48ae52b42a85bbf1aacb86
+  languageName: node
+  linkType: hard
+
 "iconv-lite@npm:0.4.24, iconv-lite@npm:^0.4.24":
   version: 0.4.24
   resolution: "iconv-lite@npm:0.4.24"
@@ -4004,6 +4027,15 @@ __metadata:
   version: 4.2.1
   resolution: "map-obj@npm:4.2.1"
   checksum: 59c2f09ffccf8878cdb67dc46d0dd73a55bcfb27c20afc2fb87250ac95f2b19e3187c8de887c40f41b96b0200aac3dfdbc31759615cb666b35864a307885c896
+  languageName: node
+  linkType: hard
+
+"matchmediaquery@npm:^0.3.0":
+  version: 0.3.1
+  resolution: "matchmediaquery@npm:0.3.1"
+  dependencies:
+    css-mediaquery: ^0.1.2
+  checksum: face426fe3fd743d08d70c2e92c103c14419268f7ba0069bacd04c91e819a7ca270d195e2e6793169a6fcacc22b225965d685ec3fc144babee84f46659645757
   languageName: node
   linkType: hard
 
@@ -4976,7 +5008,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:15.7.2, prop-types@npm:^15.7.2":
+"prop-types@npm:15.7.2, prop-types@npm:^15.6.1, prop-types@npm:^15.7.2":
   version: 15.7.2
   resolution: "prop-types@npm:15.7.2"
   dependencies:
@@ -5135,6 +5167,20 @@ __metadata:
   version: 0.8.3
   resolution: "react-refresh@npm:0.8.3"
   checksum: 38f06df8e0a20701b96e5d680838a3528d66cfb53db79843d30cb9517df3262ec596607147439975267bf0634bee77101db37298ea79b5742cc28664632f3c76
+  languageName: node
+  linkType: hard
+
+"react-responsive@npm:^8.2.0":
+  version: 8.2.0
+  resolution: "react-responsive@npm:8.2.0"
+  dependencies:
+    hyphenate-style-name: ^1.0.0
+    matchmediaquery: ^0.3.0
+    prop-types: ^15.6.1
+    shallow-equal: ^1.1.0
+  peerDependencies:
+    react: ">=16.8.0"
+  checksum: 3209a32c74d6749e306b7fd521e2156c04d21e40af2d9a4493d22f22d13deb64d6ca1439526a56342779a1a8819be7354ff111d877a3cf3964ee50e9a84e77d9
   languageName: node
   linkType: hard
 
@@ -5545,6 +5591,13 @@ resolve@^2.0.0-next.3:
   bin:
     sha.js: ./bin.js
   checksum: 7554240ab76e683f7115123eb4815aae16b5fc6f2cdff97009831ad5b17b107ffcef022526211f7306957bce7a67fa4d0ccad79a3040c5073414365595e90516
+  languageName: node
+  linkType: hard
+
+"shallow-equal@npm:^1.1.0":
+  version: 1.2.1
+  resolution: "shallow-equal@npm:1.2.1"
+  checksum: 5002ac4a3639e35782d3cb21073d48e1e4f85321cc54608f48b2331f6db6d54e4f4b44ed81ec4d75385ebe893e8286752b1e29595381e6adad72dd836f001b7f
   languageName: node
   linkType: hard
 
@@ -6292,6 +6345,7 @@ resolve@^2.0.0-next.3:
     "@types/node": 14.17.4
     "@types/react": 17.0.13
     "@types/react-dom": 17.0.8
+    "@types/react-responsive": ^8.0.3
     "@typescript-eslint/eslint-plugin": 4.28.1
     "@typescript-eslint/parser": 4.28.1
     commitizen: 4.2.4
@@ -6312,6 +6366,7 @@ resolve@^2.0.0-next.3:
     prettier: 2.3.2
     react: 17.0.2
     react-dom: 17.0.2
+    react-responsive: ^8.2.0
     sass: ^1.35.2
     typescript: 4.3.5
   languageName: unknown
