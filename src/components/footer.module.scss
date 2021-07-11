@@ -1,29 +1,33 @@
 @import 'src/styles/util';
 
 .footer {
-  width: 100%;
+  color: #727274;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  color: #727274;
-  .inner {
-    @include desktopOnly;
-    border-top: 1px solid;
-    display: flex;
-    justify-content: space-evenly;
-    padding: 1.25em 0;
-    ul > li {
-      font-size: 0.8em;
-      line-height: 2.3em;
-      &:first-of-type {
-        color: #313131;
-      }
+  width: 100%;
+}
+
+.inner {
+  @include desktop-only;
+  border-top: 1px solid;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1.25em 0;
+
+  li {
+    font-size: 0.8em;
+    line-height: 2.3em;
+
+    &:first-of-type {
+      color: #313131;
     }
   }
-  .copywrite {
-    border-top: 1px solid;
-    text-align: center;
-    font-size: 0.7em;
-    padding: 1em;
-  }
+}
+
+.copywrite {
+  border-top: 1px solid;
+  font-size: 0.7em;
+  padding: 1em;
+  text-align: center;
 }
