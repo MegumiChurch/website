@@ -1,5 +1,7 @@
 @import 'util';
 
+$space-between-elements: 3em;
+
 .headerImage {
   background-image: url('../../public/header.jpg');
   height: 30rem;
@@ -84,5 +86,12 @@
     @include mobile {
       font-size: 1.7em;
     }
+  }
+}
+
+.main {
+  margin-top: $space-between-elements;
+  section {
+    margin-top: $space-between-elements;
   }
 }

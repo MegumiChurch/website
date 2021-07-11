@@ -1,10 +1,11 @@
 import styles from '~/src/styles/home.module.scss';
 import Layout from '~/src/components/layout';
+import Card from '~/src/components/card';
 
 export default function Home() {
   return (
     <Layout>
-      <>
+      <div className={styles.root}>
         <header className={styles.header}>
           <div className={styles.headerImage}>
             <div className={styles.filter}>
@@ -19,8 +20,29 @@ export default function Home() {
             </div>
           </div>
         </header>
-        <div />
-      </>
+        <main className={styles.main}>
+          <Card title="Church & Zoom" subtitle="Join us at">
+            毎週日曜日午前９時より、リッジウェイ教会地下グリーン・ルームにて。コロナ禍にありますが、三密を避け、注意して行っています。Zoomを通してもご参加頂けます。
+            <br />
+            <nav>
+              <a>さらに詳しく</a>
+              <span>|</span>
+              <a>Zoomで参加</a>
+            </nav>
+          </Card>
+          <Card title="News" subtitle="Our latest">
+            毎週日曜日午前９時より、リッジウェイ教会地下グリーン・ルームにて。コロナ禍にありますが、三密を避け、注意して行っています。Zoomを通してもご参加頂けます。
+          </Card>
+          <Card title="Contact" subtitle="Get in touch">
+            下記のメールアドレス、またはフォームよりお気軽にご連絡ください。
+            <nav>
+              <a>メール</a>
+              <span>|</span>
+              <a>お問い合わせフォーム</a>
+            </nav>
+          </Card>
+        </main>
+      </div>
     </Layout>
   );
 }

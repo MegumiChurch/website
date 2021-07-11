@@ -1,8 +1,25 @@
 @import 'src/styles/util';
+@import "src/styles/home.module";
+
+.controls {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.back {
+  height: 2em;
+  width: 2em;
+}
+
+.menuButton {
+  background-color: #1D1D1F;
+}
 
 .root {
   @include center;
-  margin-top: 3em;
+  padding-top: $space-between-elements * 2;
   width: 50em;
   @include mobile {
     min-width: 15em;
@@ -11,5 +28,5 @@
 }
 
 .footer {
-  padding-top: 3em;
+  padding-top: $space-between-elements;
 }

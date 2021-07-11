@@ -29,12 +29,12 @@
   border-top: 1px solid;
   @include desktop {
     font-size: 0.7em;
-    padding: 1em;
+    padding: 3em;
     text-align: center;
   }
   @include mobile {
     font-size: 0.6em;
-    line-height: 2.5em;
+    line-height: 4em;
     padding: 1.5em;
   }
 }
