@@ -1,0 +1,25 @@
+$maxMobileWidth: 767;
+
+@mixin mobile {
+  @media screen and (max-width: $maxMobileWidth * 1px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: $maxMobileWidth + 1px) {
+    @content;
+  }
+}
+
+@mixin center {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@mixin vcenter_child {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}

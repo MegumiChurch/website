@@ -1,13 +1,7 @@
-import 'styles/global.scss'
-import { AppProps } from 'next/app'
-import { useEffect, useState } from 'react'
+import { AppProps } from 'next/app';
+import '~/src/styles/global.scss';
+import 'styles/font.scss';
 
-export default function MyApp({ Component, pageProps }: AppProps) {
-  const [component, setComponent] = useState(<div>Loading...</div>)
-  useEffect(() => {
-    Promise.all([document.fonts.ready, import(`common/firebase/auth`)]).then(
-      () => setComponent(<Component {...pageProps} />)
-    )
-  }, [])
-  return component
+export default function App({ Component, pageProps }: AppProps) {
+  return <Component {...pageProps} />;
 }

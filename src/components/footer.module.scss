@@ -1,0 +1,27 @@
+@import 'src/styles/util';
+
+.footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #727274;
+  div {
+    border-top: 1px solid;
+  }
+  .inner {
+    background-color: cadetblue;
+    height: 12em;
+    @include mobile {
+      display: none;
+    }
+  }
+  .copywrite {
+    @include vcenter_child;
+    height: 3em;
+    text-align: center;
+    p {
+      font-size: 0.7em;
+    }
+  }
+}

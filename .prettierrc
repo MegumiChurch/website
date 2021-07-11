@@ -1,9 +1,6 @@
 {
-  "arrowParens": "avoid",
-  "endOfLine": "lf",
-  "jsxSingleQuote": true,
-  "semi": false,
+  "trailingComma": "all",
   "singleQuote": true,
-  "tabWidth": 2,
-  "trailingComma": "none"
+  "printWidth": 80,
+  "tabWidth": 2
 }

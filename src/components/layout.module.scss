@@ -1,0 +1,10 @@
+@import "src/styles/util";
+
+.root {
+  width: 45em;
+  @include center;
+  @include mobile {
+    width: 90%;
+    min-width: 20em;
+  }
+}
