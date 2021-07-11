@@ -19,14 +19,12 @@
     "stylelint": "stylelint \"src/**/*.scss\"",
     "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
     "postinstall": "husky install",
-    "commit": "cz"
+    "precommit": "yarn lint --fix && yarn stylelint --fix",
+    "fixImport": "replace '~/src/' '' src -r",
+    "commit": "yarn precommit && yarn fixImport && yarn format && git add . && cz"
   },
   "lint-staged": {
-    "./src/**/*.{ts,js,jsx,tsx}": [
-      "yarn lint --fix",
-      "yarn stylelint --fix",
-      "yarn format"
-    ]
+    "./src/**/*.{ts,js,jsx,tsx}":[]
   },
   "dependencies": {
     "hamburger-react": "^2.4.1",
@@ -60,6 +58,7 @@
     "husky": "6.0.0",
     "lint-staged": "11.0.0",
     "prettier": "2.3.2",
+    "replace": "^1.2.1",
     "stylelint": "^13.13.1",
     "stylelint-config-sass-guidelines": "^8.0.0",
     "typescript": "4.3.5"

@@ -1,9 +1,7 @@
 import { MutableRefObject, ReactChild, useRef, useState } from 'react';
 import { Cross as Hamburger } from 'hamburger-react';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
+import Footer from 'components/footer';
 import styles from './layout.module.scss';
-import Footer from '~/src/components/footer';
 
 interface Props {
   children: ReactChild | ReactChild[];

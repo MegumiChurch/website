@@ -1,6 +1,6 @@
-import styles from '~/src/styles/home.module.scss';
-import Layout from '~/src/components/layout';
-import Card from '~/src/components/card';
+import styles from 'styles/home.module.scss';
+import Layout from 'components/layout';
+import Card from 'components/card';
 
 export default function Home() {
   return (
