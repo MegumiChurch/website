@@ -652,6 +652,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@prismicio/client@npm:^5.1.0":
+  version: 5.1.0
+  resolution: "@prismicio/client@npm:5.1.0"
+  dependencies:
+    cross-fetch: ^3.0.6
+  checksum: 94d180b03fa8a8e5913cf6601d41fa9b62565127774e9d09ff4c7775d10653d5ca8175fc66ef18947c1781bb07f021164a84414f3835f80150764f2bde0292a0
+  languageName: node
+  linkType: hard
+
 "@rushstack/eslint-patch@npm:^1.0.6":
   version: 1.0.6
   resolution: "@rushstack/eslint-patch@npm:1.0.6"
@@ -2079,6 +2088,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cross-fetch@npm:^3.0.6":
+  version: 3.1.4
+  resolution: "cross-fetch@npm:3.1.4"
+  dependencies:
+    node-fetch: 2.6.1
+  checksum: 47b33bc773d53f19805eeac914e7d76e022a1aee3b7a55277fae3d3d1a0cff354b92c4ec6c5d99aeef3e5757c2719e94c37879ba846c33de892e68a655758b61
+  languageName: node
+  linkType: hard
+
 "cross-spawn@npm:^7.0.2, cross-spawn@npm:^7.0.3":
   version: 7.0.3
   resolution: "cross-spawn@npm:7.0.3"
@@ -2574,6 +2592,13 @@ __metadata:
   version: 3.1.1
   resolution: "escalade@npm:3.1.1"
   checksum: 1e31ff50d66f47cd0dfffa702061127116ccf9886d1f54a802a7b3bc95b94cab0cbf5b145cc5ac199036df6fd9d1bb24af1fa1bfed87c94879e950fbee5f86d1
+  languageName: node
+  linkType: hard
+
+"escape-html@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "escape-html@npm:1.0.3"
+  checksum: 900a7f2b80b9f89c85b7a303d1b7a4d354b93e328871414f165f13c5c209a80eab787e3a63429e596877def69fe4dcb3d1b55af655207a901a9ec99f7f148743
   languageName: node
   linkType: hard
 
@@ -3884,6 +3909,17 @@ __metadata:
     has: ^1.0.3
     side-channel: ^1.0.4
   checksum: 2465f832aa80c3740f2cfc5c75e74c727b4a45b8d80e295bb66dbb59435de536b9951b7f4d1a8075d5bb90054bd30ff22a37356a247fba3608987c7765569345
+  languageName: node
+  linkType: hard
+
+"interweave@npm:^12.8.0":
+  version: 12.8.0
+  resolution: "interweave@npm:12.8.0"
+  dependencies:
+    escape-html: ^1.0.3
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+  checksum: f48a40a6986d79fdf0616739d343063aba33e2257481266fb880fb707246546f73c48ffdcc8e054085c6deb079dc3f8807a820bbcbae05f4db2aceb8a97cc47f
   languageName: node
   linkType: hard
 
@@ -5797,6 +5833,36 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prismic-helpers@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "prismic-helpers@npm:1.0.3"
+  checksum: f0216d76778c4aa163042aad84972096512eab668021a6822356e76b18fe4d548a535243e968ee7432832f018f1bd956bafc2c0190518dbb43345bb9dd5f5442
+  languageName: node
+  linkType: hard
+
+"prismic-reactjs@npm:^1.3.4":
+  version: 1.3.4
+  resolution: "prismic-reactjs@npm:1.3.4"
+  dependencies:
+    prismic-helpers: ^1.0.3
+    prismic-richtext: ^1.0.3
+    prop-types: ^15.7.2
+  peerDependencies:
+    react: ">=16.0.0"
+  checksum: 3c6d39589a0d68b3e91a66ca4a328d122a48cff25ac7d2d9a8e6807ae6079b8751fd6996d5679ec88bac8ae5e98e7ea8c3da144a48d2551e9283ac00f8552632
+  languageName: node
+  linkType: hard
+
+"prismic-richtext@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "prismic-richtext@npm:1.0.3"
+  dependencies:
+    ramda: ^0.26.1
+    uuid: ^3.3.2
+  checksum: 555aa61f979dfbca4341ce961ca69a5f78ebbb2b9932af527a9baf515d592642654aa854ff8d213d7cc18eb37eb345a20788825884a11c88f05686810f75eb6e
+  languageName: node
+  linkType: hard
+
 "process-nextick-args@npm:~2.0.0":
   version: 2.0.1
   resolution: "process-nextick-args@npm:2.0.1"
@@ -5929,6 +5995,13 @@ __metadata:
   version: 4.0.1
   resolution: "quick-lru@npm:4.0.1"
   checksum: 91847e4b07453655f73513b96a3b49e3bb8bf37de1ce2075d44e5dddb2f08050c5dc858d97884d61618bb44487945880b4b481fe93e94a3622b43036f8b94e11
+  languageName: node
+  linkType: hard
+
+"ramda@npm:^0.26.1":
+  version: 0.26.1
+  resolution: "ramda@npm:0.26.1"
+  checksum: 22e3fbfabdf45d7f7e8e0ff198be6c1f94d1cc16dd68f4c1786436b4583f8f1ef610a3bf0e8e8984c11346791da6ebadbe5b63dd29f2939bdfed7362d277c07b
   languageName: node
   linkType: hard
 
@@ -7388,6 +7461,7 @@ resolve@^2.0.0-next.3:
   dependencies:
     "@commitlint/cli": 12.1.4
     "@commitlint/config-conventional": 12.1.4
+    "@prismicio/client": ^5.1.0
     "@types/node": 14.17.4
     "@types/react": 17.0.13
     "@types/react-dom": 17.0.8
@@ -7408,9 +7482,11 @@ resolve@^2.0.0-next.3:
     eslint-plugin-react-hooks: 4.2.0
     hamburger-react: ^2.4.1
     husky: 6.0.0
+    interweave: ^12.8.0
     lint-staged: 11.0.0
     next: 11.0.1
     prettier: 2.3.2
+    prismic-reactjs: ^1.3.4
     react: 17.0.2
     react-dom: 17.0.2
     react-responsive: ^8.2.0
@@ -7612,6 +7688,15 @@ typescript@4.3.5:
     safe-buffer: ^5.1.2
     which-typed-array: ^1.1.2
   checksum: 6e3cbc15468436de8aa7bbc50ea1354b738ece2330ef4da417d08893d1105985ac1cc0dd1ea86ef855494e01dd000d7f866c802537afe8751f0c319d16ceccd0
+  languageName: node
+  linkType: hard
+
+"uuid@npm:^3.3.2":
+  version: 3.4.0
+  resolution: "uuid@npm:3.4.0"
+  bin:
+    uuid: ./bin/uuid
+  checksum: 1ce3f37e214d6d0dc94a6a9663a0365013ace66bc3fd5b203e6f5d2eeb978aaee1192367222386345d30b4c6a447928c501121aa84c637724bf105ef57284949
   languageName: node
   linkType: hard
 
