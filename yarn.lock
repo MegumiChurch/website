@@ -7455,49 +7455,6 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"typescript-nextjs-starter@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "typescript-nextjs-starter@workspace:."
-  dependencies:
-    "@commitlint/cli": 12.1.4
-    "@commitlint/config-conventional": 12.1.4
-    "@prismicio/client": ^5.1.0
-    "@types/node": 14.17.4
-    "@types/react": 17.0.13
-    "@types/react-dom": 17.0.8
-    "@types/react-responsive": ^8.0.3
-    "@typescript-eslint/eslint-plugin": 4.28.1
-    "@typescript-eslint/parser": 4.28.1
-    commitizen: 4.2.4
-    cz-conventional-changelog: 3.3.0
-    eslint: 7.29.0
-    eslint-config-airbnb: 18.2.1
-    eslint-config-next: 11.0.1
-    eslint-config-prettier: 8.3.0
-    eslint-import-resolver-typescript: 2.4.0
-    eslint-plugin-import: 2.23.4
-    eslint-plugin-jsx-a11y: 6.4.1
-    eslint-plugin-prettier: 3.4.0
-    eslint-plugin-react: 7.24.0
-    eslint-plugin-react-hooks: 4.2.0
-    hamburger-react: ^2.4.1
-    husky: 6.0.0
-    interweave: ^12.8.0
-    lint-staged: 11.0.0
-    next: 11.0.1
-    prettier: 2.3.2
-    prismic-reactjs: ^1.3.4
-    react: 17.0.2
-    react-dom: 17.0.2
-    react-responsive: ^8.2.0
-    replace: ^1.2.1
-    sass: ^1.35.2
-    stylelint: ^13.13.1
-    stylelint-config-sass-guidelines: ^8.0.0
-    typescript: 4.3.5
-  languageName: unknown
-  linkType: soft
-
 typescript@4.3.5:
   version: 4.3.5
   resolution: "typescript@npm:4.3.5"
@@ -7762,6 +7719,49 @@ typescript@4.3.5:
   checksum: 75c2ada4262cda41410ec898178f4f2a31419a905415a98a0bd1b93441ce4a2b942bae2d0ac6d637b749b9d3b309be5a49dbc3b06aae9d9e65280554268a2c94
   languageName: node
   linkType: hard
+
+"website@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "website@workspace:."
+  dependencies:
+    "@commitlint/cli": 12.1.4
+    "@commitlint/config-conventional": 12.1.4
+    "@prismicio/client": ^5.1.0
+    "@types/node": 14.17.4
+    "@types/react": 17.0.13
+    "@types/react-dom": 17.0.8
+    "@types/react-responsive": ^8.0.3
+    "@typescript-eslint/eslint-plugin": 4.28.1
+    "@typescript-eslint/parser": 4.28.1
+    commitizen: 4.2.4
+    cz-conventional-changelog: 3.3.0
+    eslint: 7.29.0
+    eslint-config-airbnb: 18.2.1
+    eslint-config-next: 11.0.1
+    eslint-config-prettier: 8.3.0
+    eslint-import-resolver-typescript: 2.4.0
+    eslint-plugin-import: 2.23.4
+    eslint-plugin-jsx-a11y: 6.4.1
+    eslint-plugin-prettier: 3.4.0
+    eslint-plugin-react: 7.24.0
+    eslint-plugin-react-hooks: 4.2.0
+    hamburger-react: ^2.4.1
+    husky: 6.0.0
+    interweave: ^12.8.0
+    lint-staged: 11.0.0
+    next: 11.0.1
+    prettier: 2.3.2
+    prismic-reactjs: ^1.3.4
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-responsive: ^8.2.0
+    replace: ^1.2.1
+    sass: ^1.35.2
+    stylelint: ^13.13.1
+    stylelint-config-sass-guidelines: ^8.0.0
+    typescript: 4.3.5
+  languageName: unknown
+  linkType: soft
 
 "whatwg-url@npm:^7.0.0":
   version: 7.1.0
