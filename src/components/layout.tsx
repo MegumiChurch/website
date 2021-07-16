@@ -21,19 +21,12 @@ export default function Layout({ children }: Props) {
   const [contents, setContents] = useState<JSX.Element[]>([])
   useEffect(() => {
     getPagesByType(`article`).then(articles => {
-      const temp = [
-        <p>
-          <Link href='/'>ホーム</Link>
-        </p>,
-        <p>
-          <Link href='/archive/manamail'>マナメール アーカイブ</Link>
-        </p>
-      ]
+      const temp = [<Link href='/'>ホーム</Link>]
       articles.forEach(({ title, id }: any) =>
         temp.push(
-          <p key={id}>
-            <a href={`/page/${id}`}>{title}</a>
-          </p>
+          <a href={`/page/${id}`} key={id}>
+            {title}
+          </a>
         )
       )
       setContents(temp)

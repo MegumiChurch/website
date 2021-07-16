@@ -31,31 +31,20 @@ $topbar-width: 48px;
 }
 
 .contents {
-  margin-top: $topbar-width;
-  @include mobile {
-    width: calc(100vw - #{$topbar-width});
+  margin-top: $topbar-width * 2;
+  text-align: center;
+  @include desktop {
+    margin-top: $topbar-width * 2.5;
   }
 
-  p {
-    padding-top: 2em;
+  a {
+    color: #4c4c4c;
+    display: block;
+    font-size: 1.25em;
+    margin-top: 2.5em;
     position: relative;
-    text-align: center;
-    width: 100%;
-    @include mobile {
-      text-align: right;
-    }
-
-    a {
-      background-color: #2b2b2b;
-      border-radius: 8px;
-      color: #e3e3e3;
-      font-size: 1.25em;
-      padding: 0.5em;
-      position: relative;
-    }
-
-    &:nth-child(3) {
-      margin-top: 2em;
+    @include desktop {
+      font-size: 1.5em;
     }
   }
 }

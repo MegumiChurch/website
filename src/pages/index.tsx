@@ -2,9 +2,10 @@ import Layout from 'components/layout'
 import { ReactChild } from 'react'
 import { GetServerSidePropsContext } from 'next'
 import { renderToString } from 'react-dom/server'
-import styles from './home.module.scss'
 import { getPageById, getPagesByType } from 'common/Prismic'
+import Link from 'next/link'
 import { News } from 'types'
+import styles from './home.module.scss'
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const now = Date.now()
@@ -51,9 +52,9 @@ export default function Home({ news }: { news: News[] }) {
                   <a href={`page/${id}`}>{title}</a>
                 </p>
               ))}
-              <a href='/archive/news' className={styles.newsArchive}>
+              <Link href='/archive/news' className={styles.newsArchive}>
                 ニュースアーカイブ →
-              </a>
+              </Link>
             </div>
           </Card>
           <Card title='Contact' subtitle='Get in touch'>
