@@ -4,7 +4,7 @@ import { renderToString } from 'react-dom/server';
 import { Document as PrismicDocument } from '@prismicio/client/types/documents';
 import { Article, News } from 'types';
 
-export const client = Prismic.client(`https://jgc-website.prismic.io/api`);
+const client = Prismic.client(`https://jgc-website.prismic.io/api`);
 
 export async function getPageById(id: string): Promise<Article | News> {
   return extract(
@@ -28,11 +28,10 @@ async function extract(document: PrismicDocument): Promise<Article | News> {
     title: RichText.asText(title.value),
     body: renderToString(<RichText render={body.value} />),
   };
-  if (type === `news`) {
-    return {
-      ...baseRes,
-      display_until_date: display_until_date.value.split(`-`),
-    };
-  }
-  return baseRes;
+  return type === `news`
+    ? {
+        ...baseRes,
+        display_until_date: display_until_date.value.split(`-`),
+      }
+    : baseRes;
 }
