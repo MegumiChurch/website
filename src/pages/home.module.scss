@@ -97,6 +97,23 @@ $space-between-elements: 3em;
   }
 }
 
+.news {
+  p {
+    span {
+      font-size: 0.8em;
+    }
+
+    a {
+      margin-left: 1em;
+    }
+  }
+
+  .newsArchive {
+    display: block;
+    margin-top: 1em;
+  }
+}
+
 .card {
   @include center;
   width: 90%;

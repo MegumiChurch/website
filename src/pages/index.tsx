@@ -1,8 +1,21 @@
 import Layout from 'components/layout'
 import { ReactChild } from 'react'
+import { GetServerSidePropsContext } from 'next'
+import { renderToString } from 'react-dom/server'
 import styles from './home.module.scss'
+import { getPageById, getPagesByType } from 'common/Prismic'
+import { News } from 'types'
 
-export default function Home() {
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  const now = Date.now()
+  const news = ((await getPagesByType(`news`)) as News[]).filter(
+    ({ display_until_date }) =>
+      now < new Date(display_until_date as unknown as string).getTime()
+  )
+  return { props: { news } }
+}
+
+export default function Home({ news }: { news: News[] }) {
   return (
     <Layout>
       <div className={styles.root}>
@@ -31,7 +44,17 @@ export default function Home() {
             </nav>
           </Card>
           <Card title='News' subtitle='Our latest'>
-            毎週日曜日午前９時より、リッジウェイ教会地下グリーン・ルームにて。コロナ禍にありますが、三密を避け、注意して行っています。Zoomを通してもご参加頂けます。
+            <div className={styles.news}>
+              {news.map(({ last_publication_date, title, id }) => (
+                <p>
+                  <span>{last_publication_date.join(`.`)}</span>
+                  <a href={`page/${id}`}>{title}</a>
+                </p>
+              ))}
+              <a href='/archive/news' className={styles.newsArchive}>
+                ニュースアーカイブ →
+              </a>
+            </div>
           </Card>
           <Card title='Contact' subtitle='Get in touch'>
             下記のメールアドレス、またはフォームよりお気軽にご連絡ください。
