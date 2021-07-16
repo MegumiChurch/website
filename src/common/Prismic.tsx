@@ -12,10 +12,13 @@ export async function getPageById(id: string): Promise<Article | News> {
   )
 }
 
-export async function getPagesByType(type: string) {
+export async function getPagesByType(type: string, format = true) {
   const { results } = await client.query(
     Prismic.Predicates.at(`document.type`, type)
   )
+  if (!format) {
+    return results
+  }
   return Promise.all(
     results.map((document: PrismicDocument) => extract(document))
   )

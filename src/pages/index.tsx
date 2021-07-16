@@ -1,5 +1,5 @@
 import Layout from 'components/layout'
-import Card from 'components/card'
+import { ReactChild } from 'react'
 import styles from './home.module.scss'
 
 export default function Home() {
@@ -44,5 +44,23 @@ export default function Home() {
         </main>
       </div>
     </Layout>
+  )
+}
+
+interface Props {
+  title: string
+  subtitle: string
+  children: ReactChild | ReactChild[]
+}
+
+function Card({ title, subtitle, children }: Props) {
+  return (
+    <section className={styles.card}>
+      <div className={styles.titles}>
+        <h2>{subtitle}</h2>
+        <h1>{title}</h1>
+      </div>
+      <div className={styles.content}>{children}</div>
+    </section>
   )
 }

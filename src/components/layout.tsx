@@ -7,8 +7,8 @@ import {
 } from 'react'
 import { Cross as Hamburger } from 'hamburger-react'
 import Footer from 'components/footer'
-import styles from './layout.module.scss'
 import { getPagesByType } from 'common/Prismic'
+import styles from './layout.module.scss'
 
 interface Props {
   children: ReactChild | ReactChild[]
