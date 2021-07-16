@@ -1,9 +1,9 @@
-import { GetServerSidePropsContext } from 'next'
+import styles from './[id].module.scss'
+import type { GetServerSidePropsContext } from 'next'
+import type { Article, News } from 'types'
 import { getPageById } from 'common/Prismic'
-import { Article, News } from 'types'
 import Layout from 'components/layout'
 import { renderToElement } from 'common/Util'
-import styles from './[id].module.scss'
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   return { props: await getPageById(context.query.id as string) }
