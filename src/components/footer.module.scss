@@ -1,0 +1,50 @@
+@import 'src/styles/util';
+
+.footer {
+  color: #727274;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.inner {
+  @include desktop-only;
+  border-top: 1px solid;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1.25em 0;
+
+  li {
+    font-size: 0.8em;
+    line-height: 2.3em;
+    list-style-type: none;
+
+    &:first-of-type {
+      color: #313131;
+    }
+  }
+}
+
+.copywrite {
+  border-top: 1px solid;
+  @include desktop {
+    font-size: 0.7em;
+    padding: 3em;
+    text-align: center;
+  }
+  @include mobile {
+    font-size: 0.6em;
+    line-height: 4em;
+    padding: 1.5em;
+  }
+}
+
+.legal {
+  @include mobile-only;
+  text-align: left;
+
+  span {
+    padding: 0 1em;
+  }
+}
