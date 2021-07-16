@@ -1,6 +1,6 @@
-import Layout from 'components/layout';
-import Card from 'components/card';
-import styles from './home.module.scss';
+import Layout from 'components/layout'
+import Card from 'components/card'
+import styles from './home.module.scss'
 
 export default function Home() {
   return (
@@ -21,7 +21,7 @@ export default function Home() {
           </div>
         </header>
         <main className={styles.main}>
-          <Card title="Church & Zoom" subtitle="Join us at">
+          <Card title='Church & Zoom' subtitle='Join us at'>
             毎週日曜日午前９時より、リッジウェイ教会地下グリーン・ルームにて。コロナ禍にありますが、三密を避け、注意して行っています。Zoomを通してもご参加頂けます。
             <br />
             <nav>
@@ -30,10 +30,10 @@ export default function Home() {
               <a>Zoomで参加</a>
             </nav>
           </Card>
-          <Card title="News" subtitle="Our latest">
+          <Card title='News' subtitle='Our latest'>
             毎週日曜日午前９時より、リッジウェイ教会地下グリーン・ルームにて。コロナ禍にありますが、三密を避け、注意して行っています。Zoomを通してもご参加頂けます。
           </Card>
-          <Card title="Contact" subtitle="Get in touch">
+          <Card title='Contact' subtitle='Get in touch'>
             下記のメールアドレス、またはフォームよりお気軽にご連絡ください。
             <nav>
               <a>メール</a>
@@ -44,5 +44,5 @@ export default function Home() {
         </main>
       </div>
     </Layout>
-  );
+  )
 }

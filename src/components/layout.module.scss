@@ -1,6 +1,8 @@
 @import 'src/styles/util';
 @import 'src/pages/home.module';
 
+$topbar-width: 48px;
+
 .controls {
   display: flex;
   justify-content: space-between;
@@ -28,10 +30,36 @@
   z-index: 9;
 }
 
+.contents {
+  margin-top: $topbar-width;
+  @include mobile {
+    width: calc(100vw - #{$topbar-width});
+  }
+
+  p {
+    padding-top: 2em;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    @include mobile {
+      text-align: right;
+    }
+
+    a {
+      background-color: #2b2b2b;
+      border-radius: 8px;
+      color: #e3e3e3;
+      font-size: 1.25em;
+      padding: 0.5em;
+      position: relative;
+    }
+  }
+}
+
 .backSection {
   background-color: #1f1f1f;
-  height: 48px;
-  width: 48px;
+  height: $topbar-width;
+  width: $topbar-width;
 
   div {
     @include center;

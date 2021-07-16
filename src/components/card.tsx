@@ -1,10 +1,10 @@
-import { ReactChild } from 'react';
-import styles from './card.module.scss';
+import { ReactChild } from 'react'
+import styles from './card.module.scss'
 
 interface Props {
-  title: string;
-  subtitle: string;
-  children: ReactChild | ReactChild[];
+  title: string
+  subtitle: string
+  children: ReactChild | ReactChild[]
 }
 
 export default function Card({ title, subtitle, children }: Props) {
@@ -16,5 +16,5 @@ export default function Card({ title, subtitle, children }: Props) {
       </div>
       <div className={styles.content}>{children}</div>
     </section>
-  );
+  )
 }
