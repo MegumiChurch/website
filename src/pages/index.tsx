@@ -1,11 +1,10 @@
-import Layout from 'components/layout'
-import { ReactChild } from 'react'
-import { GetServerSidePropsContext } from 'next'
-import { renderToString } from 'react-dom/server'
-import { getPageById, getPagesByType } from 'common/Prismic'
-import Link from 'next/link'
-import { News } from 'types'
 import styles from './home.module.scss'
+import type { ReactChild } from 'react'
+import type { News } from 'types'
+import type { GetServerSidePropsContext } from 'next'
+import Layout from 'components/layout'
+import { getPagesByType } from 'common/Prismic'
+import Link from 'next/link'
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const now = Date.now()
@@ -52,8 +51,8 @@ export default function Home({ news }: { news: News[] }) {
                   <a href={`page/${id}`}>{title}</a>
                 </p>
               ))}
-              <Link href='/archive/news' className={styles.newsArchive}>
-                ニュースアーカイブ →
+              <Link href='/archive/news'>
+                <a className={styles.newsArchive}>ニュースアーカイブ →</a>
               </Link>
             </div>
           </Card>
