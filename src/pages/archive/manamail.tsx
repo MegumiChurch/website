@@ -17,12 +17,14 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { data } = (await getPagesByType(`manamail`, false))[0] as any
   return {
     props: {
-      data: data.manamail.group.value.map(({ title, subtitle, date, pdf }) => ({
-        title: RichText.asText(title.value),
-        subtitle: RichText.asText(subtitle.value),
-        date: date.value.split(`-`),
-        pdf: pdf.value.file.url
-      }))
+      data: data.manamail.group.value.map(
+        ({ title, subtitle, date, pdf }: any) => ({
+          title: RichText.asText(title.value),
+          subtitle: RichText.asText(subtitle.value),
+          date: date.value.split(`-`),
+          pdf: pdf.value.file.url
+        })
+      )
     }
   }
 }

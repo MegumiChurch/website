@@ -8,6 +8,7 @@ import {
 import { Cross as Hamburger } from 'hamburger-react'
 import Footer from 'components/footer'
 import { getPagesByType } from 'common/Prismic'
+import Link from 'next/link'
 import styles from './layout.module.scss'
 
 interface Props {
@@ -20,17 +21,22 @@ export default function Layout({ children }: Props) {
   const [contents, setContents] = useState<JSX.Element[]>([])
   useEffect(() => {
     getPagesByType(`article`).then(articles => {
-      setContents(
-        articles
-          .filter(
-            ({ title }) => ![`プライバシーポリシー`, `利用規約`].includes(title)
-          )
-          .map(({ title, id }) => (
-            <p key={id}>
-              <a href={`/page/${id}`}>{title}</a>
-            </p>
-          ))
+      const temp = [
+        <p>
+          <Link href='/'>ホーム</Link>
+        </p>,
+        <p>
+          <Link href='/archive/manamail'>マナメール アーカイブ</Link>
+        </p>
+      ]
+      articles.forEach(({ title, id }: any) =>
+        temp.push(
+          <p key={id}>
+            <a href={`/page/${id}`}>{title}</a>
+          </p>
+        )
       )
+      setContents(temp)
     })
   }, [])
   return (

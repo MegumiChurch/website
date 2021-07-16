@@ -53,6 +53,10 @@ $topbar-width: 48px;
       padding: 0.5em;
       position: relative;
     }
+
+    &:nth-child(3) {
+      margin-top: 2em;
+    }
   }
 }
 
