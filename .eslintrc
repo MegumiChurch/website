@@ -20,7 +20,9 @@
     "prettier/prettier": "error",
     "camelcase": "off",
     "import/prefer-default-export": "off",
-    "import/order": ["error", {"newlines-between": "never"}],
+    "import/order": ["error", {
+      "newlines-between": "never"
+    }],
     "react/prop-types": "off",
     "react/jsx-filename-extension": "off",
     "react/jsx-props-no-spreading": "off",
