@@ -17,7 +17,10 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
 export default function Home({ news }: { news: News[] }) {
   return (
-    <Layout>
+    <Layout
+      title='ホーム'
+      description='ニューヨークめぐみ教会は聖書信仰に立つプロテスタントの教会です。「教会はクリスチャンだけが行くところ」と思ってはいませんか。教会は全ての人に開かれています。聖書を学んでみたいと思っている方、米国の社会の基盤ともなっているキリスト教について知りたいと思っておられる方、是非気軽にお出かけ下さい。私たちの教会は皆様をお待ちしております！'
+    >
       <div className={styles.root}>
         <header className={styles.header}>
           <div className={styles.headerImage}>

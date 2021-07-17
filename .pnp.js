@@ -66,6 +66,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["interweave", "virtual:8155a6cfbfdfb46993d4580fc21eff83d1d0b0104b30d90fc21cb3d1cb6af424a8c7374ff66963ea16d49d22220c7d865f663773d2ac91294d0e55ae2e9a274c#npm:12.8.0"],
             ["lint-staged", "npm:11.0.0"],
             ["next", "virtual:8155a6cfbfdfb46993d4580fc21eff83d1d0b0104b30d90fc21cb3d1cb6af424a8c7374ff66963ea16d49d22220c7d865f663773d2ac91294d0e55ae2e9a274c#npm:11.0.1"],
+            ["next-seo", "virtual:8155a6cfbfdfb46993d4580fc21eff83d1d0b0104b30d90fc21cb3d1cb6af424a8c7374ff66963ea16d49d22220c7d865f663773d2ac91294d0e55ae2e9a274c#npm:4.26.0"],
             ["prettier", "npm:2.3.2"],
             ["prismic-reactjs", "virtual:8155a6cfbfdfb46993d4580fc21eff83d1d0b0104b30d90fc21cb3d1cb6af424a8c7374ff66963ea16d49d22220c7d865f663773d2ac91294d0e55ae2e9a274c#npm:1.3.4"],
             ["react", "npm:17.0.2"],
@@ -9059,6 +9060,36 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["next-seo", [
+        ["npm:4.26.0", {
+          "packageLocation": "./.yarn/cache/next-seo-npm-4.26.0-f3073241f6-5276a4a69e.zip/node_modules/next-seo/",
+          "packageDependencies": [
+            ["next-seo", "npm:4.26.0"]
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:8155a6cfbfdfb46993d4580fc21eff83d1d0b0104b30d90fc21cb3d1cb6af424a8c7374ff66963ea16d49d22220c7d865f663773d2ac91294d0e55ae2e9a274c#npm:4.26.0", {
+          "packageLocation": "./.yarn/$$virtual/next-seo-virtual-b533fac267/0/cache/next-seo-npm-4.26.0-f3073241f6-5276a4a69e.zip/node_modules/next-seo/",
+          "packageDependencies": [
+            ["next-seo", "virtual:8155a6cfbfdfb46993d4580fc21eff83d1d0b0104b30d90fc21cb3d1cb6af424a8c7374ff66963ea16d49d22220c7d865f663773d2ac91294d0e55ae2e9a274c#npm:4.26.0"],
+            ["@types/next", null],
+            ["@types/react", "npm:17.0.13"],
+            ["@types/react-dom", "npm:17.0.8"],
+            ["next", "virtual:8155a6cfbfdfb46993d4580fc21eff83d1d0b0104b30d90fc21cb3d1cb6af424a8c7374ff66963ea16d49d22220c7d865f663773d2ac91294d0e55ae2e9a274c#npm:11.0.1"],
+            ["react", "npm:17.0.2"],
+            ["react-dom", "virtual:8155a6cfbfdfb46993d4580fc21eff83d1d0b0104b30d90fc21cb3d1cb6af424a8c7374ff66963ea16d49d22220c7d865f663773d2ac91294d0e55ae2e9a274c#npm:17.0.2"]
+          ],
+          "packagePeers": [
+            "@types/next",
+            "@types/react-dom",
+            "@types/react",
+            "next",
+            "react-dom",
+            "react"
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["node-dir", [
         ["npm:0.1.8", {
           "packageLocation": "./.yarn/cache/node-dir-npm-0.1.8-f2fdf93fcc-0f68c35f36.zip/node_modules/node-dir/",
@@ -13057,6 +13088,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["interweave", "virtual:8155a6cfbfdfb46993d4580fc21eff83d1d0b0104b30d90fc21cb3d1cb6af424a8c7374ff66963ea16d49d22220c7d865f663773d2ac91294d0e55ae2e9a274c#npm:12.8.0"],
             ["lint-staged", "npm:11.0.0"],
             ["next", "virtual:8155a6cfbfdfb46993d4580fc21eff83d1d0b0104b30d90fc21cb3d1cb6af424a8c7374ff66963ea16d49d22220c7d865f663773d2ac91294d0e55ae2e9a274c#npm:11.0.1"],
+            ["next-seo", "virtual:8155a6cfbfdfb46993d4580fc21eff83d1d0b0104b30d90fc21cb3d1cb6af424a8c7374ff66963ea16d49d22220c7d865f663773d2ac91294d0e55ae2e9a274c#npm:4.26.0"],
             ["prettier", "npm:2.3.2"],
             ["prismic-reactjs", "virtual:8155a6cfbfdfb46993d4580fc21eff83d1d0b0104b30d90fc21cb3d1cb6af424a8c7374ff66963ea16d49d22220c7d865f663773d2ac91294d0e55ae2e9a274c#npm:1.3.4"],
             ["react", "npm:17.0.2"],

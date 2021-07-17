@@ -58,7 +58,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
 export default function archive({ data }: { data: Props[] }) {
   return (
-    <Layout>
+    <Layout title='アーカイブ'>
       <h1 className={styles.title}>マナメールアーカイブ</h1>
       <main className={styles.cards}>
         {

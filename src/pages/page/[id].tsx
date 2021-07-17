@@ -16,7 +16,7 @@ export default function Page({
   body
 }: Article | News) {
   return (
-    <Layout>
+    <Layout title={title} description={body}>
       <header
         className={styles.header}
         style={{
