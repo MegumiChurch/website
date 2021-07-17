@@ -1,10 +1,10 @@
-import styles from './layout.module.scss'
-import type { MutableRefObject, ReactChild } from 'react'
-import { useEffect, useRef, useState } from 'react'
-import { Cross as Hamburger } from 'hamburger-react'
-import Footer from 'components/footer'
 import { getPagesByType } from 'common/Prismic'
+import Footer from 'components/footer'
+import { Cross as Hamburger } from 'hamburger-react'
 import Link from 'next/link'
+import { useEffect, useRef, useState } from 'react'
+import type { MutableRefObject, ReactChild } from 'react'
+import styles from './layout.module.scss'
 
 interface Props {
   children: ReactChild | ReactChild[]

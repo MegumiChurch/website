@@ -1,10 +1,10 @@
-import styles from './home.module.scss'
+import { getPagesByType } from 'common/Prismic'
+import Layout from 'components/layout'
+import Link from 'next/link'
+import type { GetServerSidePropsContext } from 'next'
 import type { ReactChild } from 'react'
 import type { News } from 'types'
-import type { GetServerSidePropsContext } from 'next'
-import Layout from 'components/layout'
-import { getPagesByType } from 'common/Prismic'
-import Link from 'next/link'
+import styles from './home.module.scss'
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const now = Date.now()

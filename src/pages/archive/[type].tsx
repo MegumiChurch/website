@@ -1,10 +1,10 @@
-import styles from './[type].module.scss'
+import { getPagesByType } from 'common/Prismic'
+import Layout from 'components/layout'
+import { RichText } from 'prismic-reactjs'
 import type { GetServerSidePropsContext } from 'next'
 import type { ReactChild } from 'react'
 import type { News } from 'types'
-import { RichText } from 'prismic-reactjs'
-import { getPagesByType } from 'common/Prismic'
-import Layout from 'components/layout'
+import styles from './[type].module.scss'
 
 interface Props {
   date: number[]
