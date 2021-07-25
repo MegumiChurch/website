@@ -1,20 +1,10 @@
 import { getPagesByType } from 'common/Prismic'
 import Layout from 'components/layout'
 import Link from 'next/link'
-import { RichText } from 'prismic-reactjs'
 import type { GetServerSidePropsContext } from 'next'
 import type { ReactChild } from 'react'
 import type { News } from 'types'
 import styles from './home.module.scss'
-
-interface Home {
-  header: string
-  subtitle: string
-  title: string
-  first_section_body: string
-  zoom_link: string
-  google_map_link: string
-}
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const now = Date.now()
@@ -22,22 +12,6 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     ({ display_until_date }) =>
       now < new Date(display_until_date as unknown as string).getTime()
   )
-  // const {
-  //   header,
-  //   subtitle,
-  //   title,
-  //   first_section_body,
-  //   zoom_link,
-  //   google_map_link
-  // } = ((await getPagesByType('home', false)) as any)[0].data.home
-  // const home: Home = {
-  //   header: header.value.main.url,
-  //   subtitle: RichText.asText(subtitle.value),
-  //   title: RichText.asText(title.value),
-  //   first_section_body: RichText.asText(first_section_body.value),
-  //   zoom_link: zoom_link.value.url,
-  //   google_map_link: google_map_link.value.url
-  // }
   return { props: { news } }
 }
 
