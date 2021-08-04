@@ -44,7 +44,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
 export default function Home({ home, news }: { home: any; news: News[] }) {
   useEffect(() => {
-    window.location.href = `https://megumi-church-legacy-website-9in6nb65n-kotlia.vercel.app`
+    window.location.href = `https://ljgc.vercel.app/`
   }, [])
   return (
     <Layout
