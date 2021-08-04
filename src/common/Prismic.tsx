@@ -1,27 +1,24 @@
+import { Article, News } from 'types'
 import Prismic from '@prismicio/client'
 import { Document as PrismicDocument } from '@prismicio/client/types/documents'
 import { RichText } from 'prismic-reactjs'
 import { renderToString } from 'react-dom/server'
-import { Article, News } from 'types'
 
 const client = Prismic.client(`https://jgc-website.prismic.io/api`)
 
-export async function getPageById(id: string): Promise<Article | News> {
-  return extract(
-    (await client.query(Prismic.Predicates.at(`document.id`, id))).results[0]
-  )
+export async function getPageById(id: string, format = true) {
+  const docs = (await client.query(Prismic.Predicates.at(`document.id`, id)))
+    .results[0]
+  return format ? extract(docs) : docs
 }
 
 export async function getPagesByType(type: string, format = true) {
   const { results } = await client.query(
     Prismic.Predicates.at(`document.type`, type)
   )
-  if (!format) {
-    return results
-  }
-  return Promise.all(
-    results.map((document: PrismicDocument) => extract(document))
-  )
+  return format
+    ? Promise.all(results.map((document: PrismicDocument) => extract(document)))
+    : results
 }
 
 async function extract(document: PrismicDocument): Promise<Article | News> {

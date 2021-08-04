@@ -31,7 +31,8 @@ export default function Footer() {
           </ul>
         </div>
         <div className={styles.copywrite}>
-          {`Copyright © ${new Date().getFullYear()} Shun Ueda. All rights reserved.`}
+          {`Copyright © ${new Date().getFullYear()} `}
+          <a>Shun Ueda</a>. All rights reserved.
           <div className={styles.legal}>
             <a>プライバシーポリシー</a>
             <span>|</span>

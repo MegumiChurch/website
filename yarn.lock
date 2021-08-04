@@ -516,6 +516,32 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@draft-js-plugins/editor@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "@draft-js-plugins/editor@npm:4.1.0"
+  dependencies:
+    immutable: ~3.7.4
+    prop-types: ^15.5.8
+  peerDependencies:
+    draft-js: ^0.11.0
+    react: ^16.3.0 || ^17.0.0
+  checksum: 7824569869b33ce387c69060754e9d53d3a150cb2785e000809a10947ce90cd09e02247339527e756c95f209089f04d37831d87088e5b4f271768b6d65cb86d8
+  languageName: node
+  linkType: hard
+
+"@draft-js-plugins/image@npm:^4.1.2":
+  version: 4.1.2
+  resolution: "@draft-js-plugins/image@npm:4.1.2"
+  dependencies:
+    clsx: ^1.0.4
+  peerDependencies:
+    draft-js: ^0.10.1 || ^0.11.0
+    react: ^15.5.0 || ^16.0.0 || ^17.0.0
+    react-dom: ^15.5.0 || ^16.0.0 || ^17.0.0
+  checksum: 22aa1ef1164b73ded3b274cf9debda848cbc982c95c911ac1df23c10f9b832ccd2adf6637871b2f57fda35d20f12a34bd973b8b9f76165a50c16332db77e50a2
+  languageName: node
+  linkType: hard
+
 "@eslint/eslintrc@npm:^0.4.2":
   version: 0.4.2
   resolution: "@eslint/eslintrc@npm:0.4.2"
@@ -1419,6 +1445,13 @@ __metadata:
   version: 1.0.1
   resolution: "arrify@npm:1.0.1"
   checksum: f1d3bae819f49f51a09da5f5c5ce282e79ca69bbdb32db1d9f6c62b151ef801b74398d007cfe89686e2c5aeb62576a398b9068e5172b7f4e20157aa3284076d3
+  languageName: node
+  linkType: hard
+
+"asap@npm:~2.0.3":
+  version: 2.0.6
+  resolution: "asap@npm:2.0.6"
+  checksum: 3d314f8c598b625a98347bacdba609d4c889c616ca5d8ea65acaae8050ab8b7aa6630df2cfe9856c20b260b432adf2ee7a65a1021f268ef70408c70f809e3a39
   languageName: node
   linkType: hard
 
@@ -3277,6 +3310,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"clsx@npm:^1.0.4":
+  version: 1.1.1
+  resolution: "clsx@npm:1.1.1"
+  checksum: d8ae10ac0546da19fe8c9516886f6582a64a382cf4d09ea7d36d5287cafbdab1192ab249adc2cdf0310e0b0aeac4f4142cf7c738c98d9cb68c19ba24b6f673d5
+  languageName: node
+  linkType: hard
+
 "code-point-at@npm:^1.0.0":
   version: 1.1.0
   resolution: "code-point-at@npm:1.1.0"
@@ -3558,6 +3598,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"core-js@npm:^3.6.4":
+  version: 3.15.2
+  resolution: "core-js@npm:3.15.2"
+  checksum: 983706260ab8d1fb07adceda18b76165b625bb5807fa0974090c2167ec3744fc148c0827f3a53dc6f7783b334830b181162aa92a259d90cd3d9c8ae5284e0d9f
+  languageName: node
+  linkType: hard
+
 "core-util-is@npm:~1.0.0":
   version: 1.0.2
   resolution: "core-util-is@npm:1.0.2"
@@ -3615,7 +3662,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cross-fetch@npm:^3.0.6":
+"create-react-class@npm:^15.5.2":
+  version: 15.7.0
+  resolution: "create-react-class@npm:15.7.0"
+  dependencies:
+    loose-envify: ^1.3.1
+    object-assign: ^4.1.1
+  checksum: b961a66896ff89ad5451e6cf6a686c03716ecb50f7c61b24864cda5aa18d52ce817b94bbeace3e126b19a1cc926c75f34c0777a6f4004fc947221836b13d4479
+  languageName: node
+  linkType: hard
+
+"cross-fetch@npm:^3.0.4, cross-fetch@npm:^3.0.6":
   version: 3.1.4
   resolution: "cross-fetch@npm:3.1.4"
   dependencies:
@@ -4073,6 +4130,20 @@ __metadata:
   dependencies:
     is-obj: ^2.0.0
   checksum: 76e6693d8803eeff9cb920988446bf223cf1f6e5b1c0c2fe07a66906392134931a481b11e3c0bd852c5cfc97fad65258bcb4359169ad1d8d624cb3f56932be98
+  languageName: node
+  linkType: hard
+
+"draft-js@npm:^0.11.7":
+  version: 0.11.7
+  resolution: "draft-js@npm:0.11.7"
+  dependencies:
+    fbjs: ^2.0.0
+    immutable: ~3.7.4
+    object-assign: ^4.1.1
+  peerDependencies:
+    react: ">=0.14.0"
+    react-dom: ">=0.14.0"
+  checksum: b16acd275dadd9c85014722cc3181b6827fab34d7f9b2ca8be8ba793f6f6436f18dff040912d75d3408ecda8004219050f2d4f5be02674decf659e1c6e1953e5
   languageName: node
   linkType: hard
 
@@ -4881,6 +4952,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fbjs-css-vars@npm:^1.0.0":
+  version: 1.0.2
+  resolution: "fbjs-css-vars@npm:1.0.2"
+  checksum: 2f0c717cc2502932102b67d9dbfa75eeed8e5b6a655e12badfac2557907e635337a0a29acca262d0027bef87a8f63b52d0a2b065012eeaee1f0016f749b37b9a
+  languageName: node
+  linkType: hard
+
+"fbjs@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "fbjs@npm:2.0.0"
+  dependencies:
+    core-js: ^3.6.4
+    cross-fetch: ^3.0.4
+    fbjs-css-vars: ^1.0.0
+    loose-envify: ^1.0.0
+    object-assign: ^4.1.0
+    promise: ^7.1.1
+    setimmediate: ^1.0.5
+    ua-parser-js: ^0.7.18
+  checksum: 8f88a343840e38f5851f24e28f52094d945406ae4239211d286fa5b17da3e14f21a4a975a6c8889afade0d6642b5e969d0d26d026915632884bdf4853cfbcde7
+  languageName: node
+  linkType: hard
+
 "figures@npm:^2.0.0":
   version: 2.0.0
   resolution: "figures@npm:2.0.0"
@@ -5078,6 +5172,13 @@ __metadata:
   dependencies:
     map-cache: ^0.2.2
   checksum: f88983f4bf54f9a8847d15e54518535aecbfa9b7f0242604ca5cd027d88ea1469212b5dbb579233e769d0e2f4e6764bc6bbac44731fb78b9964942165c7c3048
+  languageName: node
+  linkType: hard
+
+"froala-editor@npm:4.0.3, froala-editor@npm:^4.0.3":
+  version: 4.0.3
+  resolution: "froala-editor@npm:4.0.3"
+  checksum: f1f64ccb315d2d6a566b8a57df42d0677015ea0b0a2df1d023b93d0b4c1fe4a1298477421cbded9b907c28d4ee9adeb8708251da479fba00a83bfec1a6833edf
   languageName: node
   linkType: hard
 
@@ -5907,6 +6008,13 @@ fsevents@^1.0.0:
   bin:
     image-size: bin/image-size.js
   checksum: 7366d94730346576e48e2cc1e0e3035309dbddcd8a9f3c3472cbedeb72d134a3b79214b8feeeda3716b04ae10fea5f758a78651b2dbff9efb876bb97fd849292
+  languageName: node
+  linkType: hard
+
+"immutable@npm:~3.7.4":
+  version: 3.7.6
+  resolution: "immutable@npm:3.7.6"
+  checksum: 33fb106a330bae44cea58a2bc51c667850ea198396f329787718ab9ae70f6302734d0beb81e22de06876e38807f813a81bb09628e096ef89d9b5e06185edd16a
   languageName: node
   linkType: hard
 
@@ -7229,7 +7337,7 @@ fsevents@^1.0.0:
   languageName: node
   linkType: hard
 
-"loose-envify@npm:^1.0.0, loose-envify@npm:^1.1.0, loose-envify@npm:^1.4.0":
+"loose-envify@npm:^1.0.0, loose-envify@npm:^1.1.0, loose-envify@npm:^1.3.1, loose-envify@npm:^1.4.0":
   version: 1.4.0
   resolution: "loose-envify@npm:1.4.0"
   dependencies:
@@ -8845,7 +8953,16 @@ fsevents@^1.0.0:
   languageName: node
   linkType: hard
 
-"prop-types@npm:15.7.2, prop-types@npm:^15.6.1, prop-types@npm:^15.7.2":
+"promise@npm:^7.1.1":
+  version: 7.3.1
+  resolution: "promise@npm:7.3.1"
+  dependencies:
+    asap: ~2.0.3
+  checksum: 23267a4b078fcb02c57b06ca1a1d5739109deb0932c0fd79615a2c5636dd0571ac6a161f19c4ea9683a4ab89791da13112678fa410b65334de490e97c33410ae
+  languageName: node
+  linkType: hard
+
+"prop-types@npm:15.7.2, prop-types@npm:^15.5.8, prop-types@npm:^15.6.1, prop-types@npm:^15.7.2":
   version: 15.7.2
   resolution: "prop-types@npm:15.7.2"
   dependencies:
@@ -9001,6 +9118,19 @@ fsevents@^1.0.0:
   peerDependencies:
     react: 17.0.2
   checksum: 960a74ff6670766846a73097a599115963df1574833c59ca0c2fd909758ebe7a6214cd14f5e6aa63ce846d8f39fde7f3b80474ccfcfadc45dd7f3246364718c6
+  languageName: node
+  linkType: hard
+
+"react-froala-wysiwyg@npm:^4.0.3":
+  version: 4.0.3
+  resolution: "react-froala-wysiwyg@npm:4.0.3"
+  dependencies:
+    create-react-class: ^15.5.2
+    froala-editor: 4.0.3
+  peerDependencies:
+    react: ~0.14 || ^15.0.0 || ^16.0.0 || ^17.0.0
+    react-dom: ~0.14 || ^15.0.0 || ^16.0.0 || ^17.0.0
+  checksum: e8085cf0c040db8061c0e90ee95cc139bb139304108a99c5765f4a60dffa41b79e107d6734b0244a0d491a06603202288a0f048629d96b5b1120119360d884bd
   languageName: node
   linkType: hard
 
@@ -9752,7 +9882,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"setimmediate@npm:^1.0.4":
+"setimmediate@npm:^1.0.4, setimmediate@npm:^1.0.5":
   version: 1.0.5
   resolution: "setimmediate@npm:1.0.5"
   checksum: 87884d8add4779fe47ccf763396a5bf875640ae34d80a10802da4de5c25d87647c12f6e7748fd5b8c143b57201caf2a5a781631456c228825f166ca305c12f20
@@ -10590,6 +10720,24 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"suneditor-react@npm:^3.3.0":
+  version: 3.3.0
+  resolution: "suneditor-react@npm:3.3.0"
+  peerDependencies:
+    react: ^16.9.0 || ^17.0.0
+    react-dom: ^16.9.0 || ^17.0.0
+    suneditor: ^2.41.2
+  checksum: 0ce2a41129af8123af29f480a66d9a296c38598a144c79c72eec2acb8b658c07bfc39030ae6fe3a6d05707dabdf4c730842f010bf701ff5a0aac337a28a1fa3c
+  languageName: node
+  linkType: hard
+
+"suneditor@npm:^2.41.3":
+  version: 2.41.3
+  resolution: "suneditor@npm:2.41.3"
+  checksum: dfe1beacf19cf0d3bce720fcea3a267d2c9a9149f0ea593572602ed3210c458c0accc749c61e9f237304069e4e90ead78ce97811dd431301f1aeb30e5cec09d4
+  languageName: node
+  linkType: hard
+
 "supports-color@npm:^2.0.0":
   version: 2.0.0
   resolution: "supports-color@npm:2.0.0"
@@ -11001,6 +11149,13 @@ typescript@^4.3.5:
   languageName: node
   linkType: hard
 
+"ua-parser-js@npm:^0.7.18":
+  version: 0.7.28
+  resolution: "ua-parser-js@npm:0.7.28"
+  checksum: bf65a24eb48d8ec31f6396494bff16b92228e88d7ea15d0bdaa71505313979d2fd176d832418d849a8fa6e119e8dea482f52a2acffe51a3f1810087d295a9adf
+  languageName: node
+  linkType: hard
+
 "unbox-primitive@npm:^1.0.1":
   version: 1.0.1
   resolution: "unbox-primitive@npm:1.0.1"
@@ -11340,6 +11495,8 @@ typescript@^4.3.5:
   dependencies:
     "@commitlint/cli": 12.1.4
     "@commitlint/config-conventional": 12.1.4
+    "@draft-js-plugins/editor": ^4.1.0
+    "@draft-js-plugins/image": ^4.1.2
     "@prismicio/client": ^5.1.0
     "@types/node": 14.17.4
     "@types/react": 17.0.13
@@ -11351,6 +11508,7 @@ typescript@^4.3.5:
     babel-eslint: ^10.1.0
     commitizen: 4.2.4
     cz-conventional-changelog: 3.3.0
+    draft-js: ^0.11.7
     eslint: 7.29.0
     eslint-config-airbnb: 18.2.1
     eslint-config-next: 11.0.1
@@ -11362,6 +11520,7 @@ typescript@^4.3.5:
     eslint-plugin-prettier: 3.4.0
     eslint-plugin-react: 7.24.0
     eslint-plugin-react-hooks: 4.2.0
+    froala-editor: ^4.0.3
     hamburger-react: ^2.4.1
     husky: 6.0.0
     interweave: ^12.8.0
@@ -11372,11 +11531,14 @@ typescript@^4.3.5:
     prismic-reactjs: ^1.3.4
     react: 17.0.2
     react-dom: 17.0.2
+    react-froala-wysiwyg: ^4.0.3
     react-responsive: ^8.2.0
     replace: ^1.2.1
     sass: ^1.35.2
     stylelint: ^13.13.1
     stylelint-config-sass-guidelines: ^8.0.0
+    suneditor: ^2.41.3
+    suneditor-react: ^3.3.0
     typescript: ^4.3.5
   languageName: unknown
   linkType: soft

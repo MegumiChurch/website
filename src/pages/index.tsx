@@ -1,10 +1,21 @@
-import { getPagesByType } from 'common/Prismic'
+import { getPageById, getPagesByType } from 'common/Prismic'
 import Layout from 'components/layout'
 import Link from 'next/link'
+import { RichText } from 'prismic-reactjs'
+import { useEffect } from 'react'
 import type { GetServerSidePropsContext } from 'next'
 import type { ReactChild } from 'react'
 import type { News } from 'types'
 import styles from './home.module.scss'
+
+interface Home {
+  header: string
+  subtitle: string
+  title: string
+  first_section_body: string
+  zoom_link: string
+  google_map_link: string
+}
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const now = Date.now()
@@ -12,10 +23,29 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     ({ display_until_date }) =>
       now < new Date(display_until_date as unknown as string).getTime()
   )
-  return { props: { news } }
+  const {
+    header,
+    subtitle,
+    title,
+    first_section_body,
+    zoom_link,
+    google_map_link
+  } = ((await getPagesByType(`home`, false))[0] as any).data.home
+  const home = {
+    header: header.value.main.url,
+    subtitle: RichText.asText(subtitle.value),
+    title: RichText.asText(title.value),
+    first_section_body: RichText.asText(first_section_body.value),
+    zoom_link: zoom_link.value.url,
+    google_map_link: google_map_link.value.url
+  }
+  return { props: { home, news } }
 }
 
-export default function Home({ news }: { news: News[] }) {
+export default function Home({ home, news }: { home: any; news: News[] }) {
+  useEffect(() => {
+    window.location.href = `https://megumi-church-legacy-website-9in6nb65n-kotlia.vercel.app`
+  }, [])
   return (
     <Layout
       title='ホーム'
@@ -23,27 +53,32 @@ export default function Home({ news }: { news: News[] }) {
     >
       <div className={styles.root}>
         <header className={styles.header}>
-          <div className={styles.headerImage}>
+          <div
+            className={styles.headerImage}
+            style={{
+              backgroundImage: `url("${home.header}")`
+            }}
+          >
             <div className={styles.filter}>
               <div className={styles.titleText}>
-                <h2>Japanese Grace Church of New York</h2>
+                <h2>{home.subtitle}</h2>
                 <br />
-                <h1>ニューヨークめぐみ教会</h1>
+                <h1>{home.title}</h1>
               </div>
               <div className={styles.slash}>
-                <p>Japanese Grace Church of New York</p>
+                <p>{home.subtitle}</p>
               </div>
             </div>
           </div>
         </header>
         <main className={styles.main}>
           <Card title='Church & Zoom' subtitle='Join us at'>
-            毎週日曜日午前９時より、リッジウェイ教会地下グリーン・ルームにて。コロナ禍にありますが、三密を避け、注意して行っています。Zoomを通してもご参加頂けます。
+            {home.first_section_body}
             <br />
             <nav>
-              <a>さらに詳しく</a>
+              <a href={home.google_map_link}>GoogleMapで表示</a>
               <span>|</span>
-              <a>Zoomで参加</a>
+              <a href={home.zoom_link}>Zoomで参加</a>
             </nav>
           </Card>
           <Card title='News' subtitle='Our latest'>
