@@ -10,6 +10,7 @@ interface Props {
   date: number[]
   title: string
   subtitle: string
+  about?: string
   link: {
     text: string
     route: string
@@ -22,6 +23,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     const { data } = (await getPagesByType(`manamail`, false))[0] as any
     return {
       props: {
+        about: RichText.asText(data.manamail.about.value),
         data: data.manamail.group.value.map(
           ({ title, subtitle, date, pdf }: any) => ({
             title: RichText.asText(title.value),
@@ -56,11 +58,18 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   return {}
 }
 
-export default function archive({ data }: { data: Props[] }) {
+export default function archive({
+  about,
+  data
+}: {
+  about: string
+  data: Props[]
+}) {
   return (
     <Layout title='アーカイブ'>
       <h1 className={styles.title}>マナメールアーカイブ</h1>
       <main className={styles.cards}>
+        <p>{about}</p>
         {
           data.map(({ title, subtitle, date, link }) => (
             <Card title={title} subtitle={subtitle} date={date} link={link} />
