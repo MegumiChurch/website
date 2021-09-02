@@ -1,4 +1,4 @@
-import { getPageById, getPagesByType } from 'common/Prismic'
+import { getPagesByType } from 'common/Prismic'
 import Layout from 'components/layout'
 import Link from 'next/link'
 import { RichText } from 'prismic-reactjs'
@@ -91,9 +91,15 @@ export default function Home({ home, news }: { home: any; news: News[] }) {
                   <a href={`page/${id}`}>{title}</a>
                 </p>
               ))}
-              <Link href='/archive/news'>
-                <a className={styles.newsArchive}>ニュースアーカイブ →</a>
-              </Link>
+              <nav>
+                <Link href='/archive/news'>
+                  <a>ニュースアーカイブ</a>
+                </Link>
+                <span>|</span>
+                <Link href='/archive/manamail'>
+                  <a>マナメールアーカイブ</a>
+                </Link>
+              </nav>
             </div>
           </Card>
           <Card title='Contact' subtitle='Get in touch'>

@@ -8,14 +8,18 @@ export default function Footer() {
           <ul>
             <li>ニューヨークめぐみ教会</li>
             <li>
-              <a href='https://goo.gl/maps/tZb7swVVmkXuFxC27'>住所</a>
+              <a href='https://goo.gl/maps/tZb7swVVmkXuFxC27'>
+                465 Ridgeway Rd White Plains NY10605
+              </a>
             </li>
           </ul>
           <ul>
             <li>牧師・笹川雅弘</li>
             <li>Masahiro Sasakawa</li>
             <li>
-              <a href='mailto:msasakawa@ridgewaychurch.com'>メール</a>
+              <a href='mailto:msasakawa@ridgewaychurch.com'>
+                msasakawa@ridgewaychurch.com
+              </a>
             </li>
           </ul>
           <ul>
