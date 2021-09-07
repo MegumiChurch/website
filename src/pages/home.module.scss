@@ -9,6 +9,7 @@ $space-between-elements: 3em;
   width: 80%;
   @include mobile {
     height: 13rem;
+    width: 100%;
   }
 }
 
