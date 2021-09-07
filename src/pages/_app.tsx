@@ -11,7 +11,10 @@ export default function App({ Component, pageProps }: AppProps) {
     }
     window.addEventListener(`load`, handleResize)
     window.addEventListener(`resize`, handleResize)
-    return () => window.removeEventListener(`resize`, handleResize)
+    return () => {
+      window.removeEventListener(`load`, handleResize)
+      window.removeEventListener(`resize`, handleResize)
+    }
   }, [])
   return (
     <>
