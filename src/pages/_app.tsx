@@ -9,6 +9,7 @@ export default function App({ Component, pageProps }: AppProps) {
     function handleResize() {
       setMag(1.4 - 0.4 * ((window.outerWidth - 10) / window.innerWidth))
     }
+    window.addEventListener(`load`, handleResize)
     window.addEventListener(`resize`, handleResize)
     return () => window.removeEventListener(`resize`, handleResize)
   }, [])
