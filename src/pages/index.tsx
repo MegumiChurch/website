@@ -17,7 +17,7 @@ interface Home {
   google_map_link: string
 }
 
-export async function getServerSideProps(_: GetServerSidePropsContext) {
+export async function getServerSideProps(context: GetServerSidePropsContext) {
   const now = Date.now()
   const news = ((await getPagesByType(`news`)) as News[]).filter(
     ({ display_until_date }) =>
