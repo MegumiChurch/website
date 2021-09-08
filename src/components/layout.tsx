@@ -19,7 +19,7 @@ export default function Layout({ title, description, children }: Props) {
   const [contents, setContents] = useState<JSX.Element[]>([])
   useEffect(() => {
     getPagesByType(`article`).then(articles => {
-      const temp = [<Link href='/'>ホーム</Link>]
+      const temp = [<a href='/'>ホーム</a>]
       articles.forEach((article: any) =>
         temp.push(
           <a href={`/page/${article.id}`} key={article.id}>
@@ -47,8 +47,14 @@ export default function Layout({ title, description, children }: Props) {
           >
             <div ref={ref} />
           </div>
-          <div className={styles.menuButton}>
-            <Hamburger color='#FFF' toggle={setOpen} toggled={isOpen} />
+          <div
+            className={styles.menuButton}
+            onMouseDown={() => {
+              setOpen(!isOpen)
+            }}
+          >
+            <p>クリックして開く</p>
+            <p>Menu</p>
           </div>
         </div>
       </>

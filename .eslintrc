@@ -30,6 +30,8 @@
         "caseInsensitive": true
       }
     }],
+    "@next/next/no-img-element": "warn",
+    "@next/next/no-html-link-for-pages": "warn",
     "react/prop-types": "off",
     "react/jsx-filename-extension": "off",
     "react/jsx-props-no-spreading": "off",

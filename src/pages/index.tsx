@@ -81,9 +81,11 @@ export default function Home({ home, news }: { home: any; news: News[] }) {
             {home.first_section_body}
             <br />
             <nav>
-              <a href={home.google_map_link}>GoogleMapで表示</a>
+              <Link href={home.google_map_link}>GoogleMap</Link>
               <span>|</span>
-              <a href={home.zoom_link}>Zoomで参加</a>
+              <Link href='/page/visit'>教会内詳細案内</Link>
+              <span>|</span>
+              <Link href={home.zoom_link}>Zoomで参加</Link>
             </nav>
           </Card>
           <Card title='News' subtitle='Our latest'>
@@ -96,11 +98,11 @@ export default function Home({ home, news }: { home: any; news: News[] }) {
               ))}
               <nav>
                 <Link href='/archive/news'>
-                  <a>ニュースアーカイブ</a>
+                  <a>過去のニュース</a>
                 </Link>
                 <span>|</span>
                 <Link href='/archive/manamail'>
-                  <a>マナメールアーカイブ</a>
+                  <a>マナメール</a>
                 </Link>
               </nav>
             </div>
@@ -108,9 +110,13 @@ export default function Home({ home, news }: { home: any; news: News[] }) {
           <Card title='Contact' subtitle='Get in touch'>
             下記のメールアドレス、またはフォームよりお気軽にご連絡ください。
             <nav>
-              <a>メール</a>
+              <Link href='mailto:msasakawa@ridgewaychurch.com'>
+                <a>メール</a>
+              </Link>
               <span>|</span>
-              <a>お問い合わせフォーム</a>
+              <Link href='https://forms.gle/QtPUQHhoznhJ7hAH9'>
+                <a>お問い合わせフォーム</a>
+              </Link>
             </nav>
           </Card>
         </main>

@@ -28,7 +28,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
           ({ title, subtitle, date, pdf }: any) => ({
             title: RichText.asText(title.value),
             subtitle: RichText.asText(subtitle.value),
-            date: date.value.split(`-`),
+            date: date?.value?.split(`-`) || [``, ``, ``],
             link: {
               text: `ダウンロード`,
               route: pdf.value.file.url
