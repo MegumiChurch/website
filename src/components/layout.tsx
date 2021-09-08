@@ -2,10 +2,11 @@ import { getPagesByType } from 'common/Prismic'
 import Footer from 'components/footer'
 import { Cross as Hamburger } from 'hamburger-react'
 import { NextSeo } from 'next-seo'
-import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
+import { useMediaQuery } from 'react-responsive'
 import type { MutableRefObject, ReactChild } from 'react'
 import styles from './layout.module.scss'
+import { dquery } from 'common/Responsive'
 
 interface Props {
   title?: string
@@ -15,6 +16,7 @@ interface Props {
 
 export default function Layout({ title, description, children }: Props) {
   const ref = useRef() as MutableRefObject<HTMLDivElement>
+  const isDesktop = useMediaQuery(dquery)
   const [isOpen, setOpen] = useState(false)
   const [contents, setContents] = useState<JSX.Element[]>([])
   useEffect(() => {
@@ -48,13 +50,24 @@ export default function Layout({ title, description, children }: Props) {
             <div ref={ref} />
           </div>
           <div
-            className={styles.menuButton}
+            className={isDesktop ? styles.menuButton : ``}
+            style={{
+              backgroundColor: `#1d1d1f`
+            }}
             onMouseDown={() => {
-              setOpen(!isOpen)
+              if (isDesktop) {
+                setOpen(!isOpen)
+              }
             }}
           >
-            <p>クリックして開く</p>
-            <p>Menu</p>
+            {isDesktop ? (
+              <>
+                <p>クリックして{isOpen ? `閉じる` : `開く`}</p>
+                <p>Menu</p>
+              </>
+            ) : (
+              <Hamburger color='#FFF' toggle={setOpen} toggled={isOpen} />
+            )}
           </div>
         </div>
       </>
