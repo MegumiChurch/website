@@ -1,5 +1,5 @@
-import { renderToString } from 'react-dom/server'
 import Page from 'pages/page/[id]'
+import { renderToString } from 'react-dom/server'
 
 export default function Visit() {
   return (
