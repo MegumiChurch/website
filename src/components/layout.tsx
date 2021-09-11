@@ -50,10 +50,7 @@ export default function Layout({ title, description, children }: Props) {
             <div ref={ref} />
           </div>
           <div
-            className={isDesktop ? styles.menuButton : ``}
-            style={{
-              backgroundColor: `#1d1d1f`
-            }}
+            className={styles.menuButton}
             onMouseDown={() => {
               if (isDesktop) {
                 setOpen(!isOpen)
