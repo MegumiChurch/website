@@ -1,4 +1,4 @@
-import { getPagesByType } from 'common/Prismic'
+import { getPageById, getPagesByType } from 'common/Prismic'
 import { dquery } from 'common/Responsive'
 import Footer from 'components/footer'
 import { Cross as Hamburger } from 'hamburger-react'
@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
 import type { MutableRefObject, ReactChild } from 'react'
 import styles from './layout.module.scss'
+import { Article } from 'types'
 
 interface Props {
   title?: string
@@ -20,17 +21,20 @@ export default function Layout({ title, description, children }: Props) {
   const [isOpen, setOpen] = useState(false)
   const [contents, setContents] = useState<JSX.Element[]>([])
   useEffect(() => {
-    getPagesByType(`article`).then(articles => {
-      const temp = [<a href='/'>ホーム</a>]
-      articles.forEach((article: any) =>
-        temp.push(
-          <a href={`/page/${article.id}`} key={article.id}>
-            {article.title}
-          </a>
-        )
-      )
-      setContents(temp)
+    const temp = [<a href='/'>ホーム</a>]
+    getPagesByType(`menu`, false).then(articles => {
+      ;(articles[0] as any).data.menu.item.value.forEach((article: any) => {
+        const { id } = article.article.value.document
+        getPageById(id).then(page => {
+          temp.push(
+            <a href={`/page/${id}`} key={id}>
+              {(page as Article).title}
+            </a>
+          )
+        })
+      })
     })
+    setContents(temp)
   }, [])
   return (
     <>

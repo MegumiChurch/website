@@ -83,9 +83,10 @@ export default function Home({ home, news }: { home: any; news: News[] }) {
             <nav>
               <Link href={home.google_map_link}>GoogleMap</Link>
               <span>|</span>
-              <Link href='/page/visit'>教会敷地内詳細案内</Link>
-              <span>|</span>
               <Link href={home.zoom_link}>Zoomで参加</Link>
+              <br />
+              <br />
+              <Link href='/page/visit'>教会敷地内詳細案内</Link>
             </nav>
           </Card>
           <Card title='News' subtitle='Our latest'>
@@ -96,6 +97,7 @@ export default function Home({ home, news }: { home: any; news: News[] }) {
                   <a href={`page/${id}`}>{title}</a>
                 </p>
               ))}
+              <br />
               <nav>
                 <Link href='/archive/news'>
                   <a>過去のニュース</a>
