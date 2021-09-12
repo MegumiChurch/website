@@ -43,14 +43,14 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 }
 
 export default function Home({ home, news }: { home: any; news: News[] }) {
-  useEffect(() => {
-    if (
-      window.location.href.includes(`jgclmi.com`) &&
-      !window.location.href.includes(`redirect=false`)
-    ) {
-      window.location.href = `https://ljgc.vercel.app/`
-    }
-  }, [])
+  // useEffect(() => {
+  //   if (
+  //     window.location.href.includes(`jgclmi.com`) &&
+  //     !window.location.href.includes(`redirect=false`)
+  //   ) {
+  //     window.location.href = `https://ljgc.vercel.app/`
+  //   }
+  // }, [])
   return (
     <Layout
       title='ホーム'
