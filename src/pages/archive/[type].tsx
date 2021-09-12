@@ -1,5 +1,6 @@
 import { getPagesByType } from 'common/Prismic'
 import Layout from 'components/layout'
+import readPdf from 'pdf-parse'
 import { RichText } from 'prismic-reactjs'
 import type { GetServerSidePropsContext } from 'next'
 import type { ReactChild } from 'react'
@@ -17,18 +18,50 @@ interface Props {
   }
 }
 
+interface File {
+  title: string
+  pubDate: number[]
+}
+
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const query = context.query.type as string
   if (query === `manamail`) {
     const { data } = (await getPagesByType(`manamail`, false))[0] as any
+    const files = new Map<string, number[]>()
+    await Promise.all(
+      data.manamail.group.value.map(async (entry: any) => {
+        if (entry.date) {
+          files.set(
+            RichText.asText(entry.title.value),
+            entry.date.value.split(`-`).map((it: string) => parseInt(it, 10))
+          )
+          return
+        }
+        const res = await fetch(entry.pdf.value.file.url)
+        const pdfData = await readPdf(Buffer.from(await res.arrayBuffer()))
+        const rawDate = pdfData.info.CreationDate.substring(2, 10)
+        const year = rawDate.substring(0, 4)
+        const month = rawDate.substring(4, 6) - 1
+        const day = rawDate.substring(6, 8)
+        const date = new Date(year, month, day)
+        while (date.getDay() !== 0) {
+          date.setDate(date.getDate() + 1)
+        }
+        files.set(RichText.asText(entry.title.value), [
+          date.getFullYear(),
+          date.getMonth() + 1,
+          date.getDate()
+        ])
+      })
+    )
     return {
       props: {
         about: RichText.asText(data.manamail.about.value),
         data: data.manamail.group.value.map(
-          ({ title, subtitle, date, pdf }: any) => ({
+          ({ title, subtitle, pdf }: any) => ({
             title: RichText.asText(title.value),
             subtitle: RichText.asText(subtitle.value),
-            date: date?.value?.split(`-`) || [``, ``, ``],
+            date: files.get(RichText.asText(title.value)),
             link: {
               text: `ダウンロード`,
               route: pdf.value.file.url
@@ -71,9 +104,11 @@ export default function archive({
       <main className={styles.cards}>
         <p>{about}</p>
         {
-          data.map(({ title, subtitle, date, link }) => (
-            <Card title={title} subtitle={subtitle} date={date} link={link} />
-          )) as unknown as ReactChild
+          data
+            .reverse()
+            .map(({ title, subtitle, date, link }) => (
+              <Card title={title} subtitle={subtitle} date={date} link={link} />
+            )) as unknown as ReactChild
         }
       </main>
     </Layout>

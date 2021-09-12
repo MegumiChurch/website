@@ -1,13 +1,13 @@
 import { getPageById, getPagesByType } from 'common/Prismic'
 import { dquery } from 'common/Responsive'
 import Footer from 'components/footer'
+import { Article } from 'types'
 import { Cross as Hamburger } from 'hamburger-react'
 import { NextSeo } from 'next-seo'
 import { useEffect, useRef, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
 import type { MutableRefObject, ReactChild } from 'react'
 import styles from './layout.module.scss'
-import { Article } from 'types'
 
 interface Props {
   title?: string
@@ -21,7 +21,7 @@ export default function Layout({ title, description, children }: Props) {
   const [isOpen, setOpen] = useState(false)
   const [contents, setContents] = useState<JSX.Element[]>([])
   useEffect(() => {
-    const temp = [<a href='/'>ホーム</a>]
+    const temp = []
     getPagesByType(`menu`, false).then(articles => {
       ;(articles[0] as any).data.menu.item.value.forEach((article: any) => {
         const { id } = article.article.value.document
@@ -34,6 +34,7 @@ export default function Layout({ title, description, children }: Props) {
         })
       })
     })
+    temp.push(<a href='/'>ホーム</a>)
     setContents(temp)
   }, [])
   return (
