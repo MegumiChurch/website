@@ -1,11 +1,11 @@
 import { getPageById, getPagesByType } from 'common/Prismic'
 import { dquery } from 'common/Responsive'
 import Footer from 'components/footer'
-import { Article } from 'types'
 import { Cross as Hamburger } from 'hamburger-react'
 import { NextSeo } from 'next-seo'
 import { useEffect, useRef, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
+import { Article } from 'types'
 import type { MutableRefObject, ReactChild } from 'react'
 import styles from './layout.module.scss'
 

@@ -24,14 +24,14 @@ export default function Footer() {
           </ul>
           <ul>
             <li>関連サイト</li>
-            <li>
-              <a href='https://nymissionsasakawa.wixsite.com/support'>
-                笹川雅弘宣教師を支える会
-              </a>
-            </li>
-            <li>
-              <a href='https://twitter.com/SasakawaM'>Twitter</a>
-            </li>
+            {/* <li> */}
+            {/*  <a href='https://nymissionsasakawa.wixsite.com/support'> */}
+            {/*    笹川雅弘宣教師を支える会 */}
+            {/*  </a> */}
+            {/* </li> */}
+            {/* <li> */}
+            {/*  <a href='https://twitter.com/SasakawaM'>Twitter</a> */}
+            {/* </li> */}
           </ul>
         </div>
         <div className={styles.copywrite}>
