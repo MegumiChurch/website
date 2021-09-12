@@ -5,8 +5,8 @@ import { Cross as Hamburger } from 'hamburger-react'
 import { NextSeo } from 'next-seo'
 import { useEffect, useRef, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
-import { Article } from 'types'
 import type { MutableRefObject, ReactChild } from 'react'
+import type { Article } from 'types'
 import styles from './layout.module.scss'
 
 interface Props {
