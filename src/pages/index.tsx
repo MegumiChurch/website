@@ -6,7 +6,7 @@ import { useEffect } from 'react'
 import type { GetServerSidePropsContext } from 'next'
 import type { ReactChild } from 'react'
 import type { News } from 'types'
-import styles from './home.module.scss'
+import styles from './index.module.scss'
 
 interface Home {
   header: string
