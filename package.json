@@ -14,9 +14,10 @@
     "stylelint": "stylelint \"src/**/*.scss\"",
     "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
     "postinstall": "husky install",
-    "precommit": "yarn lint --fix && yarn stylelint --fix",
+    "precommit": "yarn lint --fix && yarn stylelint --fix && yarn fixImport && yarn format",
     "fixImport": "replace '~/src/' '' src -r",
-    "commit": "yarn precommit && yarn fixImport && yarn format && git add . && cz"
+    "fastcommit": "yarn format && git add . && cz",
+    "commit": "yarn precommit && git add . && cz"
   },
   "lint-staged": {
     "./src/**/*.{ts,js,jsx,tsx}": []
