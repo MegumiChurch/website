@@ -69,9 +69,6 @@ export default function Home({ home, news }: { home: any; news: News[] }) {
                 <br />
                 <h1>{home.title}</h1>
               </div>
-              <div className={styles.slash}>
-                <p>{home.subtitle}</p>
-              </div>
             </div>
           </div>
         </header>
