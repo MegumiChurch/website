@@ -59,17 +59,17 @@ export default function Home({ home, news }: { home: any; news: News[] }) {
         <header className={styles.header}>
           <div
             className={styles.headerImage}
-            style={{
-              backgroundImage: `url("${home.header}")`
-            }}
+            // style={{
+            //   backgroundImage: `url("${home.header}")`
+            // }}
           >
-            <div className={styles.filter}>
-              <div className={styles.titleText}>
-                <h2>{home.subtitle}</h2>
-                <br />
-                <h1>{home.title}</h1>
-              </div>
-            </div>
+            {/* <div className={styles.filter}> */}
+            {/*  <div className={styles.titleText}> */}
+            {/*    <h2>{home.subtitle}</h2> */}
+            {/*    <br /> */}
+            {/*    <h1>{home.title}</h1> */}
+            {/*  </div> */}
+            {/* </div> */}
           </div>
         </header>
         <main className={styles.main}>

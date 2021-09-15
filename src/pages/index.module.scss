@@ -4,7 +4,7 @@ $space-between-elements: 3em;
 
 .headerImage {
   @include center;
-  background-image: url('../../public/header.jpg');
+  background-image: url('../../public/header.png');
   height: 24rem;
   width: 80%;
   @include mobile {
