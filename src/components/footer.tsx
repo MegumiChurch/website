@@ -32,6 +32,11 @@ export default function Footer() {
             {/* <li> */}
             {/*  <a href='https://twitter.com/SasakawaM'>Twitter</a> */}
             {/* </li> */}
+            <li>
+              <a href='https://www.liebenzellmission.org/missionaries/north-america'>
+                Liebenzell USA
+              </a>
+            </li>
           </ul>
         </div>
         <div className={styles.copywrite}>
