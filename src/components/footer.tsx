@@ -23,15 +23,14 @@ export default function Footer() {
             </li>
           </ul>
           <ul>
-            <li>関連サイト</li>
-            {/* <li> */}
-            {/*  <a href='https://nymissionsasakawa.wixsite.com/support'> */}
-            {/*    笹川雅弘宣教師を支える会 */}
-            {/*  </a> */}
-            {/* </li> */}
-            {/* <li> */}
-            {/*  <a href='https://twitter.com/SasakawaM'>Twitter</a> */}
-            {/* </li> */}
+            <li>
+              <a href='https://nymissionsasakawa.wixsite.com/support'>
+                笹川雅弘宣教師を支える会
+              </a>
+            </li>
+            <li>
+              <a href='https://twitter.com/SasakawaM'>Twitter</a>
+            </li>
             <li>
               <a href='https://www.liebenzellmission.org/missionaries/north-america'>
                 Liebenzell USA
