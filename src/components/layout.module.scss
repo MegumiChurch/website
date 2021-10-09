@@ -69,25 +69,47 @@ $topbar-width: 48px;
   background-color: #1d1d1f;
   clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0 66%);
   cursor: pointer;
+  @include desktop {
+    p {
+      margin-left: 5rem;
+      margin-right: 0.6rem;
+
+      &:first-of-type {
+        font-size: 0.8em;
+        padding-top: 1.4rem;
+      }
+
+      &:nth-of-type(2) {
+        font-size: 2.5em;
+        letter-spacing: 0.08em;
+        padding-bottom: 0.6rem;
+        text-transform: uppercase;
+      }
+    }
+  }
+  @include mobile {
+    p {
+      margin-left: 1.8rem;
+      margin-right: 0.6rem;
+
+      &:first-of-type {
+        font-size: 0.8em;
+        padding-top: 0.7rem;
+      }
+
+      &:nth-of-type(2) {
+        font-size: 1em;
+        letter-spacing: 0.08em;
+        padding-bottom: 0.6rem;
+        text-transform: uppercase;
+      }
+    }
+  }
 
   p {
     color: #fafafa;
     font-family: 'SF Pro Display Ultralight', serif;
-    margin-left: 5rem;
-    margin-right: 0.6rem;
     text-align: center;
-
-    &:first-of-type {
-      font-size: 0.8em;
-      padding-top: 1.4rem;
-    }
-
-    &:nth-of-type(2) {
-      font-size: 2.5em;
-      letter-spacing: 0.08em;
-      padding-bottom: 0.6rem;
-      text-transform: uppercase;
-    }
   }
 }
 

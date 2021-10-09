@@ -57,9 +57,7 @@ export default function Layout({ title, description, children }: Props) {
           <div
             className={styles.menuButton}
             onMouseDown={() => {
-              if (isDesktop) {
-                setOpen(!isOpen)
-              }
+              setOpen(!isOpen)
             }}
           >
             {isDesktop ? (
@@ -68,7 +66,11 @@ export default function Layout({ title, description, children }: Props) {
                 <p>Menu</p>
               </>
             ) : (
-              <Hamburger color='#FFF' toggle={setOpen} toggled={isOpen} />
+              <>
+                <p>クリックして{isOpen ? `閉じる` : `開く`}</p>
+                <p>Menu</p>
+              </>
+              // <Hamburger color='#FFF' toggle={setOpen} toggled={isOpen} />
             )}
           </div>
         </div>
