@@ -32,7 +32,7 @@ export default function Footer() {
               <a href='https://twitter.com/SasakawaM'>Twitter</a>
             </li>
             <li>
-              <a href='https://www.liebenzellmission.org/missionaries/north-america'>
+              <a href='https://liebenzellmission.org/category/missionaries/'>
                 Liebenzell USA
               </a>
             </li>
