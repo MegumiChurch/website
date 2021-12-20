@@ -1,8 +1,10 @@
 import Prismic from '@prismicio/client'
 import { Document as PrismicDocument } from '@prismicio/client/types/documents'
 import { RichText } from 'prismic-reactjs'
+import { ReactElement } from 'react'
 import { renderToString } from 'react-dom/server'
 import { Article, News } from 'types'
+import { fixFullWidth } from 'common/Util'
 
 const client = Prismic.client(`https://jgc-website.prismic.io/api`)
 
@@ -29,7 +31,9 @@ async function extract(document: PrismicDocument): Promise<Article | News> {
     last_publication_date: last_publication_date!.substring(0, 10).split(`-`),
     header: header.value.main.url,
     title: RichText.asText(title.value),
-    body: renderToString(<RichText render={body.value} />)
+    body: fixFullWidth(
+      renderToString((<RichText render={body.value} />) as ReactElement)
+    )
   }
   return type === `news`
     ? {

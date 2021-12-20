@@ -11,11 +11,9 @@ export default function App({ Component, pageProps }: AppProps) {
   const [loading, setLoading] = useState(false)
   useEffect(() => {
     const start = () => {
-      console.log(`start`)
       setLoading(true)
     }
     const end = () => {
-      console.log(`findished`)
       setLoading(false)
     }
     function handleResize() {
