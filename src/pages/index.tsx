@@ -6,6 +6,7 @@ import type { GetServerSidePropsContext } from 'next'
 import type { ReactChild } from 'react'
 import type { News } from 'types'
 import styles from './index.module.scss'
+import { fixFullWidth } from 'common/Util'
 
 interface Home {
   header: string
@@ -17,10 +18,10 @@ interface Home {
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  const now = Date.now()
+  const now = Date.now() - 86_400_000
   const news = ((await getPagesByType(`news`)) as News[]).filter(
     ({ display_until_date }) =>
-      now < new Date(display_until_date as unknown as string).getTime()
+      now <= new Date(display_until_date as unknown as string).getTime()
   )
   const {
     header,
@@ -34,7 +35,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     header: header.value.main.url,
     subtitle: RichText.asText(subtitle.value),
     title: RichText.asText(title.value),
-    first_section_body: RichText.asText(first_section_body.value),
+    first_section_body: fixFullWidth(RichText.asText(first_section_body.value)),
     zoom_link: zoom_link.value.url,
     google_map_link: google_map_link.value.url
   }
@@ -42,83 +43,73 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 }
 
 export default function Home({ home, news }: { home: any; news: News[] }) {
-  // useEffect(() => {
-  //   if (
-  //     window.location.href.includes(`jgclmi.com`) &&
-  //     !window.location.href.includes(`redirect=false`)
-  //   ) {
-  //     window.location.href = `https://ljgc.vercel.app/`
-  //   }
-  // }, [])
   return (
     <Layout
       title='ホーム'
       description='ニューヨークめぐみ教会は聖書信仰に立つプロテスタントの教会です。「教会はクリスチャンだけが行くところ」と思ってはいませんか。教会は全ての人に開かれています。聖書を学んでみたいと思っている方、米国の社会の基盤ともなっているキリスト教について知りたいと思っておられる方、是非気軽にお出かけ下さい。私たちの教会は皆様をお待ちしております！'
     >
-      <div className={styles.root}>
-        <header className={styles.header}>
-          <div
-            className={styles.headerImage}
-            // style={{
-            //   backgroundImage: `url("${home.header}")`
-            // }}
-          >
-            {/* <div className={styles.filter}> */}
-            {/*  <div className={styles.titleText}> */}
-            {/*    <h2>{home.subtitle}</h2> */}
-            {/*    <br /> */}
-            {/*    <h1>{home.title}</h1> */}
-            {/*  </div> */}
-            {/* </div> */}
-          </div>
-        </header>
-        <main className={styles.main}>
-          <Card title='Church & Zoom' subtitle='Join us at'>
-            {home.first_section_body}
+      <header>
+        <div
+          className={styles.headerImage}
+          // style={{
+          //   backgroundImage: `url("${home.header}")`
+          // }}
+        >
+          {/* <div className={styles.filter}> */}
+          {/*  <div className={styles.titleText}> */}
+          {/*    <h2>{home.subtitle}</h2> */}
+          {/*    <br /> */}
+          {/*    <h1>{home.title}</h1> */}
+          {/*  </div> */}
+          {/* </div> */}
+        </div>
+      </header>
+      <main className={styles.main}>
+        <Card title='Church & Zoom' subtitle='Join us at'>
+          {home.first_section_body}
+          <br />
+          <nav>
+            <Link href={home.google_map_link}>GoogleMap</Link>
+            <span>|</span>
+            <Link href={home.zoom_link}>Zoomで参加</Link>
+            <br />
+            <br />
+            <Link href='/page/visit'>教会敷地内詳細案内</Link>
+          </nav>
+        </Card>
+        <Card title='News' subtitle='Our latest'>
+          <div className={styles.news}>
+            {news.map(({ last_publication_date, title, id }) => (
+              <p>
+                <span>{last_publication_date.join(`.`)}</span>
+                <a href={`page/${id}`}>{title}</a>
+              </p>
+            ))}
             <br />
             <nav>
-              <Link href={home.google_map_link}>GoogleMap</Link>
-              <span>|</span>
-              <Link href={home.zoom_link}>Zoomで参加</Link>
-              <br />
-              <br />
-              <Link href='/page/visit'>教会敷地内詳細案内</Link>
-            </nav>
-          </Card>
-          <Card title='News' subtitle='Our latest'>
-            <div className={styles.news}>
-              {news.map(({ last_publication_date, title, id }) => (
-                <p>
-                  <span>{last_publication_date.join(`.`)}</span>
-                  <a href={`page/${id}`}>{title}</a>
-                </p>
-              ))}
-              <br />
-              <nav>
-                <Link href='/archive/news'>
-                  <a>過去のニュース</a>
-                </Link>
-                <span>|</span>
-                <Link href='/archive/manamail'>
-                  <a>マナメール</a>
-                </Link>
-              </nav>
-            </div>
-          </Card>
-          <Card title='Contact' subtitle='Get in touch'>
-            下記のメールアドレス、またはフォームよりお気軽にご連絡ください。
-            <nav>
-              <Link href='mailto:msasakawa@ridgewaychurch.com'>
-                <a>メール</a>
+              <Link href='/archive/news'>
+                <a>過去のニュース</a>
               </Link>
               <span>|</span>
-              <Link href='https://forms.gle/QtPUQHhoznhJ7hAH9'>
-                <a>お問い合わせフォーム</a>
+              <Link href='/archive/manamail'>
+                <a>マナメール</a>
               </Link>
             </nav>
-          </Card>
-        </main>
-      </div>
+          </div>
+        </Card>
+        <Card title='Contact' subtitle='Get in touch'>
+          下記のメールアドレス、またはフォームよりお気軽にご連絡ください。
+          <nav>
+            <Link href='mailto:msasakawa@ridgewaychurch.com'>
+              <a>メール</a>
+            </Link>
+            <span>|</span>
+            <Link href='https://forms.gle/QtPUQHhoznhJ7hAH9'>
+              <a>お問い合わせフォーム</a>
+            </Link>
+          </nav>
+        </Card>
+      </main>
     </Layout>
   )
 }

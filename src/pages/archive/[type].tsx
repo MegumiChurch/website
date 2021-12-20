@@ -38,7 +38,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
           return
         }
         const res = await fetch(entry.pdf.value.file.url)
-        const pdfData = await readPdf(Buffer.from(await res.arrayBuffer()))
+        const pdfData = await readPdf(Buffer.from(await res.arrayBuffer()), {})
         const rawDate = pdfData.info.CreationDate.substring(2, 10)
         const year = rawDate.substring(0, 4)
         const month = rawDate.substring(4, 6) - 1
@@ -74,8 +74,8 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   if (query === `news`) {
     return {
       props: {
-        data: ((await getPagesByType(`news`)) as News[]).map(
-          ({ title, last_publication_date, display_until_date, id }) => ({
+        data: ((await getPagesByType(`news`)) as News[])
+          .map(({ title, last_publication_date, display_until_date, id }) => ({
             title,
             subtitle: `${display_until_date.join(`/`)} に公開終了`,
             date: last_publication_date,
@@ -83,8 +83,10 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
               text: `さらに詳しく`,
               route: `/page/${id}`
             }
-          })
-        )
+          }))
+          .sort((a, b) =>
+            new Date(a.date.join(`/`)) < new Date(b.date.join(`/`)) ? -1 : 1
+          )
       }
     }
   }
@@ -100,8 +102,8 @@ export default function archive({
 }) {
   return (
     <Layout title='アーカイブ'>
-      <h1 className={styles.title}>マナメールアーカイブ</h1>
-      <main className={styles.cards}>
+      <h1 className={styles.title}>アーカイブ</h1>
+      <main>
         <p>{about}</p>
         {
           data
