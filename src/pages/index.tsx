@@ -1,4 +1,5 @@
 import { getPagesByType } from 'common/Prismic'
+import { fixFullWidth } from 'common/Util'
 import Layout from 'components/layout'
 import Link from 'next/link'
 import { RichText } from 'prismic-reactjs'
@@ -6,7 +7,6 @@ import type { GetServerSidePropsContext } from 'next'
 import type { ReactChild } from 'react'
 import type { News } from 'types'
 import styles from './index.module.scss'
-import { fixFullWidth } from 'common/Util'
 
 interface Home {
   header: string

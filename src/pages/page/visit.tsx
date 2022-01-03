@@ -1,7 +1,7 @@
+import { fixFullWidth } from 'common/Util'
 import Page from 'pages/page/[id]'
 import { ReactElement } from 'react'
 import { renderToString } from 'react-dom/server'
-import { fixFullWidth } from 'common/Util'
 
 export default function Visit() {
   return (

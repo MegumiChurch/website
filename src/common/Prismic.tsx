@@ -1,10 +1,10 @@
 import Prismic from '@prismicio/client'
 import { Document as PrismicDocument } from '@prismicio/client/types/documents'
+import { fixFullWidth } from 'common/Util'
 import { RichText } from 'prismic-reactjs'
 import { ReactElement } from 'react'
 import { renderToString } from 'react-dom/server'
 import { Article, News } from 'types'
-import { fixFullWidth } from 'common/Util'
 
 const client = Prismic.client(`https://jgc-website.prismic.io/api`)
 
