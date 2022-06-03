@@ -40,7 +40,7 @@ export default function Footer() {
         </div>
         <div className={styles.copywrite}>
           {`Copyright © ${new Date().getFullYear()} `}
-          <a>Shun Ueda</a>. All rights reserved.
+          <a href='mailto:me@shu.nu'>Shun Ueda</a>. All rights reserved.
           <div className={styles.legal}>
             <a>プライバシーポリシー</a>
             <span>|</span>

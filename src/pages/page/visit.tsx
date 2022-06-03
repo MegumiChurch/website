@@ -1,12 +1,12 @@
 import { fixFullWidth } from 'common/Util'
 import Page from 'pages/page/[id]'
-import { ReactElement } from 'react'
 import { renderToString } from 'react-dom/server'
+import type { ReactElement } from 'react'
 
 export default function Visit() {
   return (
     <Page
-      last_publication_date={[`09`, `01`, `2002`]}
+      last_publication_date={[`01`, `01`, `2000`]}
       header='https://images.prismic.io/jgc-website/db07cf98-1ba5-4b81-85af-e7a38b25b35f_group_photo.png?auto=compress,format'
       title='教会に行く'
       id=''
@@ -19,9 +19,10 @@ export default function Visit() {
               ＊Hutchingson River Parkway Exit 25を降り、North St.
               を1.2マイル北上、Ridgewayを左折して100m左側。
               <br />
-              ＊教会の駐車場は十分にスペースがありますが、日曜日は混み合いますので、余裕を持っていらしてください。
+              ＊教会の駐車場は十分広いスペースがありますのでお好きな場所をご利用ください。
               <br />
-              ＊日本語教会へのアクセスは礼拝堂よりも一レベル下にある体育館の入り口からが便利です。
+              ＊教会の正面玄関から中に入ると右側に礼拝堂入口があります。礼拝堂入口を右手に見ながら少し奥に進むと突き当りにラウンジがあります。
+              その右手にチャペルの入り口がありますのでそちらからお入りください。
               <br />
               <br />
               <a
@@ -33,11 +34,6 @@ export default function Visit() {
               >
                 GoogleMapで表示 ↗
               </a>
-              <br />
-              <img
-                src='https://ljgc.vercel.app/JapaneseChurch-at-Ridgeway.jpg'
-                alt=''
-              />
             </p>
           ) as ReactElement
         )

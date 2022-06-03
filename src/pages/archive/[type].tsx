@@ -94,6 +94,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
           .sort((a, b) =>
             new Date(a.date.join(`/`)) < new Date(b.date.join(`/`)) ? -1 : 1
           )
+          .reverse()
       }
     }
   }

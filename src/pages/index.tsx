@@ -92,7 +92,7 @@ export default function Home({ home, news }: { home: any; news: News[] }) {
               </Link>
               <span>|</span>
               <Link href='/archive/manamail'>
-                <a>マナメール</a>
+                <a>マナメールアーカイブ</a>
               </Link>
             </nav>
           </div>
