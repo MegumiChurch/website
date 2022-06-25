@@ -104,8 +104,11 @@ export default function Home({ home, news }: { home: any; news: News[] }) {
               <a>メール</a>
             </Link>
             <span>|</span>
-            <Link href='https://forms.gle/QtPUQHhoznhJ7hAH9'>
-              <a>お問い合わせフォーム</a>
+            {/* <Link href='https://forms.gle/QtPUQHhoznhJ7hAH9'> */}
+            {/*  <a>お問い合わせフォーム</a> */}
+            {/* </Link> */}
+            <Link href='mailto:msasakawa@ridgewaychurch.com'>
+              <a>お問い合わせ</a>
             </Link>
           </nav>
         </Card>
