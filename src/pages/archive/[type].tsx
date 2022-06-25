@@ -67,12 +67,12 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
         data: data.manamail.group.value
           .reverse()
           .map(({ title, subtitle, pdf }: any) => ({
-            title: RichText.asText(title.value),
-            subtitle: RichText.asText(subtitle.value),
-            date: files.get(RichText.asText(title.value)),
+            title: RichText.asText(title?.value || ''),
+            subtitle: RichText.asText(subtitle?.value || ''),
+            date: files.get(RichText.asText(title?.value || '')),
             link: {
               text: `ダウンロード`,
-              route: pdf.value.file.url
+              route: pdf?.value?.file?.url || ''
             }
           }))
       }
