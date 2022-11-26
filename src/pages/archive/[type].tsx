@@ -1,7 +1,7 @@
 import { getPagesByType } from 'common/Prismic'
 import Layout from 'components/layout'
 import readPdf from 'pdf-parse'
-import { RichText } from 'prismic-reactjs'
+import { RichText, RichTextBlock } from 'prismic-reactjs'
 import type { GetServerSidePropsContext } from 'next'
 import type { ReactChild } from 'react'
 import type { News } from 'types'
@@ -27,54 +27,47 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   const query = context.query.type as string
   if (query === `manamail`) {
     const { data } = (await getPagesByType(`manamail`, false))[0] as any
-    const files = new Map<string, number[]>()
-    await Promise.all(
-      data.manamail.group.value.map(async (entry: any) => {
-        if (entry.date) {
-          files.set(
-            RichText.asText(entry.title.value),
-            entry.date.value.split(`-`).map((it: string) => parseInt(it, 10))
-          )
-          return
-        }
-        try {
-          const res = await fetch(entry.pdf.value.file.url)
-          const pdfData = await readPdf(
-            Buffer.from(await res.arrayBuffer()),
-            {}
-          )
-          const rawDate = pdfData.info.CreationDate.substring(2, 10)
-          const year = rawDate.substring(0, 4)
-          const month = rawDate.substring(4, 6) - 1
-          const day = rawDate.substring(6, 8)
-          const date = new Date(year, month, day)
-          while (date.getDay() !== 0) {
-            date.setDate(date.getDate() + 1)
-          }
-          files.set(RichText.asText(entry.title.value), [
-            date.getFullYear(),
-            date.getMonth() + 1,
-            date.getDate()
-          ])
-        } catch (e) {
-          files.set(RichText.asText(entry.title.value), [2000, 1, 1])
-        }
-      })
-    )
+    let baseDate: Date | null = null
+    data.manamail.group.value.reverse()
+    const firstEntry = data.manamail.group.value.shift()
+    const res = await fetch(firstEntry.pdf.value.file.url)
+    const pdfData = await readPdf(Buffer.from(await res.arrayBuffer()), {})
+    const rawDate = pdfData.info.CreationDate.substring(2, 10)
+    const year = rawDate.substring(0, 4)
+    const month = rawDate.substring(4, 6) - 1
+    const day = rawDate.substring(6, 8)
+    baseDate = new Date(year, month, day)
+    while (baseDate.getDay() !== 0) {
+      baseDate.setDate(baseDate.getDate() + 1)
+    }
+    let offset = 0
     return {
       props: {
         about: RichText.asText(data.manamail.about.value),
-        data: data.manamail.group.value
-          .reverse()
-          .map(({ title, subtitle, pdf }: any) => ({
-            title: RichText.asText(title?.value || ``),
-            subtitle: RichText.asText(subtitle?.value || ``),
-            date: files.get(RichText.asText(title?.value || ``)),
-            link: {
-              text: `ダウンロード`,
-              route: pdf?.value?.file?.url || ``
+        data: [firstEntry, ...data.manamail.group.value].map(
+          ({ title, subtitle, pdf, date: dateOverride }: any, i) => {
+            const date = new Date(baseDate!.getTime())
+            if (dateOverride) {
+              offset = i
+              const [orYear, orMonth, orDate] = dateOverride.value
+                .split(`-`)
+                .map((it: string) => parseInt(it, 10))
+              date.setFullYear(orYear)
+              date.setMonth(orMonth)
+              date.setDate(orDate)
             }
-          }))
+            date.setDate(date.getDate() - 7 * (i - offset))
+            return {
+              title: RichText.asText(title?.value || ``),
+              subtitle: RichText.asText(subtitle?.value || ``),
+              date: [date.getFullYear(), date.getMonth() + 1, date.getDate()],
+              link: {
+                text: `ダウンロード`,
+                route: pdf?.value?.file?.url || ``
+              }
+            }
+          }
+        )
       }
     }
   }

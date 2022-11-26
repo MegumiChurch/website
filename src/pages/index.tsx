@@ -65,7 +65,7 @@ export default function Home({ home, news }: { home: any; news: News[] }) {
         </div>
       </header>
       <main className={styles.main}>
-        <Card title='Church & Zoom' subtitle='Join us at'>
+        <Card title='Church & Zoom' subtitle='Join us'>
           {home.first_section_body}
           <br />
           <nav>
