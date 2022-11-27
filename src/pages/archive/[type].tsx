@@ -60,18 +60,22 @@ export default function Archive(props: Props) {
             date.setDate(orDate)
           }
           date.setDate(date.getDate() - 7 * (i - offset))
-          setCardData(orig => [
-            ...orig,
-            {
-              title: RichText.asText(title?.value || ``),
-              subtitle: RichText.asText(subtitle?.value || ``),
-              date: [date.getFullYear(), date.getMonth() + 1, date.getDate()],
-              link: {
-                text: `ダウンロード`,
-                route: pdf?.value?.file?.url || ``
-              }
-            } as unknown as Data
-          ])
+          setCardData(orig =>
+            [
+              ...orig,
+              {
+                title: RichText.asText(title?.value || ``),
+                subtitle: RichText.asText(subtitle?.value || ``),
+                date: [date.getFullYear(), date.getMonth() + 1, date.getDate()],
+                link: {
+                  text: `ダウンロード`,
+                  route: pdf?.value?.file?.url || ``
+                }
+              } as unknown as Data
+            ].sort((a, b) =>
+              new Date(a.date.join(`/`)) < new Date(b.date.join(`/`)) ? 1 : -1
+            )
+          )
         }
       )
     } else if (router.query.type === `news`) {
