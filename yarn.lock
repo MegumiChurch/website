@@ -11320,6 +11320,15 @@ typescript@^4.3.5:
   languageName: node
   linkType: hard
 
+"use-async-effect@npm:^2.2.7":
+  version: 2.2.7
+  resolution: "use-async-effect@npm:2.2.7"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: d73d0355e2bbd47e90b00adc081206560a486d69e7af5630e95adb596c89e2faa2507166eac7d127776f4518ae27f26a138aab1e870c4573bf745a00a8f5ce71
+  languageName: node
+  linkType: hard
+
 "use-subscription@npm:1.5.1":
   version: 1.5.1
   resolution: "use-subscription@npm:1.5.1"
@@ -11554,6 +11563,7 @@ typescript@^4.3.5:
     stylelint: ^13.13.1
     stylelint-config-sass-guidelines: ^8.0.0
     typescript: ^4.3.5
+    use-async-effect: ^2.2.7
   languageName: unknown
   linkType: soft
 
