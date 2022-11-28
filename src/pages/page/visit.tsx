@@ -4,9 +4,14 @@ import { renderToString } from 'react-dom/server'
 import type { ReactElement } from 'react'
 
 export default function Visit() {
+  const date = new Date()
   return (
     <Page
-      last_publication_date={[`01`, `01`, `2000`]}
+      last_publication_date={[
+        date.getMonth() + 1,
+        date.getDate(),
+        date.getFullYear()
+      ].map(String)}
       header='https://images.prismic.io/jgc-website/db07cf98-1ba5-4b81-85af-e7a38b25b35f_group_photo.png?auto=compress,format'
       title='教会に行く'
       id=''

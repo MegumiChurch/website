@@ -27,10 +27,15 @@ interface Props {
 }
 
 export default function Archive(props: Props) {
-  const [about, setAbout] = useState(``)
+  const [pageTitle, setPageTitle] = useState(``)
   const [cardData, setCardData] = useState<Data[]>([])
   const router = useRouter()
   useAsyncEffect(async () => {
+    setPageTitle(
+      `${
+        router.query.type === `manamail` ? `マナメール` : `ニュース`
+      }アーカイブ`
+    )
     if (router.query.type === `manamail`) {
       const { data } = (await getPagesByType(`manamail`, false))[0] as any
       let baseDate: Date | null = null
@@ -46,45 +51,39 @@ export default function Archive(props: Props) {
       while (baseDate.getDay() !== 0) {
         baseDate.setDate(baseDate.getDate() + 1)
       }
-      let offset = 0
-      ;[firstEntry, ...data.manamail.group.value].forEach(
-        ({ title, subtitle, pdf, date: dateOverride }: any, i) => {
-          const date = new Date(baseDate!.getTime())
-          if (dateOverride) {
-            offset = i
-            const [orYear, orMonth, orDate] = dateOverride.value
-              .split(`-`)
-              .map((it: string) => parseInt(it, 10))
-            date.setFullYear(orYear)
-            date.setMonth(orMonth)
-            date.setDate(orDate)
-          }
-          date.setDate(date.getDate() - 7 * (i - offset))
-          setCardData(orig =>
-            [
-              ...orig,
-              {
-                title: RichText.asText(title?.value || ``),
-                subtitle: RichText.asText(subtitle?.value || ``),
-                date: [date.getFullYear(), date.getMonth() + 1, date.getDate()],
-                link: {
-                  text: `ダウンロード`,
-                  route: pdf?.value?.file?.url || ``
-                }
-              } as unknown as Data
-            ].sort((a, b) =>
-              new Date(a.date.join(`/`)) < new Date(b.date.join(`/`)) ? 1 : -1
-            )
+      setCardData(
+        [firstEntry, ...data.manamail.group.value]
+          .map(({ title, subtitle, pdf, date: dateOverride }: any, i) => {
+            const date = new Date(baseDate!.getTime())
+            if (dateOverride) {
+              const [orYear, orMonth, orDate] = dateOverride.value
+                .split(`-`)
+                .map((it: string) => parseInt(it, 10))
+              date.setFullYear(orYear)
+              date.setMonth(orMonth)
+              date.setDate(orDate)
+            }
+            date.setDate(date.getDate() - 7 * i)
+            return {
+              title: RichText.asText(title?.value || ``),
+              subtitle: RichText.asText(subtitle?.value || ``),
+              date: [date.getFullYear(), date.getMonth() + 1, date.getDate()],
+              link: {
+                text: `ダウンロード`,
+                route: pdf?.value?.file?.url || ``
+              }
+            }
+          })
+          .sort((a, b) =>
+            new Date(a.date.join(`/`)) < new Date(b.date.join(`/`)) ? 1 : -1
           )
-        }
       )
     } else if (router.query.type === `news`) {
-      ;((await getPagesByType(`news`)) as News[]).forEach(
-        ({ title, last_publication_date, display_until_date, id }) =>
-          setCardData(origData =>
-            [
-              ...origData,
-              {
+      setCardData(
+        ((await getPagesByType(`news`)) as News[])
+          .map(
+            ({ title, last_publication_date, display_until_date, id }) =>
+              ({
                 title,
                 subtitle: `${display_until_date.join(`/`)} に公開終了`,
                 date: last_publication_date,
@@ -92,19 +91,18 @@ export default function Archive(props: Props) {
                   text: `さらに詳しく`,
                   route: `/page/${id}`
                 }
-              } as unknown as Data
-            ].sort((a, b) =>
-              new Date(a.date.join(`/`)) < new Date(b.date.join(`/`)) ? 1 : -1
-            )
+              } as unknown as Data)
+          )
+          .sort((a, b) =>
+            new Date(a.date.join(`/`)) < new Date(b.date.join(`/`)) ? 1 : -1
           )
       )
     }
   }, [router.query.type])
   return (
-    <Layout title='アーカイブ'>
-      <h1 className={styles.title}>アーカイブ</h1>
+    <Layout title={pageTitle}>
+      <h1 className={styles.title}>{pageTitle}</h1>
       <main>
-        <p>{about}</p>
         {cardData.length === 0 ? (
           <ScaleLoader />
         ) : (
@@ -126,7 +124,9 @@ function Card({ title, subtitle, date, link }: Data) {
       <div>
         <h2>{title}</h2>
         <h3>{subtitle}</h3>
-        <a href={link.route}>{link.text}</a>
+        <a target='_blank' rel='noopener noreferrer' href={link.route}>
+          {link.text}
+        </a>
       </div>
     </section>
   )
