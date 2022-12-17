@@ -63,6 +63,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react-hooks", "virtual:8155a6cfbfdfb46993d4580fc21eff83d1d0b0104b30d90fc21cb3d1cb6af424a8c7374ff66963ea16d49d22220c7d865f663773d2ac91294d0e55ae2e9a274c#npm:4.2.0"],
             ["hamburger-react", "virtual:8155a6cfbfdfb46993d4580fc21eff83d1d0b0104b30d90fc21cb3d1cb6af424a8c7374ff66963ea16d49d22220c7d865f663773d2ac91294d0e55ae2e9a274c#npm:2.4.1"],
             ["husky", "npm:6.0.0"],
+            ["linkify-html", "virtual:8155a6cfbfdfb46993d4580fc21eff83d1d0b0104b30d90fc21cb3d1cb6af424a8c7374ff66963ea16d49d22220c7d865f663773d2ac91294d0e55ae2e9a274c#npm:4.0.2"],
+            ["linkifyjs", "npm:4.0.2"],
             ["lint-staged", "npm:11.0.0"],
             ["next", "virtual:8155a6cfbfdfb46993d4580fc21eff83d1d0b0104b30d90fc21cb3d1cb6af424a8c7374ff66963ea16d49d22220c7d865f663773d2ac91294d0e55ae2e9a274c#npm:11.0.1"],
             ["next-seo", "virtual:8155a6cfbfdfb46993d4580fc21eff83d1d0b0104b30d90fc21cb3d1cb6af424a8c7374ff66963ea16d49d22220c7d865f663773d2ac91294d0e55ae2e9a274c#npm:4.26.0"],
@@ -8152,6 +8154,37 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["linkify-html", [
+        ["npm:4.0.2", {
+          "packageLocation": "./.yarn/cache/linkify-html-npm-4.0.2-9027158a6e-ed94cb0f08.zip/node_modules/linkify-html/",
+          "packageDependencies": [
+            ["linkify-html", "npm:4.0.2"]
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:8155a6cfbfdfb46993d4580fc21eff83d1d0b0104b30d90fc21cb3d1cb6af424a8c7374ff66963ea16d49d22220c7d865f663773d2ac91294d0e55ae2e9a274c#npm:4.0.2", {
+          "packageLocation": "./.yarn/$$virtual/linkify-html-virtual-7715415904/0/cache/linkify-html-npm-4.0.2-9027158a6e-ed94cb0f08.zip/node_modules/linkify-html/",
+          "packageDependencies": [
+            ["linkify-html", "virtual:8155a6cfbfdfb46993d4580fc21eff83d1d0b0104b30d90fc21cb3d1cb6af424a8c7374ff66963ea16d49d22220c7d865f663773d2ac91294d0e55ae2e9a274c#npm:4.0.2"],
+            ["@types/linkifyjs", null],
+            ["linkifyjs", "npm:4.0.2"]
+          ],
+          "packagePeers": [
+            "@types/linkifyjs",
+            "linkifyjs"
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["linkifyjs", [
+        ["npm:4.0.2", {
+          "packageLocation": "./.yarn/cache/linkifyjs-npm-4.0.2-bf6d9cb174-86c30ac4c2.zip/node_modules/linkifyjs/",
+          "packageDependencies": [
+            ["linkifyjs", "npm:4.0.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["lint-staged", [
         ["npm:11.0.0", {
           "packageLocation": "./.yarn/cache/lint-staged-npm-11.0.0-4b0eea214d-e5d9c38f46.zip/node_modules/lint-staged/",
@@ -13337,6 +13370,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react-hooks", "virtual:8155a6cfbfdfb46993d4580fc21eff83d1d0b0104b30d90fc21cb3d1cb6af424a8c7374ff66963ea16d49d22220c7d865f663773d2ac91294d0e55ae2e9a274c#npm:4.2.0"],
             ["hamburger-react", "virtual:8155a6cfbfdfb46993d4580fc21eff83d1d0b0104b30d90fc21cb3d1cb6af424a8c7374ff66963ea16d49d22220c7d865f663773d2ac91294d0e55ae2e9a274c#npm:2.4.1"],
             ["husky", "npm:6.0.0"],
+            ["linkify-html", "virtual:8155a6cfbfdfb46993d4580fc21eff83d1d0b0104b30d90fc21cb3d1cb6af424a8c7374ff66963ea16d49d22220c7d865f663773d2ac91294d0e55ae2e9a274c#npm:4.0.2"],
+            ["linkifyjs", "npm:4.0.2"],
             ["lint-staged", "npm:11.0.0"],
             ["next", "virtual:8155a6cfbfdfb46993d4580fc21eff83d1d0b0104b30d90fc21cb3d1cb6af424a8c7374ff66963ea16d49d22220c7d865f663773d2ac91294d0e55ae2e9a274c#npm:11.0.1"],
             ["next-seo", "virtual:8155a6cfbfdfb46993d4580fc21eff83d1d0b0104b30d90fc21cb3d1cb6af424a8c7374ff66963ea16d49d22220c7d865f663773d2ac91294d0e55ae2e9a274c#npm:4.26.0"],

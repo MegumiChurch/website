@@ -1,8 +1,11 @@
+import * as linkify from 'linkifyjs'
+import linkifyHtml from 'linkify-html'
+
 export function renderToElement(string: string, className?: string) {
   return (
     <div
       dangerouslySetInnerHTML={{
-        __html: string
+        __html: linkifyHtml(string)
       }}
       className={className || ``}
     />

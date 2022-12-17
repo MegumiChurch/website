@@ -7030,6 +7030,22 @@ fsevents@^1.0.0:
   languageName: node
   linkType: hard
 
+"linkify-html@npm:^4.0.2":
+  version: 4.0.2
+  resolution: "linkify-html@npm:4.0.2"
+  peerDependencies:
+    linkifyjs: ^4.0.0
+  checksum: ed94cb0f089da1a531f86f0761fcfb327abb62e64d817a467fafb98ba36cc22dd61926f8a125931bf355a0356c2388d05d1551c6e3cc07d0adc59e47f9e6581c
+  languageName: node
+  linkType: hard
+
+"linkifyjs@npm:^4.0.2":
+  version: 4.0.2
+  resolution: "linkifyjs@npm:4.0.2"
+  checksum: 86c30ac4c25644d77605ffaa66f6f2a6007f8338456e6ac8768526e40cca907e79d6ddfbd29517090f5fffbbe098be03ad317acfe7f015decc90bbe95451eeca
+  languageName: node
+  linkType: hard
+
 "lint-staged@npm:11.0.0":
   version: 11.0.0
   resolution: "lint-staged@npm:11.0.0"
@@ -11547,6 +11563,8 @@ typescript@^4.3.5:
     eslint-plugin-react-hooks: 4.2.0
     hamburger-react: ^2.4.1
     husky: 6.0.0
+    linkify-html: ^4.0.2
+    linkifyjs: ^4.0.2
     lint-staged: 11.0.0
     next: 11.0.1
     next-seo: ^4.26.0
