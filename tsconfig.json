@@ -21,9 +21,12 @@
     "paths": {
       "~/*": [
         "../*"
-      ]
+      ],
     },
-    "incremental": true
+    "incremental": true,
+    "types": [
+      "node"
+    ]
   },
   "exclude": [
     "node_modules"
@@ -31,8 +34,6 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx",
-    "node_modules/@types/node/globals.d.ts",
-    "node_modules/@types/node/globals.d.ts"
+    "**/*.tsx"
   ]
 }

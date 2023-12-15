@@ -9,7 +9,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     )}`
   )
   try {
-    const pdfData = await readPdf(await body.arrayBuffer())
+    const arrayBuffer = await body.arrayBuffer()
+    const pdfData = await readPdf(Buffer.from(arrayBuffer))
     const rawDate = pdfData.info.CreationDate.substring(2, 10)
     const year = rawDate.substring(0, 4)
     const month = rawDate.substring(4, 6) - 1

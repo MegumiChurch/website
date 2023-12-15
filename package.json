@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@prismicio/client": "^5.1.0",
+    "buffer": "6.0.3",
     "hamburger-react": "^2.4.1",
     "linkify-html": "^4.0.2",
     "linkifyjs": "^4.0.2",
