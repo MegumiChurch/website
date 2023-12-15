@@ -75,11 +75,11 @@ export default function Home({ home, news }: { home: any; news: News[] }) {
             ))}
             <nav>
               <Link href='/archive/news'>
-                <a>過去のニュース</a>
+                過去のニュース
               </Link>
               <span>|</span>
               <Link href='/archive/manamail'>
-                <a>マナメールアーカイブ</a>
+                マナメールアーカイブ
               </Link>
             </nav>
           </div>
@@ -99,14 +99,14 @@ export default function Home({ home, news }: { home: any; news: News[] }) {
           下記のメールアドレス、またはフォームよりお気軽にご連絡ください。
           <nav>
             <Link href='mailto:msasakawa@ridgewaychurch.com'>
-              <a>メール</a>
+              メール
             </Link>
             <span>|</span>
             {/* <Link href='https://forms.gle/QtPUQHhoznhJ7hAH9'> */}
             {/*  <a>お問い合わせフォーム</a> */}
             {/* </Link> */}
             <Link href='mailto:msasakawa@ridgewaychurch.com'>
-              <a>お問い合わせ</a>
+              お問い合わせ
             </Link>
           </nav>
         </Card>

@@ -1,11 +1,9 @@
 import { getPagesByType } from 'common/Prismic'
 import Layout from 'components/layout'
 import { useRouter } from 'next/router'
-import readPdf from 'pdf-parse'
-import { RichText, RichTextBlock } from 'prismic-reactjs'
+import { RichText } from 'prismic-reactjs'
 import { useState } from 'react'
 import useAsyncEffect from 'use-async-effect'
-import type { GetServerSidePropsContext } from 'next'
 import type { ReactChild } from 'react'
 import type { News } from 'types'
 import styles from './[type].module.scss'
@@ -26,7 +24,7 @@ interface Props {
   baseDate: Date
 }
 
-export default function Archive(props: Props) {
+export default function Archive() {
   const [pageTitle, setPageTitle] = useState(``)
   const [cardData, setCardData] = useState<Data[]>([])
   const router = useRouter()
@@ -46,7 +44,7 @@ export default function Archive(props: Props) {
           .split(`/`)
           .at(-1)}`
       )
-      const json = await res.json()
+      const json = (await res.json()).map((it: string) => parseInt(it, 10))
       baseDate = new Date(json[0], json[1], json[2])
       while (baseDate.getDay() !== 0) {
         baseDate.setDate(baseDate.getDate() + 1)
