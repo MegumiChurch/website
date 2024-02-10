@@ -36,21 +36,21 @@ export default function Archive() {
     )
     if (router.query.type === `manamail`) {
       const { data } = (await getPagesByType(`manamail`, false))[0] as any
-      let baseDate: Date | null = null
+      // let baseDate: Date | null = null
       data.manamail.group.value.reverse()
-      const firstEntry = data.manamail.group.value.shift()
-      const res = await fetch(
-        `/api/getCreationDateFromFileUrl?fileUri=${firstEntry.pdf.value.file.url
-          .split(`/`)
-          .at(-1)}`
-      )
-      const json = (await res.json()).map((it: string) => parseInt(it, 10))
-      baseDate = new Date(json[0], json[1], json[2])
-      while (baseDate.getDay() !== 0) {
-        baseDate.setDate(baseDate.getDate() + 1)
-      }
+      // const firstEntry = data.manamail.group.value.shift()
+      // const res = await fetch(
+      //   `/api/getCreationDateFromFileUrl?fileUri=${firstEntry.pdf.value.file.url
+      //     .split(`/`)
+      //     .at(-1)}`
+      // )
+      // const json = (await res.json()).map((it: string) => parseInt(it, 10))
+      // baseDate = new Date(json[0], json[1], json[2])
+
+      // baseDate is the nearest sunday before this date
+      const baseDate = getPreviousSunday()
       setCardData(
-        [firstEntry, ...data.manamail.group.value]
+        data.manamail.group.value
           .map(({ title, subtitle, pdf, date: dateOverride }: any, i) => {
             const date = new Date(baseDate!.getTime())
             if (dateOverride) {
@@ -72,7 +72,7 @@ export default function Archive() {
               }
             }
           })
-          .sort((a, b) =>
+          .sort((a: { date: any[] }, b: { date: any[] }) =>
             new Date(a.date.join(`/`)) < new Date(b.date.join(`/`)) ? 1 : -1
           )
       )
@@ -128,4 +128,14 @@ function Card({ title, subtitle, date, link }: Data) {
       </div>
     </section>
   )
+}
+
+function getPreviousSunday(): Date {
+  const today = new Date();
+  const dayOfWeek = today.getDay(); // Sunday - 0, Monday - 1, ..., Saturday - 6
+  const difference = dayOfWeek === 0 ? 7 : dayOfWeek; // If today is Sunday, go back a full week
+  const previousSunday = new Date(today);
+  previousSunday.setDate(today.getDate() - difference);
+
+  return previousSunday;
 }
