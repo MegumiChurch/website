@@ -51,7 +51,7 @@ export default function Archive() {
       const baseDate = getPreviousSunday()
       setCardData(
         data.manamail.group.value
-          .map(({ title, subtitle, pdf, date: dateOverride }: any, i) => {
+          .map(({ title, subtitle, pdf, date: dateOverride }: any, i: any) => {
             const date = new Date(baseDate!.getTime())
             if (dateOverride) {
               const [orYear, orMonth, orDate] = dateOverride.value
