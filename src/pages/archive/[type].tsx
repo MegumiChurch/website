@@ -48,7 +48,7 @@ export default function Archive() {
       // baseDate = new Date(json[0], json[1], json[2])
 
       // baseDate is the nearest sunday before this date
-      const baseDate = getPreviousSunday()
+      const baseDate = closestSunday()
       setCardData(
         data.manamail.group.value
           .map(({ title, subtitle, pdf, date: dateOverride }: any, i: any) => {
@@ -122,7 +122,7 @@ function Card({ title, subtitle, date, link }: Data) {
       <div>
         <h2>{title}</h2>
         <h3>{subtitle}</h3>
-        <a target='_blank' rel='noopener noreferrer' href={link.route}>
+        <a target="_blank" rel="noopener noreferrer" href={link.route}>
           {link.text}
         </a>
       </div>
@@ -130,12 +130,16 @@ function Card({ title, subtitle, date, link }: Data) {
   )
 }
 
-function getPreviousSunday(): Date {
-  const today = new Date();
-  const dayOfWeek = today.getDay(); // Sunday - 0, Monday - 1, ..., Saturday - 6
-  const difference = dayOfWeek === 0 ? 7 : dayOfWeek; // If today is Sunday, go back a full week
-  const previousSunday = new Date(today);
-  previousSunday.setDate(today.getDate() - difference);
-
-  return previousSunday;
+function closestSunday() {
+  const today = new Date()
+  const dayOfWeek = today.getDay()
+  const prevSundayDiff = dayOfWeek
+  const nextSundayDiff = 7 - dayOfWeek
+  const closestSunday = new Date(today)
+  if (prevSundayDiff < nextSundayDiff) {
+    closestSunday.setDate(today.getDate() - prevSundayDiff)
+  } else {
+    closestSunday.setDate(today.getDate() + nextSundayDiff)
+  }
+  return closestSunday
 }
