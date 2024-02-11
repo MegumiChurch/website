@@ -10,15 +10,10 @@ export default function App({ Component, pageProps }: AppProps) {
   const [mag, setMag] = useState(1)
   const [loading, setLoading] = useState(false)
   useEffect(() => {
-    const start = () => {
-      setLoading(true)
-    }
-    const end = () => {
-      setLoading(false)
-    }
-    function handleResize() {
+    const start = () => setLoading(true)
+    const end = () => setLoading(false)
+    const handleResize = () =>
       setMag(1.4 - 0.4 * ((window.outerWidth - 10) / window.innerWidth))
-    }
     Router.events.on(`routeChangeStart`, start)
     Router.events.on(`routeChangeComplete`, end)
     Router.events.on(`routeChangeError`, end)

@@ -1,4 +1,5 @@
 import { getPagesByType } from 'common/Prismic'
+import { fixFullWidth } from 'common/Util'
 import Layout from 'components/layout'
 import Link from 'next/link'
 import { RichText } from 'prismic-reactjs'
@@ -6,7 +7,6 @@ import type { GetServerSidePropsContext } from 'next'
 import type { ReactChild } from 'react'
 import type { News } from 'types'
 import styles from './index.module.scss'
-import { fixFullWidth } from 'common/Util'
 
 interface Home {
   header: string
@@ -65,18 +65,6 @@ export default function Home({ home, news }: { home: any; news: News[] }) {
         </div>
       </header>
       <main className={styles.main}>
-        <Card title='Church & Zoom' subtitle='Join us at'>
-          {home.first_section_body}
-          <br />
-          <nav>
-            <Link href={home.google_map_link}>GoogleMap</Link>
-            <span>|</span>
-            <Link href={home.zoom_link}>Zoomで参加</Link>
-            <br />
-            <br />
-            <Link href='/page/visit'>教会敷地内詳細案内</Link>
-          </nav>
-        </Card>
         <Card title='News' subtitle='Our latest'>
           <div className={styles.news}>
             {news.map(({ last_publication_date, title, id }) => (
@@ -85,27 +73,40 @@ export default function Home({ home, news }: { home: any; news: News[] }) {
                 <a href={`page/${id}`}>{title}</a>
               </p>
             ))}
-            <br />
             <nav>
               <Link href='/archive/news'>
-                <a>過去のニュース</a>
+                過去のニュース
               </Link>
               <span>|</span>
               <Link href='/archive/manamail'>
-                <a>マナメール</a>
+                マナメールアーカイブ
               </Link>
             </nav>
           </div>
+        </Card>
+        <Card title='Church & Zoom' subtitle='Join us'>
+          {home.first_section_body}
+          <br />
+          <nav>
+            <Link href={home.google_map_link}>GoogleMap</Link>
+            <span>|</span>
+            <Link href={home.zoom_link}>Zoomで参加</Link>
+            <br />
+            <Link href='/page/visit'>教会敷地内詳細案内</Link>
+          </nav>
         </Card>
         <Card title='Contact' subtitle='Get in touch'>
           下記のメールアドレス、またはフォームよりお気軽にご連絡ください。
           <nav>
             <Link href='mailto:msasakawa@ridgewaychurch.com'>
-              <a>メール</a>
+              メール
             </Link>
             <span>|</span>
-            <Link href='https://forms.gle/QtPUQHhoznhJ7hAH9'>
-              <a>お問い合わせフォーム</a>
+            {/* <Link href='https://forms.gle/QtPUQHhoznhJ7hAH9'> */}
+            {/*  <a>お問い合わせフォーム</a> */}
+            {/* </Link> */}
+            <Link href='mailto:msasakawa@ridgewaychurch.com'>
+              お問い合わせ
             </Link>
           </nav>
         </Card>

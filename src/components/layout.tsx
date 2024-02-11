@@ -1,7 +1,6 @@
 import { getPageById, getPagesByType } from 'common/Prismic'
 import { dquery } from 'common/Responsive'
 import Footer from 'components/footer'
-import { Cross as Hamburger } from 'hamburger-react'
 import { NextSeo } from 'next-seo'
 import { useEffect, useRef, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
@@ -48,11 +47,10 @@ export default function Layout({ title, description, children }: Props) {
           <div
             className={styles.backSection}
             onMouseDown={() => {
-              ref.current.style.clipPath = `polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%)`
               window.location.href = `/`
             }}
           >
-            <div ref={ref} />
+            <div />
           </div>
           <div
             className={styles.menuButton}

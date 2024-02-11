@@ -1,13 +1,15 @@
 import { getPagesByType } from 'common/Prismic'
 import Layout from 'components/layout'
-import readPdf from 'pdf-parse'
+import { useRouter } from 'next/router'
 import { RichText } from 'prismic-reactjs'
-import type { GetServerSidePropsContext } from 'next'
+import { useState } from 'react'
+import useAsyncEffect from 'use-async-effect'
 import type { ReactChild } from 'react'
 import type { News } from 'types'
 import styles from './[type].module.scss'
+import { ScaleLoader } from 'react-spinners'
 
-interface Props {
+interface Data {
   date: number[]
   title: string
   subtitle: string
@@ -18,106 +20,100 @@ interface Props {
   }
 }
 
-interface File {
-  title: string
-  pubDate: number[]
+interface Props {
+  baseDate: Date
 }
 
-export async function getServerSideProps(context: GetServerSidePropsContext) {
-  const query = context.query.type as string
-  if (query === `manamail`) {
-    const { data } = (await getPagesByType(`manamail`, false))[0] as any
-    const files = new Map<string, number[]>()
-    await Promise.all(
-      data.manamail.group.value.map(async (entry: any) => {
-        if (entry.date) {
-          files.set(
-            RichText.asText(entry.title.value),
-            entry.date.value.split(`-`).map((it: string) => parseInt(it, 10))
-          )
-          return
-        }
-        const res = await fetch(entry.pdf.value.file.url)
-        const pdfData = await readPdf(Buffer.from(await res.arrayBuffer()), {})
-        const rawDate = pdfData.info.CreationDate.substring(2, 10)
-        const year = rawDate.substring(0, 4)
-        const month = rawDate.substring(4, 6) - 1
-        const day = rawDate.substring(6, 8)
-        const date = new Date(year, month, day)
-        while (date.getDay() !== 0) {
-          date.setDate(date.getDate() + 1)
-        }
-        files.set(RichText.asText(entry.title.value), [
-          date.getFullYear(),
-          date.getMonth() + 1,
-          date.getDate()
-        ])
-      })
+export default function Archive() {
+  const [pageTitle, setPageTitle] = useState(``)
+  const [cardData, setCardData] = useState<Data[]>([])
+  const router = useRouter()
+  useAsyncEffect(async () => {
+    setPageTitle(
+      `${
+        router.query.type === `manamail` ? `マナメール` : `ニュース`
+      }アーカイブ`
     )
-    return {
-      props: {
-        about: RichText.asText(data.manamail.about.value),
-        data: data.manamail.group.value.map(
-          ({ title, subtitle, pdf }: any) => ({
-            title: RichText.asText(title.value),
-            subtitle: RichText.asText(subtitle.value),
-            date: files.get(RichText.asText(title.value)),
-            link: {
-              text: `ダウンロード`,
-              route: pdf.value.file.url
+    if (router.query.type === `manamail`) {
+      const { data } = (await getPagesByType(`manamail`, false))[0] as any
+      // let baseDate: Date | null = null
+      data.manamail.group.value.reverse()
+      // const firstEntry = data.manamail.group.value.shift()
+      // const res = await fetch(
+      //   `/api/getCreationDateFromFileUrl?fileUri=${firstEntry.pdf.value.file.url
+      //     .split(`/`)
+      //     .at(-1)}`
+      // )
+      // const json = (await res.json()).map((it: string) => parseInt(it, 10))
+      // baseDate = new Date(json[0], json[1], json[2])
+
+      // baseDate is the nearest sunday before this date
+      const baseDate = closestSunday()
+      setCardData(
+        data.manamail.group.value
+          .map(({ title, subtitle, pdf, date: dateOverride }: any, i: any) => {
+            const date = new Date(baseDate!.getTime())
+            if (dateOverride) {
+              const [orYear, orMonth, orDate] = dateOverride.value
+                .split(`-`)
+                .map((it: string) => parseInt(it, 10))
+              date.setFullYear(orYear)
+              date.setMonth(orMonth)
+              date.setDate(orDate)
+            }
+            date.setDate(date.getDate() - 7 * i)
+            return {
+              title: RichText.asText(title?.value || ``),
+              subtitle: RichText.asText(subtitle?.value || ``),
+              date: [date.getFullYear(), date.getMonth() + 1, date.getDate()],
+              link: {
+                text: `ダウンロード`,
+                route: pdf?.value?.file?.url || ``
+              }
             }
           })
-        )
-      }
-    }
-  }
-  if (query === `news`) {
-    return {
-      props: {
-        data: ((await getPagesByType(`news`)) as News[])
-          .map(({ title, last_publication_date, display_until_date, id }) => ({
-            title,
-            subtitle: `${display_until_date.join(`/`)} に公開終了`,
-            date: last_publication_date,
-            link: {
-              text: `さらに詳しく`,
-              route: `/page/${id}`
-            }
-          }))
-          .sort((a, b) =>
-            new Date(a.date.join(`/`)) < new Date(b.date.join(`/`)) ? -1 : 1
+          .sort((a: { date: any[] }, b: { date: any[] }) =>
+            new Date(a.date.join(`/`)) < new Date(b.date.join(`/`)) ? 1 : -1
           )
-      }
+      )
+    } else if (router.query.type === `news`) {
+      setCardData(
+        ((await getPagesByType(`news`)) as News[])
+          .map(
+            ({ title, last_publication_date, display_until_date, id }) =>
+              ({
+                title,
+                subtitle: `${display_until_date.join(`/`)} に公開終了`,
+                date: last_publication_date,
+                link: {
+                  text: `さらに詳しく`,
+                  route: `/page/${id}`
+                }
+              } as unknown as Data)
+          )
+          .sort((a, b) =>
+            new Date(a.date.join(`/`)) < new Date(b.date.join(`/`)) ? 1 : -1
+          )
+      )
     }
-  }
-  return {}
-}
-
-export default function archive({
-  about,
-  data
-}: {
-  about: string
-  data: Props[]
-}) {
+  }, [router.query.type])
   return (
-    <Layout title='アーカイブ'>
-      <h1 className={styles.title}>アーカイブ</h1>
+    <Layout title={pageTitle}>
+      <h1 className={styles.title}>{pageTitle}</h1>
       <main>
-        <p>{about}</p>
-        {
-          data
-            .reverse()
-            .map(({ title, subtitle, date, link }) => (
-              <Card title={title} subtitle={subtitle} date={date} link={link} />
-            )) as unknown as ReactChild
-        }
+        {cardData.length === 0 ? (
+          <ScaleLoader />
+        ) : (
+          (cardData?.map(({ title, subtitle, date, link }) => (
+            <Card title={title} subtitle={subtitle} date={date} link={link} />
+          )) as unknown as ReactChild)
+        )}
       </main>
     </Layout>
   )
 }
 
-function Card({ title, subtitle, date, link }: Props) {
+function Card({ title, subtitle, date, link }: Data) {
   return (
     <section className={styles.card} key={link.route}>
       <div>
@@ -126,8 +122,24 @@ function Card({ title, subtitle, date, link }: Props) {
       <div>
         <h2>{title}</h2>
         <h3>{subtitle}</h3>
-        <a href={link.route}>{link.text}</a>
+        <a target="_blank" rel="noopener noreferrer" href={link.route}>
+          {link.text}
+        </a>
       </div>
     </section>
   )
+}
+
+function closestSunday() {
+  const today = new Date()
+  const dayOfWeek = today.getDay()
+  const prevSundayDiff = dayOfWeek
+  const nextSundayDiff = 7 - dayOfWeek
+  const closestSunday = new Date(today)
+  if (prevSundayDiff < nextSundayDiff) {
+    closestSunday.setDate(today.getDate() - prevSundayDiff)
+  } else {
+    closestSunday.setDate(today.getDate() + nextSundayDiff)
+  }
+  return closestSunday
 }

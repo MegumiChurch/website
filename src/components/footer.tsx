@@ -8,8 +8,12 @@ export default function Footer() {
           <ul>
             <li>ニューヨークめぐみ教会</li>
             <li>
-              <a href='https://goo.gl/maps/tZb7swVVmkXuFxC27'>
-                465 Ridgeway Rd White Plains NY10605
+              <a
+                target='_blank'
+                rel='noopener noreferrer'
+                href='https://goo.gl/maps/tZb7swVVmkXuFxC27'
+              >
+                465 Ridgeway Cir, White Plains, NY 10605
               </a>
             </li>
           </ul>
@@ -40,7 +44,7 @@ export default function Footer() {
         </div>
         <div className={styles.copywrite}>
           {`Copyright © ${new Date().getFullYear()} `}
-          <a>Shun Ueda</a>. All rights reserved.
+          <a href='mailto:me@shu.nu'>Shun Ueda</a>. All rights reserved.
           <div className={styles.legal}>
             <a>プライバシーポリシー</a>
             <span>|</span>
